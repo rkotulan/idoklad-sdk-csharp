@@ -2,6 +2,7 @@
 using IdokladSdk;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
+using IdokladSdk.ApiModels.IssuedInvoice;
 using IdokladSdk.Clients;
 
 namespace ConsoleSampleApplication
@@ -18,13 +19,22 @@ namespace ConsoleSampleApplication
 
             var api = new ApiExplorer(apiContext);
 
-            var issuedInvoices = api.IssuedInvoices.IssuedInvoicesExpand(new IssuedInvoiceFilter());
+            // get template for new contact
+            var template = api.Contacts.Default();
 
-            var agendas = api.Agendas.Agendas();
+            // cast to insert model
+            var contact = (ContactPost)template;
 
-            var contacts = api.Contacts.ContactsExpand(new ContactFilter());
+            // fill new contact
+            contact.CompanyName = "New Company";
 
-            var contact = new ContactPost();
+            // insert
+            var addedContact = api.Contacts.Create(contact);
+
+            // delete
+            bool isDeleted = api.Contacts.Delete(addedContact.Id);
+            
+
             List<ValidationMessage> errors;
             bool isValid = ApiValidator.ValidateObject(contact, out errors);
 
