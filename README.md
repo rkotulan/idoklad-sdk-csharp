@@ -24,6 +24,8 @@ Once you have `ApiContext` with valid token, you can create `ApiExplorer` and **
 
 For example, here is the entire flow of work with contacts.
 
+    var api = new ApiExplorer(apiContext);
+
     // get template for new contact
     var template = api.Contacts.Default();
 
