@@ -3,7 +3,7 @@ using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.ApiModels
 {
-    public class ContactPut : ApiModel
+    public class ContactUpdate : ApiModel
     {
         /// <summary>
         /// Město kontaktu
@@ -19,7 +19,7 @@ namespace IdokladSdk.ApiModels
 
         public virtual int CountryId { get; set; }
 
-        public virtual BankAccountPut DefaultBankAccount { get; set; }
+        public virtual BankAccountUpdate DefaultBankAccount { get; set; }
 
         public decimal? DiscountPercentage { get; set; }
 

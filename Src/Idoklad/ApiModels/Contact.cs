@@ -7,7 +7,7 @@ using IdokladSdk.Enums;
 namespace IdokladSdk.ApiModels
 {
     [KnownType(typeof (Contact))]
-    public class Contact : ContactPost
+    public class Contact : ContactCreate
     {
         /// <summary>
         /// Identifikace kontaktu v rámci systému Money

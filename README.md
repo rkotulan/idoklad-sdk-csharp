@@ -30,7 +30,7 @@ For example, here is the entire flow of work with contacts.
     var template = api.Contacts.Default();
 
     // cast to insert model
-    var contact = (ContactPost)template;
+    var contact = (ContactCreate)template;
 
     // fill new contact
     contact.CompanyName = "New Company";

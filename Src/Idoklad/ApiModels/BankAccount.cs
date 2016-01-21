@@ -6,7 +6,7 @@ using IdokladSdk.ApiModels.ReadOnlyEntites;
 namespace IdokladSdk.ApiModels
 {
     [KnownType(typeof (BankAccount))]
-    public class BankAccount : BankAccountPost
+    public class BankAccount : BankAccountCreate
     {
         /// <summary>
         /// Informace o bance

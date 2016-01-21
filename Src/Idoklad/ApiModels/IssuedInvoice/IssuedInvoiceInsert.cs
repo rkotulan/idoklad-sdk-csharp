@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace IdokladSdk.ApiModels.ReceivedInvoice
+namespace IdokladSdk.ApiModels.IssuedInvoice
 {
-    public class ReceivedInvoiceInsert
+    public class IssuedInvoiceCreate
     {
         /// <summary>
-        /// Číslo účtu dodavatele
+        /// Číslo účtu
         /// </summary>
         [StringLength(50)]
         public string AccountNumber { get; set; }
@@ -16,13 +15,27 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         /// <summary>
         /// Id banky z číselníku Bank
         /// </summary>
+        /// <summary xml:lang="en">
+        /// Bank Id from bank list
+        /// </summary>
         public int BankId { get; set; }
 
         /// <summary>
-        /// Kód banky dodavatele
+        /// Název banky
+        /// </summary>
+        [StringLength(100)]
+        public string BankName { get; set; }
+
+        /// <summary>
+        /// Kód banky
         /// </summary>
         [StringLength(4)]
         public string BankNumberCode { get; set; }
+
+        /// <summary>
+        /// Id konstantního symbolu
+        /// </summary>
+        public int ConstantSymbolId { get; set; }
 
         /// <summary>
         /// Id měny
@@ -32,27 +45,22 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         /// <summary>
         /// Datum vytvoření dokladu
         /// </summary>
-        public DateTime? DateOfIssue { get; set; }
+        public DateTime DateOfIssue { get; set; }
 
         /// <summary>
         /// Datum splatnosti
         /// </summary>
-        public DateTime? DateOfMaturity { get; set; }
+        public DateTime DateOfMaturity { get; set; }
 
         /// <summary>
         /// Datum úhrady
         /// </summary>
-        public DateTime? DateOfPayment { get; set; }
-
-        /// <summary>
-        /// Datum vytvoření dokladu
-        /// </summary>
-        public DateTime? DateOfReceiving { get; set; }
+        public DateTime DateOfPayment { get; set; }
 
         /// <summary>
         /// DUZP - pouze pro plátce DPH
         /// </summary>
-        public DateTime? DateOfTaxing { get; set; }
+        public DateTime DateOfTaxing { get; set; }
 
         /// <summary>
         /// Popis dokladu
@@ -60,15 +68,20 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         public string Description { get; set; }
 
         /// <summary>
-        /// Pořadové číslo faktury
+        /// Sleva dokladu
         /// </summary>
-        public int DocumentSerialNumber { get; set; }
+        public decimal DiscountPercentage { get; set; }
 
         /// <summary>
         /// Číslo faktury
         /// </summary>
-        [ReadOnly(true)]
+        [StringLength(10)]
         public string DocumentNumber { get; set; }
+
+        /// <summary>
+        /// Pořadové číslo faktury
+        /// </summary>
+        public int DocumentSerialNumber { get; set; }
 
         /// <summary>
         /// Kurz měny
@@ -81,10 +94,31 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         public decimal ExchangeRateAmount { get; set; }
 
         /// <summary>
-        /// Mezinárodní číslo bankovního účtu dodavatele
+        /// Mezinárodní číslo bankovního účtu
         /// </summary>
         [StringLength(50)]
         public string Iban { get; set; }
+
+        /// <summary>
+        /// Položky faktury vydané
+        /// </summary>
+        [Required]
+        public IEnumerable<IssuedInvoiceItemWrite> IssuedInvoiceItems { get; set; }
+
+        /// <summary>
+        /// Text před položkami faktury
+        /// </summary>
+        public string ItemsTextPrefix { get; set; }
+
+        /// <summary>
+        /// Text za položkami faktury
+        /// </summary>
+        public string ItemsTextSuffix { get; set; }
+
+        /// <summary>
+        /// Kód jazyka
+        /// </summary>
+        public string LanguageCode { get; set; }
 
         /// <summary>
         /// Poznámka k dokumentu
@@ -103,28 +137,21 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         public int PaymentOptionId { get; set; }
 
         /// <summary>
-        /// Originalní číslo přijatého dokladu
+        /// Id odběratele
+        /// </summary>
+        [Required]
+        public int PurchaserId { get; set; }
+
+        /// <summary>
+        /// Barva tiskovky faktury - ve formátu HTML
         /// </summary>
         /// <summary xml:lang="en">
-        /// Document number of the original document
+        /// Report color - in HTML fromat
         /// </summary>
-        [StringLength(20)]
-        public string ReceivedDocumentNumber { get; set; }
+        public string ReportColorValue { get; set; }
 
         /// <summary>
-        /// Položky faktury přijaté
-        /// </summary>
-        [Required]
-        public IEnumerable<ReceivedInvoiceItemInsert> ReceivedInvoiceItems { get; set; }
-
-        /// <summary>
-        /// Id dodavatele
-        /// </summary>
-        [Required]
-        public int SupplierId { get; set; }
-
-        /// <summary>
-        /// Swift banky dodavatele
+        /// Swift banky
         /// </summary>
         [StringLength(11)]
         public string Swift { get; set; }

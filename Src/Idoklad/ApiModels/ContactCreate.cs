@@ -2,7 +2,7 @@
 
 namespace IdokladSdk.ApiModels
 {
-    public class ContactPost : ContactPut
+    public class ContactCreate : ContactUpdate
     {
         /// <summary>
         /// Název kontaktu
@@ -14,6 +14,6 @@ namespace IdokladSdk.ApiModels
         [Required]
         public override int CountryId { get; set; }
 
-        public new BankAccountPost DefaultBankAccount { get; set; }
+        public new BankAccountCreate DefaultBankAccount { get; set; }
     }
 }

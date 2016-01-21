@@ -3,7 +3,7 @@ using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.ApiModels
 {
-    public class BankAccountPut : ApiModel
+    public class BankAccountUpdate : ApiModel
     {
         /// <summary>
         /// Číslo účtu

@@ -2,7 +2,7 @@
 
 namespace IdokladSdk.ApiModels
 {
-    public class BankAccountPost : BankAccountPut
+    public class BankAccountCreate : BankAccountUpdate
     {
         /// <summary>
         /// Id měny

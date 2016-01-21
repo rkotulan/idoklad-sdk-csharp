@@ -19,9 +19,9 @@ namespace IdokladSdk.Clients
         /// GET api/IssuedInvoices/Default
         /// Method returns empty invoice with default values. Returned resource is suitable for new invoice creation.
         /// </summary>
-        public IssuedInvoiceInsert Default()
+        public IssuedInvoiceCreate Default()
         {
-            return base.Get<IssuedInvoiceInsert>(ResourceUrl + "/Default");
+            return base.Get<IssuedInvoiceCreate>(ResourceUrl + "/Default");
         }
 
         /// <summary>
@@ -127,9 +127,9 @@ namespace IdokladSdk.Clients
         /// POST api/IssuedInvoices/Recount
         /// Method recounts summaries of the invoice model for creation. Invoice should contains only items with ItemTypeNormal.
         /// </summary>
-        public IssuedInvoice Recount(IssuedInvoiceInsert invoice)
+        public IssuedInvoice Recount(IssuedInvoiceCreate invoice)
         {
-            return base.Post<IssuedInvoice, IssuedInvoiceInsert>(ResourceUrl + "/Recount", invoice);
+            return base.Post<IssuedInvoice, IssuedInvoiceCreate>(ResourceUrl + "/Recount", invoice);
         }
 
         /// <summary>
@@ -192,7 +192,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<IssuedInvoice> IssuedInvoices(IssuedInvoiceFilter filter = null)
         {
-            return base.Get<RowsResultWrapper<IssuedInvoice>>(ResourceUrl + "/IssuedInvoices", filter);
+            return base.Get<RowsResultWrapper<IssuedInvoice>>(ResourceUrl, filter);
         }
 
         /// <summary>
@@ -201,16 +201,16 @@ namespace IdokladSdk.Clients
         /// </summary>
         public IssuedInvoice IssuedInvoice(int invoiceId)
         {
-            return base.Get<IssuedInvoice>(ResourceUrl + "/IssuedInvoices");
+            return base.Get<IssuedInvoice>(ResourceUrl + "/" + invoiceId);
         }
 
         /// <summary>
         /// POST api/IssuedInvoices
         /// Create new issued invoice. Invoice should contains only items with ItemTypeNormal.
         /// </summary>
-        public IssuedInvoice Create(IssuedInvoiceInsert invoice)
+        public IssuedInvoice Create(IssuedInvoiceCreate invoice)
         {
-            return base.Post<IssuedInvoice, IssuedInvoiceInsert>(ResourceUrl + "/IssuedInvoices", invoice);
+            return base.Post<IssuedInvoice, IssuedInvoiceCreate>(ResourceUrl, invoice);
         }
 
         /// <summary>
@@ -219,7 +219,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public IssuedInvoice Update(int invoiceId, IssuedInvoiceUpdate invoice)
         {
-            return base.Put<IssuedInvoice, IssuedInvoiceUpdate>(ResourceUrl + "/IssuedInvoices" + "/" + invoiceId, invoice);
+            return base.Put<IssuedInvoice, IssuedInvoiceUpdate>(ResourceUrl + "/" + invoiceId, invoice);
         }
     }
 }

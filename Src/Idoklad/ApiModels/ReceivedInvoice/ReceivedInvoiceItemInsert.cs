@@ -11,7 +11,7 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
     /// <summary xml:lang="en">
     /// Received invoice item for invoice creation
     /// </summary>
-    public class ReceivedInvoiceItemInsert : ApiModel
+    public class ReceivedInvoiceItemCreate : ApiModel
     {
         /// <summary>
         /// Množství položky

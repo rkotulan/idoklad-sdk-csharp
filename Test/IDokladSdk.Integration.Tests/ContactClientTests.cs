@@ -78,7 +78,7 @@ namespace IdokladSdk.Integration.Tests
         private Contact Update(Contact contact)
         {
             // Arrange
-            var put = (ContactPut)contact;
+            var put = (ContactUpdate)contact;
             put.Email = "thro@cent.x5";
 
             // Act
@@ -95,7 +95,7 @@ namespace IdokladSdk.Integration.Tests
         private Contact Create(Contact contact)
         {
             // Arrange
-            var post = (ContactPost)contact;
+            var post = (ContactCreate)contact;
             post.Email = "alpha@cent.xx";
             post.CompanyName = "AlphaXX";
 

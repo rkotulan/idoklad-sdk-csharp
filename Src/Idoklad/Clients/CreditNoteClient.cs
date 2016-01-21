@@ -55,7 +55,7 @@ namespace IdokladSdk.Clients
         /// PUT api/CreditNotes/{id}/Exported/{value}
         /// Method updates Exported property of the invoice.
         /// </summary>
-        public bool ChangeExported(int creditNoteId, ExportedStateEnum state)
+        public bool UpdateExported(int creditNoteId, ExportedStateEnum state)
         {
             return base.Put<bool>(ResourceUrl + "/" + creditNoteId + "/Exported" + "/" + (int)state);
         }

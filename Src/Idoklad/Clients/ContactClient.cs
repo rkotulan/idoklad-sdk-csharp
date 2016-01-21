@@ -70,18 +70,18 @@ namespace IdokladSdk.Clients
         /// POST api/Contacts
         /// Add new contact.
         /// </summary>
-        public Contact Create(ContactPost model)
+        public Contact Create(ContactCreate model)
         {
-            return base.Post<Contact, ContactPost>(ResourceUrl, model);
+            return base.Post<Contact, ContactCreate>(ResourceUrl, model);
         }
 
         /// <summary>
         /// PUT api/Contacts/{id}
         /// Update contact. Partial update is also possible.
         /// </summary>
-        public Contact Update(int contactId, ContactPut model)
+        public Contact Update(int contactId, ContactUpdate model)
         {
-            return base.Put<Contact, ContactPut>(ResourceUrl + "/" + contactId, model);
+            return base.Put<Contact, ContactUpdate>(ResourceUrl + "/" + contactId, model);
         }
     }
 }
