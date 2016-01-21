@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EAFB58D7-3DBD-4374-9938-E15895F8AF62}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IdokladSdk</RootNamespace>
+    <AssemblyName>IdokladSdk</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiFilters\ContactFilter.cs" />
+    <Compile Include="ApiFilters\CreditNoteFilter.cs" />
+    <Compile Include="ApiFilters\FilterType.cs" />
+    <Compile Include="ApiFilters\IApiFilter.cs" />
+    <Compile Include="ApiFilters\IPaging.cs" />
+    <Compile Include="ApiFilters\IssuedInvoiceFilter.cs" />
+    <Compile Include="ApiFilters\Paging.cs" />
+    <Compile Include="ApiModels\AgendaApiModel.cs" />
+    <Compile Include="ApiModels\AgendaSummary.cs" />
+    <Compile Include="ApiModels\BankAccountApiModel.cs" />
+    <Compile Include="ApiModels\BankAccountPostApiModel.cs" />
+    <Compile Include="ApiModels\BankAccountPutApiModel.cs" />
+    <Compile Include="ApiModels\BaseModels\ApiModel.cs" />
+    <Compile Include="ApiModels\BaseModels\IApiModel.cs" />
+    <Compile Include="ApiModels\BaseModels\RowsResultWrapper.cs" />
+    <Compile Include="ApiModels\CodeBooksChangesApiModel.cs" />
+    <Compile Include="ApiModels\ContactApiModel.cs" />
+    <Compile Include="ApiModels\ContactApiModelExpand.cs" />
+    <Compile Include="ApiModels\ContactPostApiModel.cs" />
+    <Compile Include="ApiModels\ContactPutApiModel.cs" />
+    <Compile Include="ApiModels\CreditNote\CreditNoteApiModel.cs" />
+    <Compile Include="ApiModels\CreditNote\CreditNoteApiModelExpand.cs" />
+    <Compile Include="ApiModels\CreditNote\CreditNoteItemApiModel.cs" />
+    <Compile Include="ApiModels\DocumentAddressApiModel.cs" />
+    <Compile Include="ApiModels\IssuedInvoiceItemApiModel.cs" />
+    <Compile Include="ApiModels\IssuedInvoiceItemApiModelUpdate.cs" />
+    <Compile Include="ApiModels\IssuedInvoiceItemApiModelWrite.cs" />
+    <Compile Include="ApiModels\IssuedInvoiceItemBaseApiModel.cs" />
+    <Compile Include="ApiModels\IssuedInvoice\IssuedInvoiceApiModel.cs" />
+    <Compile Include="ApiModels\IssuedInvoice\IssuedInvoiceApiModelExpand.cs" />
+    <Compile Include="ApiModels\IssuedInvoice\IssuedInvoiceApiModelInsert.cs" />
+    <Compile Include="ApiModels\IssuedInvoice\IssuedInvoiceApiModelUpdate.cs" />
+    <Compile Include="ApiModels\IssuedInvoice\IssuedInvoiceBaseApiModel.cs" />
+    <Compile Include="ApiModels\PriceListApiModel.cs" />
+    <Compile Include="ApiModels\PriceListApiModelExpand.cs" />
+    <Compile Include="ApiModels\ReadOnlyEntites\BankApiModel.cs" />
+    <Compile Include="ApiModels\ReadOnlyEntites\ConstantSymbolApiModel.cs" />
+    <Compile Include="ApiModels\ReadOnlyEntites\CountryApiModel.cs" />
+    <Compile Include="ApiModels\ReadOnlyEntites\CurrencyApiModel.cs" />
+    <Compile Include="ApiModels\ReadOnlyEntites\ExchangeRateApiModel.cs" />
+    <Compile Include="ApiModels\ReadOnlyEntites\PaymentOptionApiModel.cs" />
+    <Compile Include="ApiModels\ReadOnlyEntites\VatRateApiModel.cs" />
+    <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceApiModel.cs" />
+    <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceApiModelExpand.cs" />
+    <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceApiModelInsert.cs" />
+    <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceApiModelUpdate.cs" />
+    <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceItemApiModel.cs" />
+    <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceItemApiModelInsert.cs" />
+    <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceItemApiModelUpdate.cs" />
+    <Compile Include="ApiModels\SummaryTopPartner.cs" />
+    <Compile Include="ApiValidator.cs" />
+    <Compile Include="Attributes\MailMacroValueAttribute.cs" />
+    <Compile Include="Attributes\RankAttribute.cs" />
+    <Compile Include="Attributes\StringValueAttribute.cs" />
+    <Compile Include="ApiContext.cs" />
+    <Compile Include="ApiExplorer.cs" />
+    <Compile Include="Clients\BankClient.cs" />
+    <Compile Include="Clients\ConstantSymbolClient.cs" />
+    <Compile Include="Clients\ContactClient.cs" />
+    <Compile Include="Clients\AgendaClient.cs" />
+    <Compile Include="Clients\BaseClient.cs" />
+    <Compile Include="Clients\CountryClient.cs" />
+    <Compile Include="Clients\CreditNoteClient.cs" />
+    <Compile Include="Clients\CurrencyClient.cs" />
+    <Compile Include="Clients\DocumentAddressClient.cs" />
+    <Compile Include="Clients\ExchangeRateClient.cs" />
+    <Compile Include="Clients\IssuedInvoiceClient.cs" />
+    <Compile Include="Clients\OAuthClient.cs" />
+    <Compile Include="Clients\PaymentOptionClient.cs" />
+    <Compile Include="Clients\PriceListClient.cs" />
+    <Compile Include="Clients\ReceivedInvoiceClient.cs" />
+    <Compile Include="Clients\SystemClient.cs" />
+    <Compile Include="Clients\VatRateClient.cs" />
+    <Compile Include="Constants\SdkSettings.cs" />
+    <Compile Include="Constants\ApiHeaders.cs" />
+    <Compile Include="Extensions\RestRequestExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="ValidationAttributes\ValidEnumValueAttribute.cs" />
+    <Compile Include="Enums\CreditCheckStatusDokladEnum.cs" />
+    <Compile Include="Enums\ExportedStateEnum.cs" />
+    <Compile Include="Enums\IssuedInvoiceItemTypeEnum.cs" />
+    <Compile Include="Enums\PaymentStatusEnum.cs" />
+    <Compile Include="Enums\PriceTypeEnum.cs" />
+    <Compile Include="Enums\RoundEnum.cs" />
+    <Compile Include="Enums\VatRateTypeEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidationMessage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
