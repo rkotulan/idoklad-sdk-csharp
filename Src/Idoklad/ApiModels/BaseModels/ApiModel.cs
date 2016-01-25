@@ -11,18 +11,12 @@ namespace IdokladSdk.ApiModels.BaseModels
         }
 
         /// <summary>
-        /// Identifikace resource
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Resource identifier
         /// </summary>
         [ReadOnly(true)]
         public virtual int Id { get; set; }
 
         /// <summary>
-        /// Seznam odkazů na resource
-        /// </summary>
-        /// <summary xml:lang="en">
         /// List of resource links
         /// </summary>
         [ReadOnly(true)]

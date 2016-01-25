@@ -4,6 +4,9 @@ using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// Contacts section. Here are described methods for working with agendas contacts. API allows creation of invoice only for already created contacts.
+    /// </summary>
     public class ContactClient : BaseClient
     {
         internal const string ResourceUrl = "/Contacts";

@@ -5,9 +5,6 @@ using IdokladSdk.Enums;
 namespace IdokladSdk.ApiModels.ReceivedInvoice
 {
     /// <summary>
-    /// Položka faktury přijaté.
-    /// </summary>
-    /// <summary xml:lang="en">
     /// Received invoice item.
     /// </summary>
     [KnownType(typeof (ReceivedInvoiceItem))]
@@ -24,9 +21,6 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         public DateTime DateLastChange { get; set; }
 
         /// <summary>
-        /// Příznak, zda položka obsahuje vlastní hodnotu DPH, která se nepřepočítává
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Indicates if item has custom Vat value
         /// </summary>
         public bool IsCustomVat { get; set; }

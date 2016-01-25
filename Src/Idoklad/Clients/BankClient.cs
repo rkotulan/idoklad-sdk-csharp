@@ -3,6 +3,9 @@ using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// Method for getting banks.
+    /// </summary>
     public class BankClient : BaseClient
     {
         internal const string ResourceUrl = "/Banks";

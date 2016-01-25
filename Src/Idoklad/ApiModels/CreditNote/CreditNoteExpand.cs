@@ -27,9 +27,6 @@ namespace IdokladSdk.ApiModels.CreditNote
         public PaymentOption PaymentOption { get; set; }
 
         /// <summary>
-        /// Informace o odběrateli z adresaře agendy
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Info about purchaser from the address book
         /// </summary>
         public ContactExpand Purchaser { get; set; }

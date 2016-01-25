@@ -3,6 +3,9 @@ using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// Methods for constant symbols.
+    /// </summary>
     public class ConstantSymbolClient : BaseClient
     {
         internal const string ResourceUrl = "/ConstantSymbols";

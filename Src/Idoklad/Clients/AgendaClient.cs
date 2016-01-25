@@ -4,6 +4,9 @@ using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// Methods for manipulating with Agenda resources.
+    /// </summary>
     public class AgendaClient : BaseClient
     {
         internal const string ResourceUrl = "/Agendas";

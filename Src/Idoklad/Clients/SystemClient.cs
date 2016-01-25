@@ -2,6 +2,9 @@
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// System functions
+    /// </summary>
     public class SystemClient : BaseClient
     {
         internal const string ResourceUrl = "/System";

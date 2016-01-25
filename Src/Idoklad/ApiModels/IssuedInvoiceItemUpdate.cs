@@ -6,9 +6,6 @@ using IdokladSdk.ValidationAttributes;
 namespace IdokladSdk.ApiModels
 {
     /// <summary>
-    /// Položka faktury vydané pro změnu existujícího záznamu
-    /// </summary>
-    /// <summary xml:lang="en">
     /// Issued invoice item for update
     /// </summary>
     public class IssuedInvoiceItemUpdate : ApiModel

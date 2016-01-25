@@ -6,6 +6,9 @@ using IdokladSdk.Enums;
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// Methods for credit note resources.
+    /// </summary>
     public class CreditNoteClient : BaseClient
     {
         internal const string ResourceUrl = "/CreditNotes";

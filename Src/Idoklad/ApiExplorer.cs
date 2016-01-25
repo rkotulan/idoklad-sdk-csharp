@@ -69,7 +69,7 @@ namespace IdokladSdk
         /// <summary>
         /// Methods for price list.
         /// </summary>
-        public PriceListClient PriceListClient
+        public PriceListClient PriceList
         {
             get { return this.priceListClient ?? (this.priceListClient = new PriceListClient(apiContext)); }
         }

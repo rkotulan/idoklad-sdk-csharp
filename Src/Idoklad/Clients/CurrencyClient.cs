@@ -3,6 +3,9 @@ using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// Method for currencies.
+    /// </summary>
     public class CurrencyClient : BaseClient
     {
         internal const string ResourceUrl = "/Currencies";

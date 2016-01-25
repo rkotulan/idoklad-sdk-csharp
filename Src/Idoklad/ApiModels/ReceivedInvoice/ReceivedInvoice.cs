@@ -80,9 +80,6 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         public decimal ExchangeRateAmount { get; set; }
 
         /// <summary>
-        /// Příznak exportované faktury (Doporučuje se používat pouze jeden externí účetní software.)
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Export to another accounting software indication. (It is recommended to use only one external accounting software
         /// beside iDoklad.)
         /// </summary>
@@ -125,9 +122,6 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         public PaymentStatusEnum PaymentStatus { get; set; }
 
         /// <summary>
-        /// Originalní číslo přijatého dokladu
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Document number of the original document
         /// </summary>
         [StringLength(20)]

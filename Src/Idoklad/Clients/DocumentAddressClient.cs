@@ -2,6 +2,9 @@ using IdokladSdk.ApiModels;
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// Methods for work with contact information of the invoices (documents).
+    /// </summary>
     public class DocumentAddressClient : BaseClient
     {
         internal const string ResourceUrl = "/DocumentAddresses";

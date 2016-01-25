@@ -22,9 +22,6 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         public PaymentOption PaymentOption { get; set; }
 
         /// <summary>
-        /// Informace o dodavateli z adresaře agendy
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Info about supplier from the address book
         /// </summary>
         public ContactExpand Supplier { get; set; }

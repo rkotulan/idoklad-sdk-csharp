@@ -1,9 +1,6 @@
 ﻿namespace IdokladSdk.ApiModels
 {
     /// <summary>
-    /// Souhrn resource pro agendu
-    /// </summary>
-    /// <summary xml:lang="en">
     /// Counts of agendas resources
     /// </summary>
     public class AgendaSummary

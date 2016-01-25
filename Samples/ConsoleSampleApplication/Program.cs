@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using IdokladSdk;
-using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
-using IdokladSdk.ApiModels.IssuedInvoice;
 using IdokladSdk.Clients;
 
 namespace ConsoleSampleApplication

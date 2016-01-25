@@ -3,6 +3,9 @@ using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// Method for work with Vat rates.
+    /// </summary>
     public class VatRateClient : BaseClient
     {
         internal const string ResourceUrl = "/VatRates";

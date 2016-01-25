@@ -1,9 +1,6 @@
 ﻿namespace IdokladSdk.ApiModels
 {
     /// <summary>
-    /// Indikace změn systémových číselníků
-    /// </summary>
-    /// <summary xml:lang="en">
     /// Indication of changes of code books.
     /// </summary>
     public class CodeBooksChanges

@@ -13,9 +13,6 @@ namespace IdokladSdk.ApiModels.IssuedInvoice
         public string AccountNumber { get; set; }
 
         /// <summary>
-        /// Id banky z číselníku Bank
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Bank Id from bank list
         /// </summary>
         public int BankId { get; set; }
@@ -143,9 +140,6 @@ namespace IdokladSdk.ApiModels.IssuedInvoice
         public int PurchaserId { get; set; }
 
         /// <summary>
-        /// Barva tiskovky faktury - ve formátu HTML
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Report color - in HTML fromat
         /// </summary>
         public string ReportColorValue { get; set; }

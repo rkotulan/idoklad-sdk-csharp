@@ -81,9 +81,6 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         public decimal? ExchangeRateAmount { get; set; }
 
         /// <summary>
-        /// Mezinárodní číslo bankovního účtu dodavatele
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Iban of the supplier
         /// </summary>
         [StringLength(50)]
@@ -106,9 +103,6 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         public int? PaymentOptionId { get; set; }
 
         /// <summary>
-        /// Originalní číslo přijatého dokladu
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Document number of the original document
         /// </summary>
         [StringLength(20)]
@@ -125,9 +119,6 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         public int? SupplierId { get; set; }
 
         /// <summary>
-        /// Swift banky dodavatele
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Swift of the supplier
         /// </summary>
         [StringLength(11)]

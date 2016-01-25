@@ -3,9 +3,6 @@
 namespace IdokladSdk.ApiModels
 {
     /// <summary>
-    /// Položka faktury vydané
-    /// </summary>
-    /// <summary xml:lang="en">
     /// Issued invoice item
     /// </summary>
     [KnownType(typeof (IssuedInvoiceItem))]

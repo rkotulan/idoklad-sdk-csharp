@@ -5,7 +5,7 @@ namespace IdokladSdk.Enums
     /// <summary>
     /// Číselník typů položky dokladu
     /// </summary>
-    /// <summary xml:lang="en">
+    /// <summary
     /// Invoice item types
     /// </summary>
     [DataContract]
@@ -26,7 +26,7 @@ namespace IdokladSdk.Enums
         /// <summary>
         /// Odpočtová položka
         /// </summary>
-        /// <summary xml:lang="en">
+        /// <summary
         /// Reduced item for accounted by proforma invoices
         /// </summary>
         [EnumMember(Value = "2")]

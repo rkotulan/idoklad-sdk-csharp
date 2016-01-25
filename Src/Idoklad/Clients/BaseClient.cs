@@ -30,7 +30,7 @@ namespace IdokladSdk.Clients
             request.ApplyFiltersAsQueryString(filter);
 
             IRestResponse response = this.Client.Execute(request);
-            return JsonConvert.DeserializeObject<T>(response.Content);
+            return this.DeserializedResult<T>(response);
         }
 
         protected bool Delete(string resource)
@@ -62,7 +62,7 @@ namespace IdokladSdk.Clients
             request.AddBody(model);
 
             IRestResponse response = this.Client.Execute(request);
-            return JsonConvert.DeserializeObject<T>(response.Content);
+            return this.DeserializedResult<T>(response);
         }
 
         protected T Put<T, TI>(string resource, TI model)
@@ -84,7 +84,7 @@ namespace IdokladSdk.Clients
             request.AddBody(model);
 
             IRestResponse response = this.Client.Execute(request);
-            return JsonConvert.DeserializeObject<T>(response.Content);
+            return this.DeserializedResult<T>(response);
         }
 
         protected T Put<T>(string resource)
@@ -94,7 +94,7 @@ namespace IdokladSdk.Clients
             request.DateFormat = DateFormat;
 
             IRestResponse response = this.Client.Execute(request);
-            return JsonConvert.DeserializeObject<T>(response.Content);
+            return this.DeserializedResult<T>(response);
         }
 
         protected bool IsValidObject(object obj, out List<ValidationMessage> results)
@@ -114,6 +114,18 @@ namespace IdokladSdk.Clients
             request.AddHeader(ApiHeaders.SdkVersion, SdkSettings.Version);
 
             return request;
+        }
+
+        private T DeserializedResult<T>(IRestResponse response)
+        {
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(response.Content);
+            }
+            catch (Exception e)
+            {
+                throw new ApplicationException(response.Content);
+            }
         }
     }
 }

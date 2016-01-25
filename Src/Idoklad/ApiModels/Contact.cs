@@ -10,9 +10,6 @@ namespace IdokladSdk.ApiModels
     public class Contact : ContactCreate
     {
         /// <summary>
-        /// Identifikace kontaktu v rámci systému Money
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Identification of the contact for Money software
         /// </summary>
         [ReadOnly(true)]

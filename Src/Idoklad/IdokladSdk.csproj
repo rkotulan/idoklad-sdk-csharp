@@ -57,6 +57,7 @@
     <Compile Include="ApiFilters\IPaging.cs" />
     <Compile Include="ApiFilters\IssuedInvoiceFilter.cs" />
     <Compile Include="ApiFilters\Paging.cs" />
+    <Compile Include="ApiFilters\PriceListFilter.cs" />
     <Compile Include="ApiFilters\ReceivedInvoiceFilter.cs" />
     <Compile Include="ApiModels\Agenda.cs" />
     <Compile Include="ApiModels\AgendaSummary.cs" />

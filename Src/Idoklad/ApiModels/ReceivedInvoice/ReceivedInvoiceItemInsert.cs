@@ -6,9 +6,6 @@ using IdokladSdk.ValidationAttributes;
 namespace IdokladSdk.ApiModels.ReceivedInvoice
 {
     /// <summary>
-    /// Položka faktury přijaté pro vložení nového záznamu
-    /// </summary>
-    /// <summary xml:lang="en">
     /// Received invoice item for invoice creation
     /// </summary>
     public class ReceivedInvoiceItemCreate : ApiModel

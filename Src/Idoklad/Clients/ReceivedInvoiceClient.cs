@@ -7,6 +7,9 @@ using IdokladSdk.Enums;
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// Methods for received invoice resources.
+    /// </summary>
     public class ReceivedInvoiceClient : BaseClient
     {
         internal const string ResourceUrl = "/ReceivedInvoices";

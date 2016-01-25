@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth.cs" />
+    <Compile Include="IssuedInvoiceTests.cs" />
+    <Compile Include="PriceListTests.cs" />
     <Compile Include="ContactClientTests.cs" />
     <Compile Include="BankClientTests.cs" />
     <Compile Include="IntegrationTestBase.cs" />

@@ -103,9 +103,6 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         public int PaymentOptionId { get; set; }
 
         /// <summary>
-        /// Originalní číslo přijatého dokladu
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Document number of the original document
         /// </summary>
         [StringLength(20)]

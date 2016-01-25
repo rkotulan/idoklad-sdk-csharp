@@ -3,6 +3,9 @@ using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// Method for payment options.
+    /// </summary>
     public class PaymentOptionClient : BaseClient
     {
         internal const string ResourceUrl = "/PaymentOptions";

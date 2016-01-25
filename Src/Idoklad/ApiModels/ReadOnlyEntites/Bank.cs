@@ -41,9 +41,6 @@ namespace IdokladSdk.ApiModels.ReadOnlyEntites
         public string Swift { get; set; }
 
         /// <summary>
-        /// Indikace, zda instituce stále funguje
-        /// </summary>
-        /// <summary xml:lang="en">
         /// Indicate that bank is no longer an active
         /// </summary>
         public bool IsOutOfDate { get; set; }

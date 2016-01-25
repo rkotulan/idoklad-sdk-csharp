@@ -3,6 +3,9 @@ using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// Method for exchange rates.
+    /// </summary>
     public class ExchangeRateClient : BaseClient
     {
         internal const string ResourceUrl = "/ExchangeRates";

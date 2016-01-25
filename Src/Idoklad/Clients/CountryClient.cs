@@ -3,6 +3,9 @@ using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
 {
+    /// <summary>
+    /// Methods for countries. Primary used with contacts.
+    /// </summary>
     public class CountryClient : BaseClient
     {
         internal const string ResourceUrl = "/Countries";
