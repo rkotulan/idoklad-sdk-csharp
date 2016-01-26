@@ -1,4 +1,6 @@
-﻿using IdokladSdk.ApiModels.BaseModels;
+﻿using System;
+using IdokladSdk.ApiFilters;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
@@ -18,9 +20,9 @@ namespace IdokladSdk.Clients
         /// GET api/VatRates/GetChanges
         /// Method returns list of the VAT rates that were changed
         /// </summary>
-        public RowsResultWrapper<VatRate> Changes()
+        public RowsResultWrapper<VatRate> Changes(ChangeFilter filter)
         {
-            return base.Get<RowsResultWrapper<VatRate>>(ResourceUrl + "/GetChanges");
+            return base.Get<RowsResultWrapper<VatRate>>(ResourceUrl + "/GetChanges", filter);
         }
 
         /// <summary>

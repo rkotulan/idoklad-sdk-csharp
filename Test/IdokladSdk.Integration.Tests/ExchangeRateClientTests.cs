@@ -1,25 +1,23 @@
 ﻿using System;
 using System.Linq;
-using IdokladSdk.ApiFilters;
 using NUnit.Framework;
 
 namespace IdokladSdk.Integration.Tests
 {
     [TestFixture]
-    public class CurrencyClientTests : IntegrationTestBase
+    public class ExchangeRateClientTests : IntegrationTestBase
     {
         [Test]
         public void IntegrationSteps()
         {
             int id = All();
             ById(id);
-            Changes();
         }
 
         private int All()
         {
             // Act
-            var result = ApiExplorer.Currencies.Currencies();
+            var result = ApiExplorer.ExchangeRates.ExchangeRates();
 
             // Assert
             Assert.That(result, Is.Not.Null);
@@ -32,20 +30,11 @@ namespace IdokladSdk.Integration.Tests
         private void ById(int id)
         {
             // Act
-            var result = ApiExplorer.Currencies.Currency(id);
+            var result = ApiExplorer.ExchangeRates.ExchangeRate(id);
 
             // Assert
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Id, Is.EqualTo(id));
-        }
-
-        private void Changes()
-        {
-            // Act
-            var result = ApiExplorer.Currencies.Changes(new ChangeFilter(new DateTime(2014, 1, 1)));
-
-            // Assert
-            Assert.That(result, Is.Not.Null);
         }
     }
 }

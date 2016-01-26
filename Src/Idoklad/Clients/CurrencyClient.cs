@@ -1,4 +1,5 @@
 using System;
+using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
@@ -20,9 +21,9 @@ namespace IdokladSdk.Clients
         /// GET api/Currencies/GetChanges
         /// Method returns list of currencies, that were changed.
         /// </summary>
-        public RowsResultWrapper<Currency> Changes(DateTime lastCheck)
+        public RowsResultWrapper<Currency> Changes(ChangeFilter filter)
         {
-            return base.Get<RowsResultWrapper<Currency>>(ResourceUrl + "/GetChanges?lastCheck=" + lastCheck.ToString(DateFormat));
+            return base.Get<RowsResultWrapper<Currency>>(ResourceUrl + "/GetChanges", filter);
         }
 
         /// <summary>

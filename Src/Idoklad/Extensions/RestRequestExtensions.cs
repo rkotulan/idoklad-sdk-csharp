@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using IdokladSdk.ApiFilters;
+using IdokladSdk.Clients;
 using RestSharp;
 
 namespace IdokladSdk.Extensions
@@ -27,12 +28,14 @@ namespace IdokladSdk.Extensions
             {
                 if (propertyInfo.PropertyType == typeof (DateTime) || propertyInfo.PropertyType == typeof (DateTime?))
                 {
-                    request.AddQueryParameter(propertyInfo.Name, ((DateTime)propertyInfo.GetValue(apiFilter)).ToString("yyyy-MM-dd"));
+                    request.AddQueryParameter(propertyInfo.Name, ((DateTime)propertyInfo.GetValue(apiFilter)).ToString(BaseClient.DateFormat));
+                    continue;
                 }
 
                 if (propertyInfo.PropertyType == typeof(FilterType))
                 {
                     request.AddQueryParameter(propertyInfo.Name, ExtractFilterTypeToString(propertyInfo.GetValue(apiFilter)));
+                    continue;
                 }
 
                 request.AddQueryParameter(propertyInfo.Name, propertyInfo.GetValue(apiFilter).ToString());

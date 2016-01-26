@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using IdokladSdk.ApiFilters;
 using NUnit.Framework;
 
 namespace IdokladSdk.Integration.Tests
@@ -40,7 +42,7 @@ namespace IdokladSdk.Integration.Tests
         private void Changes()
         {
             // Act
-            var result = ApiExplorer.PaymentOptions.Changes();
+            var result = ApiExplorer.PaymentOptions.Changes(new ChangeFilter());
 
             // Assert
             Assert.That(result, Is.Not.Null);

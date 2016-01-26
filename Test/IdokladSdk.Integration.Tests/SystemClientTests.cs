@@ -1,4 +1,5 @@
 ﻿using System;
+using IdokladSdk.ApiFilters;
 using NUnit.Framework;
 
 namespace IdokladSdk.Integration.Tests
@@ -15,7 +16,7 @@ namespace IdokladSdk.Integration.Tests
         private void CodeBookChanges()
         {
             // Act
-            var result = ApiExplorer.System.CodeBookChanges(new DateTime(2015, 1, 1));
+            var result = ApiExplorer.System.CodeBookChanges(new ChangeFilter());
 
             // Assert
             Assert.That(result, Is.Not.Null);

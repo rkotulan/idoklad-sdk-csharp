@@ -1,4 +1,6 @@
-﻿using IdokladSdk.ApiModels.BaseModels;
+﻿using System;
+using IdokladSdk.ApiFilters;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
@@ -18,9 +20,9 @@ namespace IdokladSdk.Clients
         /// GET api/ConstantSymbols/GetChanges
         /// Method returns list of constant symbols, that were changed.
         /// </summary>
-        public RowsResultWrapper<ConstantSymbol> Changes()
+        public RowsResultWrapper<ConstantSymbol> Changes(ChangeFilter filter)
         {
-            return base.Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl + "/GetChanges");
+            return base.Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl + "/GetChanges", filter);
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using IdokladSdk.ApiModels.BaseModels;
+﻿using System;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients

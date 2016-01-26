@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiFilters\ChangeFilter.cs" />
     <Compile Include="ApiFilters\ContactFilter.cs" />
     <Compile Include="ApiFilters\CreditNoteFilter.cs" />
     <Compile Include="ApiFilters\FilterType.cs" />

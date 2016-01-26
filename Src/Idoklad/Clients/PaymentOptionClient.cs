@@ -1,4 +1,6 @@
-﻿using IdokladSdk.ApiModels.BaseModels;
+﻿using System;
+using IdokladSdk.ApiFilters;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
@@ -18,9 +20,9 @@ namespace IdokladSdk.Clients
         /// GET api/PaymentOptions/GetChanges
         /// Method returns list of payment options, that were changed.
         /// </summary>
-        public RowsResultWrapper<PaymentOption> Changes()
+        public RowsResultWrapper<PaymentOption> Changes(ChangeFilter filter)
         {
-            return base.Get<RowsResultWrapper<PaymentOption>>(ResourceUrl + "/GetChanges");
+            return base.Get<RowsResultWrapper<PaymentOption>>(ResourceUrl + "/GetChanges", filter);
         }
 
         /// <summary>

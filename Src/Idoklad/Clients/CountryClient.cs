@@ -1,4 +1,6 @@
-﻿using IdokladSdk.ApiModels.BaseModels;
+﻿using System;
+using IdokladSdk.ApiFilters;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
@@ -18,9 +20,9 @@ namespace IdokladSdk.Clients
         /// GET api/Countries/GetChanges
         /// Method returns list of countries, that were changed.
         /// </summary>
-        public RowsResultWrapper<Country> Changes()
+        public RowsResultWrapper<Country> Changes(ChangeFilter filter)
         {
-            return base.Get<RowsResultWrapper<Country>>(ResourceUrl + "/GetChanges");
+            return base.Get<RowsResultWrapper<Country>>(ResourceUrl + "/GetChanges", filter);
         }
 
         /// <summary>
