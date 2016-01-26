@@ -11,12 +11,12 @@ namespace IdokladSdk.Integration.Tests
         [Test]
         public void IntegrationSteps()
         {
-            int id = All();
-            ById(id);
+            int id = PaymentOptions();
+            PaymentOption(id);
             Changes();
         }
 
-        private int All()
+        private int PaymentOptions()
         {
             // Act
             var result = ApiExplorer.PaymentOptions.PaymentOptions();
@@ -29,7 +29,7 @@ namespace IdokladSdk.Integration.Tests
             return result.Data.FirstOrDefault().Id;
         }
 
-        private void ById(int id)
+        private void PaymentOption(int id)
         {
             // Act
             var result = ApiExplorer.PaymentOptions.PaymentOption(id);

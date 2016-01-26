@@ -6,9 +6,8 @@ namespace IdokladSdk.Attributes
     {
         public MailMacroValueAttribute(string value)
         {
-            this.Value = value;
+            Value = value;
         }
-
 
         public string Value { get; set; }
     }

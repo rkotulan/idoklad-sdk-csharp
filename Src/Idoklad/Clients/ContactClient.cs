@@ -21,7 +21,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public Contact Default()
         {
-            return base.Get<Contact>(ResourceUrl + "/Default");
+            return Get<Contact>(ResourceUrl + "/Default");
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<ContactExpand> ContactsExpand(ContactFilter filter = null)
         {
-            return base.Get<RowsResultWrapper<ContactExpand>>(ResourceUrl + "/Expand", filter);
+            return Get<RowsResultWrapper<ContactExpand>>(ResourceUrl + "/Expand", filter);
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public ContactExpand ContactExpand(int contactId)
         {
-            return base.Get<ContactExpand>(ResourceUrl + "/" + contactId + "/Expand");
+            return Get<ContactExpand>(ResourceUrl + "/" + contactId + "/Expand");
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool Delete(int contactId)
         {
-            return base.Delete(ResourceUrl + "/" + contactId);
+            return Delete(ResourceUrl + "/" + contactId);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<Contact> Contacts()
         {
-            return base.Get<RowsResultWrapper<Contact>>(ResourceUrl);
+            return Get<RowsResultWrapper<Contact>>(ResourceUrl);
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public Contact Contact(int contactId)
         {
-            return base.Get<Contact>(ResourceUrl + "/" + contactId);
+            return Get<Contact>(ResourceUrl + "/" + contactId);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public Contact Create(ContactCreate model)
         {
-            return base.Post<Contact, ContactCreate>(ResourceUrl, model);
+            return Post<Contact, ContactCreate>(ResourceUrl, model);
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public Contact Update(int contactId, ContactUpdate model)
         {
-            return base.Put<Contact, ContactUpdate>(ResourceUrl + "/" + contactId, model);
+            return Put<Contact, ContactUpdate>(ResourceUrl + "/" + contactId, model);
         }
     }
 }

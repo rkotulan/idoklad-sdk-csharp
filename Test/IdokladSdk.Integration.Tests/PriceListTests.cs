@@ -9,12 +9,12 @@ namespace IdokladSdk.Integration.Tests
         [Test]
         public void IntegrationSteps()
         {
-            PriceList contact = this.Default();
-            contact = this.Create(contact);
-            contact = this.Update(contact);
-            contact = this.PriceList(contact.Id);
-            this.PriceListExpand(contact.Id);
-            this.Delete(contact.Id);
+            PriceList contact = Default();
+            contact = Create(contact);
+            contact = Update(contact);
+            contact = PriceList(contact.Id);
+            PriceListExpand(contact.Id);
+            Delete(contact.Id);
         }
 
         private void Delete(int id)

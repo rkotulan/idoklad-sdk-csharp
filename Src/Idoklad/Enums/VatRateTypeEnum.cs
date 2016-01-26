@@ -4,9 +4,6 @@ using IdokladSdk.Attributes;
 namespace IdokladSdk.Enums
 {
     /// <summary>
-    /// Typy DPH
-    /// </summary>
-    /// <summary>
     /// Possible vat rate values
     /// </summary>
     [DataContract]

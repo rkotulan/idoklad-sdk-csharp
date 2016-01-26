@@ -21,7 +21,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public AgendaSummary AgendaSummary()
         {
-            return base.Get<AgendaSummary>(ResourceUrl + "/GetAgendaSummary");
+            return Get<AgendaSummary>(ResourceUrl + "/GetAgendaSummary");
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public Contact AgendaContact()
         {
-            return base.Get<Contact>(ResourceUrl + "/GetAgendaContact");
+            return Get<Contact>(ResourceUrl + "/GetAgendaContact");
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public ContactExpand AgendaContactExpand()
         {
-            return base.Get<ContactExpand>(ResourceUrl + "/GetAgendaContactExpand");
+            return Get<ContactExpand>(ResourceUrl + "/GetAgendaContactExpand");
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public List<BankAccount> AgendaContactBankAccounts()
         {
-            return base.Get<List<BankAccount>>(ResourceUrl + "/GetAgendaBankAccounts");
+            return Get<List<BankAccount>>(ResourceUrl + "/GetAgendaBankAccounts");
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public List<SummaryTopPartner> TopPartners()
         {
-            return base.Get<List<SummaryTopPartner>>(ResourceUrl + "/GetTopPartners");
+            return Get<List<SummaryTopPartner>>(ResourceUrl + "/GetTopPartners");
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<Agenda> Agendas()
         {
-            return base.Get<RowsResultWrapper<Agenda>>(ResourceUrl);
+            return Get<RowsResultWrapper<Agenda>>(ResourceUrl);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public Agenda Agenda(int agendaId)
         {
-            return base.Get<Agenda>(ResourceUrl + "/" + agendaId);
+            return Get<Agenda>(ResourceUrl + "/" + agendaId);
         }
     }
 }

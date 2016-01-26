@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using NUnit.Framework;
 
 namespace IdokladSdk.Integration.Tests
@@ -10,11 +9,11 @@ namespace IdokladSdk.Integration.Tests
         [Test]
         public void IntegrationSteps()
         {
-            int id = All();
-            ById(id);
+            int id = ExchangeRates();
+            ExchangeRate(id);
         }
 
-        private int All()
+        private int ExchangeRates()
         {
             // Act
             var result = ApiExplorer.ExchangeRates.ExchangeRates();
@@ -27,7 +26,7 @@ namespace IdokladSdk.Integration.Tests
             return result.Data.FirstOrDefault().Id;
         }
 
-        private void ById(int id)
+        private void ExchangeRate(int id)
         {
             // Act
             var result = ApiExplorer.ExchangeRates.ExchangeRate(id);

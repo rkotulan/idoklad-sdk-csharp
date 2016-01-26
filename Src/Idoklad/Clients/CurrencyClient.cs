@@ -23,7 +23,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<Currency> Changes(ChangeFilter filter)
         {
-            return base.Get<RowsResultWrapper<Currency>>(ResourceUrl + "/GetChanges", filter);
+            return Get<RowsResultWrapper<Currency>>(ResourceUrl + "/GetChanges", filter);
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<Currency> Currencies()
         {
-            return base.Get<RowsResultWrapper<Currency>>(ResourceUrl);
+            return Get<RowsResultWrapper<Currency>>(ResourceUrl);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public Currency Currency(int currencyId)
         {
-            return base.Get<Currency>(ResourceUrl + "/" + currencyId);
+            return Get<Currency>(ResourceUrl + "/" + currencyId);
         }
     }
 }

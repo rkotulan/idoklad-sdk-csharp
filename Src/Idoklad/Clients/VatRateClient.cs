@@ -1,5 +1,4 @@
-﻿using System;
-using IdokladSdk.ApiFilters;
+﻿using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
@@ -22,7 +21,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<VatRate> Changes(ChangeFilter filter)
         {
-            return base.Get<RowsResultWrapper<VatRate>>(ResourceUrl + "/GetChanges", filter);
+            return Get<RowsResultWrapper<VatRate>>(ResourceUrl + "/GetChanges", filter);
         }
 
         /// <summary>
@@ -31,7 +30,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<VatRate> VatRates()
         {
-            return base.Get<RowsResultWrapper<VatRate>>(ResourceUrl);
+            return Get<RowsResultWrapper<VatRate>>(ResourceUrl);
         }
 
         /// <summary>
@@ -40,7 +39,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public VatRate VatRate(int vatRateId)
         {
-            return base.Get<VatRate>(ResourceUrl + "/" + vatRateId);
+            return Get<VatRate>(ResourceUrl + "/" + vatRateId);
         }
     }
 }

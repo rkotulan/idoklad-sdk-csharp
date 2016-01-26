@@ -10,10 +10,10 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class OAuthClient
     {
-        internal const string ResourceUrl = "/Agendas/GetSecureToken?username={0}&password={1}";
+        private const string ResourceUrl = "/Agendas/GetSecureToken?username={0}&password={1}";
 
-        private readonly string username;
-        private readonly string password;
+        private readonly string _username;
+        private readonly string _password;
 
         public OAuthClient(string username, string password)
         {
@@ -22,8 +22,8 @@ namespace IdokladSdk.Clients
                 throw new ArgumentException("Username and password must be provided");
             }
 
-            this.username = username;
-            this.password = password;
+            _username = username;
+            _password = password;
         }
 
         /// <summary>
@@ -31,10 +31,10 @@ namespace IdokladSdk.Clients
         /// </summary>
         public string GetSecureToken()
         {
-            string authUrl = string.Format(ResourceUrl, this.username, this.password);
+            string authUrl = string.Format(ResourceUrl, _username, _password);
 
-            RestClient client = new RestClient(BaseClient.IdokladBaseUrl);
-            RestRequest authRequest = new RestRequest(authUrl, Method.GET);
+            var client = new RestClient(BaseClient.IdokladBaseUrl);
+            var authRequest = new RestRequest(authUrl, Method.GET);
             IRestResponse authReponse = client.Execute(authRequest);
 
             string token = authReponse.Content;

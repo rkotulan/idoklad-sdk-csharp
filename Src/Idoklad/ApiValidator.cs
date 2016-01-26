@@ -14,7 +14,9 @@ namespace IdokladSdk
             var innerResults = new List<ValidationResult>();
             bool isValid = Validator.TryValidateObject(obj, new ValidationContext(obj), innerResults);
 
-            errors = innerResults.Select(x => new ValidationMessage{Message = x.ErrorMessage, MemberNames = x.MemberNames}).ToList();
+            errors =
+                innerResults.Select(x => new ValidationMessage {Message = x.ErrorMessage, MemberNames = x.MemberNames})
+                    .ToList();
             return isValid;
         }
     }

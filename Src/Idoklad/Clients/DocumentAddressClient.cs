@@ -19,7 +19,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public DocumentAddress DocumentAddress(int documentAddressId)
         {
-            return base.Get<DocumentAddress>(ResourceUrl + "/" + documentAddressId);
+            return Get<DocumentAddress>(ResourceUrl + "/" + documentAddressId);
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public DocumentAddress Update(int documentAddressId, DocumentAddress model)
         {
-            return base.Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + documentAddressId, model);
+            return Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + documentAddressId, model);
         }
     }
 }

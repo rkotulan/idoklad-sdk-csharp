@@ -15,7 +15,7 @@ namespace IdokladSdk.Integration.Tests
                 Assert.Ignore("Auth key is not presented");
             }
 
-            this.ApiExplorer = new ApiExplorer(new ApiContext(Auth.AuthKey)
+            ApiExplorer = new ApiExplorer(new ApiContext(Auth.AuthKey)
             {
                 AppName = "Idoklad.Sdk.Integration.Tests",
                 AppVersion = SdkSettings.Version

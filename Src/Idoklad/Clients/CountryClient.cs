@@ -1,5 +1,4 @@
-﻿using System;
-using IdokladSdk.ApiFilters;
+﻿using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
@@ -22,7 +21,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<Country> Changes(ChangeFilter filter)
         {
-            return base.Get<RowsResultWrapper<Country>>(ResourceUrl + "/GetChanges", filter);
+            return Get<RowsResultWrapper<Country>>(ResourceUrl + "/GetChanges", filter);
         }
 
         /// <summary>
@@ -31,7 +30,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<Country> Countries()
         {
-            return base.Get<RowsResultWrapper<Country>>(ResourceUrl);
+            return Get<RowsResultWrapper<Country>>(ResourceUrl);
         }
 
         /// <summary>
@@ -40,7 +39,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public Country Country(int countryId)
         {
-            return base.Get<Country>(ResourceUrl + "/" + countryId);
+            return Get<Country>(ResourceUrl + "/" + countryId);
         }
     }
 }

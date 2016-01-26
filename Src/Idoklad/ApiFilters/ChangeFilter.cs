@@ -11,7 +11,7 @@ namespace IdokladSdk.ApiFilters
         /// </summary>
         public ChangeFilter()
         {
-            this.LastCheck = DateTime.UtcNow.AddYears(-1);
+            LastCheck = DateTime.UtcNow.AddYears(-1);
         }
 
         /// <summary>
@@ -19,7 +19,7 @@ namespace IdokladSdk.ApiFilters
         /// </summary>
         public ChangeFilter(DateTime lastCheck)
         {
-            this.LastCheck = lastCheck;
+            LastCheck = lastCheck;
         }
     }
 }

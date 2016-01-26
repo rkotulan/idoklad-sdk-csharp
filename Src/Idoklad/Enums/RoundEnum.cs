@@ -3,9 +3,6 @@
 namespace IdokladSdk.Enums
 {
     /// <summary>
-    /// Výčet možností zaokrouhlování
-    /// </summary>
-    /// <summary>
     /// Possible types of rounding
     /// </summary>
     [DataContract]

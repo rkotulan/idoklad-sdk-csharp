@@ -24,7 +24,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public ReceivedInvoice Default()
         {
-            return base.Get<ReceivedInvoice>(ResourceUrl + "/Default");
+            return Get<ReceivedInvoice>(ResourceUrl + "/Default");
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool FullyPay(int invoiceId, DateTime paid)
         {
-            return base.Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(DateFormat));
+            return Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(DateFormat));
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool FullyUnpay(int invoiceId)
         {
-            return base.Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyUnpay");
+            return Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyUnpay");
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public string Attachment(int invoiceId)
         {
-            return base.Get<string>(ResourceUrl + "/" + invoiceId + "/GetAttachment");
+            return Get<string>(ResourceUrl + "/" + invoiceId + "/GetAttachment");
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public string AttachmentCompressed(int invoiceId)
         {
-            return base.Get<string>(ResourceUrl + "/" + invoiceId + "/GetAttachmentCompressed");
+            return Get<string>(ResourceUrl + "/" + invoiceId + "/GetAttachmentCompressed");
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<ReceivedInvoiceExpand> ReceivedInvoicesExpand(ReceivedInvoiceFilter filter = null)
         {
-            return base.Get<RowsResultWrapper<ReceivedInvoiceExpand>>(ResourceUrl + "/Expand", filter);
+            return Get<RowsResultWrapper<ReceivedInvoiceExpand>>(ResourceUrl + "/Expand", filter);
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public ReceivedInvoiceExpand ReceivedInvoiceExpand(int invoiceId)
         {
-            return base.Get<ReceivedInvoiceExpand>(ResourceUrl + "/" + invoiceId + "/Expand");
+            return Get<ReceivedInvoiceExpand>(ResourceUrl + "/" + invoiceId + "/Expand");
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public DocumentAddress MyDocumentAddress(int invoiceId)
         {
-            return base.Get<DocumentAddress>(ResourceUrl + "/" + invoiceId + "/MyDocumentAddress");
+            return Get<DocumentAddress>(ResourceUrl + "/" + invoiceId + "/MyDocumentAddress");
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<ReceivedInvoice> ReceivedInvoicesBySupplier(int supplierId, ReceivedInvoiceFilter filter = null)
         {
-            return base.Get<RowsResultWrapper<ReceivedInvoice>>(ResourceUrl + "/" + supplierId + "/ReceivedInvoices");
+            return Get<RowsResultWrapper<ReceivedInvoice>>(ResourceUrl + "/" + supplierId + "/ReceivedInvoices");
         }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public DocumentAddress SupplierDocumentAddress(int invoiceId)
         {
-            return base.Get<DocumentAddress>(ResourceUrl + "/" + invoiceId + "/SupplierDocumentAddress");
+            return Get<DocumentAddress>(ResourceUrl + "/" + invoiceId + "/SupplierDocumentAddress");
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public DocumentAddress UpdateMyDocumentAddress(int invoiceId, DocumentAddress documentAddress)
         {
-            return base.Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + invoiceId + "/MyDocumentAddress", documentAddress);
+            return Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + invoiceId + "/MyDocumentAddress", documentAddress);
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public DocumentAddress UpdateSupplierPurchaserDocumentAddress(int invoiceId, DocumentAddress documentAddress)
         {
-            return base.Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + invoiceId + "/SupplierPurchaserDocumentAddress", documentAddress);
+            return Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + invoiceId + "/SupplierPurchaserDocumentAddress", documentAddress);
         }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public ReceivedInvoice Recount(ReceivedInvoiceCreate invoice)
         {
-            return base.Post<ReceivedInvoice, ReceivedInvoiceCreate>(ResourceUrl + "/Recount", invoice);
+            return Post<ReceivedInvoice, ReceivedInvoiceCreate>(ResourceUrl + "/Recount", invoice);
         }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public ReceivedInvoice Recount(int invoiceId, ReceivedInvoiceUpdate invoice)
         {
-            return base.Post<ReceivedInvoice, ReceivedInvoiceUpdate>(ResourceUrl + "/" + invoiceId + "/Recount", invoice);
+            return Post<ReceivedInvoice, ReceivedInvoiceUpdate>(ResourceUrl + "/" + invoiceId + "/Recount", invoice);
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool UpdateExported(int invoiceId, ExportedStateEnum state)
         {
-            return base.Put<bool>(ResourceUrl + "/" + invoiceId + "/Exported" + "/" + (int)state);
+            return Put<bool>(ResourceUrl + "/" + invoiceId + "/Exported" + "/" + (int)state);
         }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool Delete(int invoiceId)
         {
-            return base.Delete(ResourceUrl + "/" + invoiceId);
+            return Delete(ResourceUrl + "/" + invoiceId);
         }
 
         /// <summary>
@@ -168,7 +168,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<ReceivedInvoice> ReceivedInvoices(ReceivedInvoiceFilter filter = null)
         {
-            return base.Get<RowsResultWrapper<ReceivedInvoice>>(ResourceUrl, filter);
+            return Get<RowsResultWrapper<ReceivedInvoice>>(ResourceUrl, filter);
         }
 
         /// <summary>
@@ -179,7 +179,7 @@ namespace IdokladSdk.Clients
         /// <returns></returns>
         public ReceivedInvoice ReceivedInvoice(int invoiceId)
         {
-            return base.Get<ReceivedInvoice>(ResourceUrl + "/" + invoiceId);
+            return Get<ReceivedInvoice>(ResourceUrl + "/" + invoiceId);
         }
 
         /// <summary>
@@ -188,7 +188,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public ReceivedInvoice Create(ReceivedInvoiceCreate invoice)
         {
-            return base.Post<ReceivedInvoice, ReceivedInvoiceCreate>(ResourceUrl, invoice);
+            return Post<ReceivedInvoice, ReceivedInvoiceCreate>(ResourceUrl, invoice);
         }
 
         /// <summary>
@@ -197,7 +197,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public ReceivedInvoice Update(int invoiceId, ReceivedInvoiceUpdate invoice)
         {
-            return base.Post<ReceivedInvoice, ReceivedInvoiceUpdate>(ResourceUrl + "/" + invoiceId, invoice);
+            return Post<ReceivedInvoice, ReceivedInvoiceUpdate>(ResourceUrl + "/" + invoiceId, invoice);
         }
     }
 }

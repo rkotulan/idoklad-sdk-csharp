@@ -22,7 +22,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<Bank> Changes(ChangeFilter filter)
         {
-            return base.Get<RowsResultWrapper<Bank>>(ResourceUrl + "/GetChanges", filter);
+            return Get<RowsResultWrapper<Bank>>(ResourceUrl + "/GetChanges", filter);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<Bank> Banks()
         {
-            return base.Get<RowsResultWrapper<Bank>>(ResourceUrl);
+            return Get<RowsResultWrapper<Bank>>(ResourceUrl);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public Bank Bank(int bankAccountId)
         {
-            return base.Get<Bank>(ResourceUrl + "/" + bankAccountId);
+            return Get<Bank>(ResourceUrl + "/" + bankAccountId);
         }
     }
 }

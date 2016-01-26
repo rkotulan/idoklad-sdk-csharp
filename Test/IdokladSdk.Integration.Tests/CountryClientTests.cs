@@ -5,30 +5,30 @@ using NUnit.Framework;
 namespace IdokladSdk.Integration.Tests
 {
     [TestFixture]
-    public class BankClientTests : IntegrationTestBase
+    public class CountryClientTests : IntegrationTestBase
     {
         [Test]
         public void IntegrationSteps()
         {
             Changes();
-            int id = Banks();
-            Bank(id);
+            int id = Countries();
+            Country(id);
         }
 
-        private void Bank(int bankId)
+        private void Country(int bankId)
         {
             // Act
-            var result = ApiExplorer.BankClients.Bank(bankId);
+            var result = ApiExplorer.Countries.Country(bankId);
 
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(bankId, result.Id);
         }
 
-        private int Banks()
+        private int Countries()
         {
             // Act
-            var result = ApiExplorer.BankClients.Banks();
+            var result = ApiExplorer.Countries.Countries();
 
             // Assert
             Assert.IsNotNull(result);
@@ -41,7 +41,7 @@ namespace IdokladSdk.Integration.Tests
         private void Changes()
         {
             // Act
-            var result = ApiExplorer.BankClients.Changes(new ChangeFilter());
+            var result = ApiExplorer.Countries.Changes(new ChangeFilter());
 
             // Assert
             Assert.IsNotNull(result);

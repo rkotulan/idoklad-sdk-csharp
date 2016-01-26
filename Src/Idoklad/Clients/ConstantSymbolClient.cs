@@ -22,7 +22,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<ConstantSymbol> Changes(ChangeFilter filter)
         {
-            return base.Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl + "/GetChanges", filter);
+            return Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl + "/GetChanges", filter);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<ConstantSymbol> ConstantSymbols()
         {
-            return base.Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl);
+            return Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public ConstantSymbol ConstantSymbol(int constantSymbolId)
         {
-            return base.Get<ConstantSymbol>(ResourceUrl + "/" + constantSymbolId);
+            return Get<ConstantSymbol>(ResourceUrl + "/" + constantSymbolId);
         }
     }
 }

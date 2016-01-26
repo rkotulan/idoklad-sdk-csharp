@@ -6,7 +6,7 @@ namespace IdokladSdk.Attributes
     {
         public RankAttribute(int rank)
         {
-            this.RankValue = rank;
+            RankValue = rank;
         }
 
         public RankAttribute()

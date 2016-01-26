@@ -6,7 +6,7 @@ namespace IdokladSdk.Attributes
     {
         public StringValueAttribute(string value)
         {
-            this.StringValue = value;
+            StringValue = value;
         }
 
         public string StringValue { get; protected set; }

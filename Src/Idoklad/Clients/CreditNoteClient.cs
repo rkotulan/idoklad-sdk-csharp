@@ -23,7 +23,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool FullyPay(int creditNoteId, DateTime paid)
         {
-            return base.Put<bool>(ResourceUrl + "/" + creditNoteId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(DateFormat));
+            return Put<bool>(ResourceUrl + "/" + creditNoteId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(DateFormat));
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace IdokladSdk.Clients
         /// <returns></returns>
         public bool FullyUnpay(int creditNoteId)
         {
-            return base.Put<bool>(ResourceUrl + "/" + creditNoteId + "/FullyUnpay");
+            return Put<bool>(ResourceUrl + "/" + creditNoteId + "/FullyUnpay");
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<CreditNoteExpand> CreditNotesExpand(CreditNoteFilter filter = null)
         {
-            return base.Get<RowsResultWrapper<CreditNoteExpand>>(ResourceUrl + "/Expand", filter);
+            return Get<RowsResultWrapper<CreditNoteExpand>>(ResourceUrl + "/Expand", filter);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public CreditNoteExpand CreditNoteExpand(int creditNoteId)
         {
-            return base.Get<CreditNoteExpand>(ResourceUrl + "/" + creditNoteId +  "/Expand");
+            return Get<CreditNoteExpand>(ResourceUrl + "/" + creditNoteId +  "/Expand");
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool UpdateExported(int creditNoteId, ExportedStateEnum state)
         {
-            return base.Put<bool>(ResourceUrl + "/" + creditNoteId + "/Exported" + "/" + (int)state);
+            return Put<bool>(ResourceUrl + "/" + creditNoteId + "/Exported" + "/" + (int)state);
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<CreditNote> CreditNotes(CreditNoteFilter filter = null)
         {
-            return base.Get<RowsResultWrapper<CreditNote>>(ResourceUrl, filter);
+            return Get<RowsResultWrapper<CreditNote>>(ResourceUrl, filter);
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public CreditNote CreditNotes(int creditNoteId)
         {
-            return base.Get<CreditNote>(ResourceUrl + "/" + creditNoteId);
+            return Get<CreditNote>(ResourceUrl + "/" + creditNoteId);
         }
     }
 }

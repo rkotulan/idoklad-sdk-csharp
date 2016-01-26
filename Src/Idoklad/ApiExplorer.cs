@@ -4,26 +4,26 @@ namespace IdokladSdk
 {
     public class ApiExplorer
     {
-        private readonly ApiContext apiContext;
-        private AgendaClient agendaClient;
-        private ContactClient contactClient;
-        private CreditNoteClient creditNoteClient;
-        private DocumentAddressClient documentAddressClient;
-        private IssuedInvoiceClient issuedInvoiceClient;
-        private PriceListClient priceListClient;
-        private ReceivedInvoiceClient receivedInvoiceClient;
-        private BankClient bankClient;
-        private ConstantSymbolClient constantSymbolClient;
-        private CountryClient countryClient;
-        private CurrencyClient currencyClient;
-        private ExchangeRateClient exchangeRateClient;
-        private PaymentOptionClient paymentOptionClient;
-        private SystemClient systemClient;
-        private VatRateClient vatRateClient;
+        private readonly ApiContext _apiContext;
+        private AgendaClient _agendaClient;
+        private ContactClient _contactClient;
+        private CreditNoteClient _creditNoteClient;
+        private DocumentAddressClient _documentAddressClient;
+        private IssuedInvoiceClient _issuedInvoiceClient;
+        private PriceListClient _priceListClient;
+        private ReceivedInvoiceClient _receivedInvoiceClient;
+        private BankClient _bankClient;
+        private ConstantSymbolClient _constantSymbolClient;
+        private CountryClient _countryClient;
+        private CurrencyClient _currencyClient;
+        private ExchangeRateClient _exchangeRateClient;
+        private PaymentOptionClient _paymentOptionClient;
+        private SystemClient _systemClient;
+        private VatRateClient _vatRateClient;
 
         public ApiExplorer(ApiContext apiContext)
         {
-            this.apiContext = apiContext;
+            _apiContext = apiContext;
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace IdokladSdk
         /// </summary>
         public AgendaClient Agendas
         {
-            get { return this.agendaClient ?? (this.agendaClient = new AgendaClient(apiContext)); }
+            get { return _agendaClient ?? (_agendaClient = new AgendaClient(_apiContext)); }
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace IdokladSdk
         /// </summary>
         public ContactClient Contacts
         {
-            get { return this.contactClient ?? (this.contactClient = new ContactClient(apiContext)); }
+            get { return _contactClient ?? (_contactClient = new ContactClient(_apiContext)); }
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace IdokladSdk
         /// </summary>
         public CreditNoteClient CreditNotes
         {
-            get { return this.creditNoteClient ?? (this.creditNoteClient = new CreditNoteClient(apiContext)); }
+            get { return _creditNoteClient ?? (_creditNoteClient = new CreditNoteClient(_apiContext)); }
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace IdokladSdk
         /// </summary>
         public DocumentAddressClient DocumentAddresses
         {
-            get { return this.documentAddressClient ?? (this.documentAddressClient = new DocumentAddressClient(apiContext)); }
+            get { return _documentAddressClient ?? (_documentAddressClient = new DocumentAddressClient(_apiContext)); }
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace IdokladSdk
         /// </summary>
         public IssuedInvoiceClient IssuedInvoices
         {
-            get { return this.issuedInvoiceClient ?? (this.issuedInvoiceClient = new IssuedInvoiceClient(apiContext)); }
+            get { return _issuedInvoiceClient ?? (_issuedInvoiceClient = new IssuedInvoiceClient(_apiContext)); }
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace IdokladSdk
         /// </summary>
         public PriceListClient PriceList
         {
-            get { return this.priceListClient ?? (this.priceListClient = new PriceListClient(apiContext)); }
+            get { return _priceListClient ?? (_priceListClient = new PriceListClient(_apiContext)); }
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace IdokladSdk
         /// </summary>
         public ReceivedInvoiceClient ReceivedInvoices
         {
-            get { return this.receivedInvoiceClient ?? (this.receivedInvoiceClient = new ReceivedInvoiceClient(apiContext)); }
+            get { return _receivedInvoiceClient ?? (_receivedInvoiceClient = new ReceivedInvoiceClient(_apiContext)); }
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace IdokladSdk
         /// </summary>
         public BankClient BankClients
         {
-            get { return this.bankClient ?? (this.bankClient = new BankClient(apiContext)); }
+            get { return _bankClient ?? (_bankClient = new BankClient(_apiContext)); }
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace IdokladSdk
         /// </summary>
         public ConstantSymbolClient ConstantSymbols
         {
-            get { return this.constantSymbolClient ?? (this.constantSymbolClient = new ConstantSymbolClient(apiContext)); }
+            get { return _constantSymbolClient ?? (_constantSymbolClient = new ConstantSymbolClient(_apiContext)); }
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace IdokladSdk
         /// </summary>
         public CountryClient Countries
         {
-            get { return this.countryClient ?? (this.countryClient = new CountryClient(apiContext)); }
+            get { return _countryClient ?? (_countryClient = new CountryClient(_apiContext)); }
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace IdokladSdk
         /// </summary>
         public CurrencyClient Currencies
         {
-            get { return this.currencyClient ?? (this.currencyClient = new CurrencyClient(apiContext)); }
+            get { return _currencyClient ?? (_currencyClient = new CurrencyClient(_apiContext)); }
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace IdokladSdk
         /// </summary>
         public ExchangeRateClient ExchangeRates
         {
-            get { return this.exchangeRateClient ?? (this.exchangeRateClient = new ExchangeRateClient(apiContext)); }
+            get { return _exchangeRateClient ?? (_exchangeRateClient = new ExchangeRateClient(_apiContext)); }
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace IdokladSdk
         /// </summary>
         public PaymentOptionClient PaymentOptions
         {
-            get { return this.paymentOptionClient ?? (this.paymentOptionClient = new PaymentOptionClient(apiContext)); }
+            get { return _paymentOptionClient ?? (_paymentOptionClient = new PaymentOptionClient(_apiContext)); }
         }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace IdokladSdk
         /// </summary>
         public SystemClient System
         {
-            get { return this.systemClient ?? (this.systemClient = new SystemClient(apiContext)); }
+            get { return _systemClient ?? (_systemClient = new SystemClient(_apiContext)); }
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace IdokladSdk
         /// </summary>
         public VatRateClient VatRates
         {
-            get { return this.vatRateClient ?? (this.vatRateClient = new VatRateClient(apiContext)); }
+            get { return _vatRateClient ?? (_vatRateClient = new VatRateClient(_apiContext)); }
         }
     }
 }

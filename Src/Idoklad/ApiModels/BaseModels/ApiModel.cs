@@ -7,7 +7,7 @@ namespace IdokladSdk.ApiModels.BaseModels
     {
         public ApiModel()
         {
-            this.Links = new Dictionary<string, string>();
+            Links = new Dictionary<string, string>();
         }
 
         /// <summary>

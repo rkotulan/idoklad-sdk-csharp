@@ -14,9 +14,9 @@ namespace IdokladSdk.ApiModels.BaseModels
             int pageSize,
             int count)
         {
-            this.Data = allItems;
-            this.TotalItems = count;
-            this.TotalPages = (int)Math.Ceiling((double)this.TotalItems / pageSize);
+            Data = allItems;
+            TotalItems = count;
+            TotalPages = (int)Math.Ceiling((double)TotalItems / pageSize);
         }
 
         /// <summary>

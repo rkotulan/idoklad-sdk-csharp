@@ -1,5 +1,4 @@
-﻿using System;
-using IdokladSdk.ApiFilters;
+﻿using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 
 namespace IdokladSdk.Clients
@@ -21,7 +20,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public CodeBooksChanges CodeBookChanges(ChangeFilter filter)
         {
-            return base.Get<CodeBooksChanges>(ResourceUrl + "/GetCodeBooksChanges", filter);
+            return Get<CodeBooksChanges>(ResourceUrl + "/GetCodeBooksChanges", filter);
         }
     }
 }

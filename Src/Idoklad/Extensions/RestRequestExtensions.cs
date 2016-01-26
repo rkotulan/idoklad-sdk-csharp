@@ -13,8 +13,6 @@ namespace IdokladSdk.Extensions
         /// <summary>
         /// Converts any IApiFilter implementation to QueryParameters applied on RestRequest
         /// </summary>
-        /// <param name="request"></param>
-        /// <param name="apiFilter"></param>
         public static void ApplyFiltersAsQueryString(this RestRequest request, IApiFilter apiFilter)
         {
             if (apiFilter == null)

@@ -4,8 +4,8 @@
     {
         protected Paging()
         {
-            this.Page = 1;
-            this.PageSize = 20;
+            Page = 1;
+            PageSize = 20;
         }
 
         public int? Page { get; set; }

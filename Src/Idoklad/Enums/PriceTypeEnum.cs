@@ -3,9 +3,6 @@
 namespace IdokladSdk.Enums
 {
     /// <summary>
-    /// Číselník typů ceny
-    /// </summary>
-    /// <summary
     /// Possible Price type values
     /// </summary>
     [DataContract]

@@ -1,5 +1,4 @@
-﻿using System;
-using IdokladSdk.ApiModels.BaseModels;
+﻿using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
@@ -21,7 +20,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<ExchangeRate> ExchangeRates()
         {
-            return base.Get<RowsResultWrapper<ExchangeRate>>(ResourceUrl);
+            return Get<RowsResultWrapper<ExchangeRate>>(ResourceUrl);
         }
 
         /// <summary>
@@ -30,7 +29,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public ExchangeRate ExchangeRate(int exchangeRateId)
         {
-            return base.Get<ExchangeRate>(ResourceUrl + "/" + exchangeRateId);
+            return Get<ExchangeRate>(ResourceUrl + "/" + exchangeRateId);
         }
     }
 }

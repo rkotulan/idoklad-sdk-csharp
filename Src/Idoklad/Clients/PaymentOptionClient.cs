@@ -1,5 +1,4 @@
-﻿using System;
-using IdokladSdk.ApiFilters;
+﻿using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
@@ -22,7 +21,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<PaymentOption> Changes(ChangeFilter filter)
         {
-            return base.Get<RowsResultWrapper<PaymentOption>>(ResourceUrl + "/GetChanges", filter);
+            return Get<RowsResultWrapper<PaymentOption>>(ResourceUrl + "/GetChanges", filter);
         }
 
         /// <summary>
@@ -31,7 +30,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<PaymentOption> PaymentOptions()
         {
-            return base.Get<RowsResultWrapper<PaymentOption>>(ResourceUrl);
+            return Get<RowsResultWrapper<PaymentOption>>(ResourceUrl);
         }
 
         /// <summary>
@@ -40,7 +39,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public PaymentOption PaymentOption(int paymentOptionId)
         {
-            return base.Get<PaymentOption>(ResourceUrl + "/" + paymentOptionId);
+            return Get<PaymentOption>(ResourceUrl + "/" + paymentOptionId);
         }
     }
 }

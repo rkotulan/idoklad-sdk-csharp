@@ -21,7 +21,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public PriceList Default()
         {
-            return base.Get<PriceList>(ResourceUrl + "/Default");
+            return Get<PriceList>(ResourceUrl + "/Default");
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public PriceListExpand PriceListItemExpand(int priceListItemId)
         {
-            return base.Get<PriceListExpand>(ResourceUrl + "/" + priceListItemId + "/Expand");
+            return Get<PriceListExpand>(ResourceUrl + "/" + priceListItemId + "/Expand");
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool Delete(int priceListItemId)
         {
-            return base.Delete(ResourceUrl + "/" + priceListItemId);
+            return Delete(ResourceUrl + "/" + priceListItemId);
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<PriceList> PriceListItems(PriceListFilter filter)
         {
-            return base.Get<RowsResultWrapper<PriceList>>(ResourceUrl, filter);
+            return Get<RowsResultWrapper<PriceList>>(ResourceUrl, filter);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public PriceList PriceListItem(int priceListItemId)
         {
-            return base.Get<PriceList>(ResourceUrl + "/" + priceListItemId);
+            return Get<PriceList>(ResourceUrl + "/" + priceListItemId);
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public PriceList Create(PriceList model)
         {
-            return base.Post<PriceList, PriceList>(ResourceUrl, model);
+            return Post<PriceList, PriceList>(ResourceUrl, model);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public PriceList Update(int priceListItemId, PriceList model)
         {
-            return base.Put<PriceList, PriceList>(ResourceUrl + "/" + priceListItemId, model);
+            return Put<PriceList, PriceList>(ResourceUrl + "/" + priceListItemId, model);
         }
     }
 }

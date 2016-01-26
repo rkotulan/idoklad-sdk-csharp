@@ -40,10 +40,10 @@ namespace IdokladSdk.Tests.Extensions
                 .Any(x => x.Type == ParameterType.QueryString && x.Name == "PropertyOfDecimal" && x.Value.ToString() == "9.2"));
 
             Assert.IsTrue(request.Parameters
-                .Any(x => x.Type == ParameterType.QueryString && x.Name == "PropertyOfDate" && x.Value.ToString() == "2016-05-12"));
+                .Any(x => x.Type == ParameterType.QueryString && x.Name == "PropertyOfDate" && x.Value.ToString() == "2016-05-12 00:00"));
 
             Assert.IsTrue(request.Parameters
-                .Any(x => x.Type == ParameterType.QueryString && x.Name == "PropertyOfNullableDate" && x.Value.ToString() == "2016-05-12"));
+                .Any(x => x.Type == ParameterType.QueryString && x.Name == "PropertyOfNullableDate" && x.Value.ToString() == "2016-05-12 00:00"));
 
             Assert.IsTrue(request.Parameters
     .Any(x => x.Type == ParameterType.QueryString && x.Name == "PropertyOfFilterType" && x.Value.ToString() == "2"));

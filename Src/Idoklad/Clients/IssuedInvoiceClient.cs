@@ -14,7 +14,8 @@ namespace IdokladSdk.Clients
     {
         internal const string ResourceUrl = "/IssuedInvoices";
 
-        public IssuedInvoiceClient(ApiContext apiContext) : base(apiContext)
+        public IssuedInvoiceClient(ApiContext apiContext)
+            : base(apiContext)
         {
         }
 
@@ -24,7 +25,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public IssuedInvoiceCreate Default()
         {
-            return base.Get<IssuedInvoiceCreate>(ResourceUrl + "/Default");
+            return Get<IssuedInvoiceCreate>(ResourceUrl + "/Default");
         }
 
         /// <summary>
@@ -33,7 +34,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool FullyPay(int invoiceId, DateTime paid)
         {
-            return base.Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(DateFormat));
+            return Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(DateFormat));
         }
 
         /// <summary>
@@ -42,7 +43,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool FullyUnpay(int invoiceId)
         {
-            return base.Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyUnpay");
+            return Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyUnpay");
         }
 
         /// <summary>
@@ -51,7 +52,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public string CashVoucherPdf(int invoiceId)
         {
-            return base.Get<string>(ResourceUrl + "/" + invoiceId + "/GetCashVoucherPdf");
+            return Get<string>(ResourceUrl + "/" + invoiceId + "/GetCashVoucherPdf");
         }
 
         /// <summary>
@@ -60,7 +61,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public string CashVoucherPdfCompressed(int invoiceId)
         {
-            return base.Get<string>(ResourceUrl + "/" + invoiceId + "/GetCashVoucherPdfCompressed");
+            return Get<string>(ResourceUrl + "/" + invoiceId + "/GetCashVoucherPdfCompressed");
         }
 
         /// <summary>
@@ -69,7 +70,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<IssuedInvoiceExpand> IssuedInvoicesExpand(IssuedInvoiceFilter filter = null)
         {
-            return base.Get<RowsResultWrapper<IssuedInvoiceExpand>>(ResourceUrl + "/Expand", filter);
+            return Get<RowsResultWrapper<IssuedInvoiceExpand>>(ResourceUrl + "/Expand", filter);
         }
 
         /// <summary>
@@ -78,7 +79,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public IssuedInvoiceExpand IssuedInvoiceExpand(int invoiceId)
         {
-            return base.Get<IssuedInvoiceExpand>(ResourceUrl + "/" + invoiceId + "/Expand");
+            return Get<IssuedInvoiceExpand>(ResourceUrl + "/" + invoiceId + "/Expand");
         }
 
         /// <summary>
@@ -87,7 +88,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public string IssuedInvoicePdf(int invoiceId)
         {
-            return base.Get<string>(ResourceUrl + "/" + invoiceId + "/GetPdf");
+            return Get<string>(ResourceUrl + "/" + invoiceId + "/GetPdf");
         }
 
         /// <summary>
@@ -96,7 +97,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public string IssuedInvoicePdfCompressed(int invoiceId)
         {
-            return base.Get<string>(ResourceUrl + "/" + invoiceId + "/GetPdfCompressed");
+            return Get<string>(ResourceUrl + "/" + invoiceId + "/GetPdfCompressed");
         }
 
         /// <summary>
@@ -105,7 +106,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<IssuedInvoice> IssuedInvoicesByContact(int contactId, IssuedInvoiceFilter filter = null)
         {
-            return base.Get<RowsResultWrapper<IssuedInvoice>>(ResourceUrl + "/" + contactId + "/IssuedInvoices", filter);
+            return Get<RowsResultWrapper<IssuedInvoice>>(ResourceUrl + "/" + contactId + "/IssuedInvoices", filter);
         }
 
         /// <summary>
@@ -114,7 +115,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public DocumentAddress MyDocumentAddress(int invoiceId)
         {
-            return base.Get<DocumentAddress>(ResourceUrl + "/" + invoiceId + "/MyDocumentAddress");
+            return Get<DocumentAddress>(ResourceUrl + "/" + invoiceId + "/MyDocumentAddress");
         }
 
         /// <summary>
@@ -123,7 +124,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public DocumentAddress PurchaserDocumentAddress(int invoiceId)
         {
-            return base.Get<DocumentAddress>(ResourceUrl + "/" + invoiceId + "/PurchaserDocumentAddress");
+            return Get<DocumentAddress>(ResourceUrl + "/" + invoiceId + "/PurchaserDocumentAddress");
         }
 
         /// <summary>
@@ -132,7 +133,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public IssuedInvoice Recount(IssuedInvoiceCreate invoice)
         {
-            return base.Post<IssuedInvoice, IssuedInvoiceCreate>(ResourceUrl + "/Recount", invoice);
+            return Post<IssuedInvoice, IssuedInvoiceCreate>(ResourceUrl + "/Recount", invoice);
         }
 
         /// <summary>
@@ -141,7 +142,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public IssuedInvoice Recount(int invoiceId, IssuedInvoiceUpdate invoice)
         {
-            return base.Post<IssuedInvoice, IssuedInvoiceUpdate>(ResourceUrl + "/" + invoiceId + "/Recount", invoice);
+            return Post<IssuedInvoice, IssuedInvoiceUpdate>(ResourceUrl + "/" + invoiceId + "/Recount", invoice);
         }
 
         /// <summary>
@@ -150,7 +151,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public DocumentAddress UpdateMyDocumentAddress(int invoiceId, DocumentAddress address)
         {
-            return base.Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + invoiceId + "/MyDocumentAddress", address);
+            return Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + invoiceId + "/MyDocumentAddress", address);
         }
 
         /// <summary>
@@ -159,7 +160,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public DocumentAddress UpdatePurchaserDocumentAddress(int invoiceId, DocumentAddress address)
         {
-            return base.Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + invoiceId + "/PurchaserDocumentAddress", address);
+            return Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + invoiceId + "/PurchaserDocumentAddress", address);
         }
 
         /// <summary>
@@ -168,7 +169,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool SendMailToPurchaser(int invoiceId)
         {
-            return base.Put<bool>(ResourceUrl + "/" + invoiceId + "/SendMailToPurchaser");
+            return Put<bool>(ResourceUrl + "/" + invoiceId + "/SendMailToPurchaser");
         }
 
         /// <summary>
@@ -177,7 +178,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool SendMailToPurchaser(int invoiceId, ExportedStateEnum state)
         {
-            return base.Put<bool>(ResourceUrl + "/" + invoiceId + "/Exported" + "/" + (int)state);
+            return Put<bool>(ResourceUrl + "/" + invoiceId + "/Exported" + "/" + (int)state);
         }
 
         /// <summary>
@@ -186,7 +187,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool Delete(int invoiceId)
         {
-            return base.Delete(ResourceUrl + "/" + invoiceId);
+            return Delete(ResourceUrl + "/" + invoiceId);
         }
 
         /// <summary>
@@ -195,7 +196,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<IssuedInvoice> IssuedInvoices(IssuedInvoiceFilter filter = null)
         {
-            return base.Get<RowsResultWrapper<IssuedInvoice>>(ResourceUrl, filter);
+            return Get<RowsResultWrapper<IssuedInvoice>>(ResourceUrl, filter);
         }
 
         /// <summary>
@@ -204,7 +205,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public IssuedInvoice IssuedInvoice(int invoiceId)
         {
-            return base.Get<IssuedInvoice>(ResourceUrl + "/" + invoiceId);
+            return Get<IssuedInvoice>(ResourceUrl + "/" + invoiceId);
         }
 
         /// <summary>
@@ -213,7 +214,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public IssuedInvoice Create(IssuedInvoiceCreate invoice)
         {
-            return base.Post<IssuedInvoice, IssuedInvoiceCreate>(ResourceUrl, invoice);
+            return Post<IssuedInvoice, IssuedInvoiceCreate>(ResourceUrl, invoice);
         }
 
         /// <summary>
@@ -222,7 +223,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public IssuedInvoice Update(int invoiceId, IssuedInvoiceUpdate invoice)
         {
-            return base.Put<IssuedInvoice, IssuedInvoiceUpdate>(ResourceUrl + "/" + invoiceId, invoice);
+            return Put<IssuedInvoice, IssuedInvoiceUpdate>(ResourceUrl + "/" + invoiceId, invoice);
         }
     }
 }

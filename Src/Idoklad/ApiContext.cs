@@ -20,13 +20,6 @@ namespace IdokladSdk
         /// </summary>
         public string AppVersion { get; set; }
 
-        /// <summary>
-        /// Agenda ID
-        /// At the present time, API automatically choose your default agenda
-        /// </summary>
-        [Obsolete]
-        public int? Agenda { get; set; }
-
         public ApiContext(string accessToken)
         {
             if (accessToken.IsNullOrEmpty())
@@ -34,7 +27,7 @@ namespace IdokladSdk
                 throw new ArgumentNullException("Access Token can not be null");
             }
 
-            this.AccessToken = accessToken;
+            AccessToken = accessToken;
         }
     }
 }

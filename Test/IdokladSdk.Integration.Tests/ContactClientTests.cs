@@ -9,14 +9,14 @@ namespace IdokladSdk.Integration.Tests
         [Test]
         public void IntegrationSteps()
         {
-            Contact contact = this.Default();
-            contact = this.Create(contact);
-            contact = this.Update(contact);
-            contact = this.Contact(contact.Id);
-            this.ContactExpand(contact.Id);
-            this.Contacts();
-            this.ContactsExpand();
-            this.Delete(contact.Id);
+            Contact contact = Default();
+            contact = Create(contact);
+            contact = Update(contact);
+            contact = Contact(contact.Id);
+            ContactExpand(contact.Id);
+            Contacts();
+            ContactsExpand();
+            Delete(contact.Id);
         }
 
         private void Delete(int id)

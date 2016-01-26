@@ -11,12 +11,12 @@ namespace IdokladSdk.Integration.Tests
         [Test]
         public void IntegrationSteps()
         {
-            int id = All();
-            ById(id);
+            int id = Currencies();
+            Currency(id);
             Changes();
         }
 
-        private int All()
+        private int Currencies()
         {
             // Act
             var result = ApiExplorer.Currencies.Currencies();
@@ -29,7 +29,7 @@ namespace IdokladSdk.Integration.Tests
             return result.Data.FirstOrDefault().Id;
         }
 
-        private void ById(int id)
+        private void Currency(int id)
         {
             // Act
             var result = ApiExplorer.Currencies.Currency(id);

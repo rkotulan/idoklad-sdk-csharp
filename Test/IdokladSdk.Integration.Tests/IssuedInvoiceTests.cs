@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
@@ -16,13 +17,64 @@ namespace IdokladSdk.Integration.Tests
         [Test]
         public void IntegrationSteps()
         {
-            IssuedInvoiceCreate createItem = this.Default();
-            var item = this.Create(createItem);
-            item = this.IssuedInvoices(item.Id);
-            this.IssuedInvoicesByContact(item.PurchaserId);
-            this.IssuedInvoicesByContactWithConstantSymbol(item.PurchaserId, new IssuedInvoiceFilter { ConstantSymbolId = ConstantSymbol });
-            this.IssuedInvoicesExpand(item.Id);
-            this.Delete(item.Id);
+            IssuedInvoiceCreate createItem = Default();
+            var item = Create(createItem);
+            item = IssuedInvoices(item.Id);
+            FullyPay(item.Id);
+            FullyUnPay(item.Id);
+            IssuedInvoicePdf(item.Id);
+            IssuedInvoicePdfCompressed(item.Id);
+            IssuedInvoicesByContact(item.PurchaserId);
+            IssuedInvoicesByContactWithConstantSymbol(item.PurchaserId, new IssuedInvoiceFilter { ConstantSymbolId = ConstantSymbol });
+            IssuedInvoicesExpand(item.Id);
+            Delete(item.Id);
+        }
+
+        private void IssuedInvoicePdfCompressed(int id)
+        {
+            // Act
+            var result = ApiExplorer.IssuedInvoices.IssuedInvoicePdfCompressed(id);
+
+            // Assert
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Length, Is.GreaterThan(100));
+        }
+
+        private void IssuedInvoicePdf(int id)
+        {
+            // Act
+            var result = ApiExplorer.IssuedInvoices.IssuedInvoicePdf(id);
+
+            // Assert
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Length, Is.GreaterThan(100));
+        }
+
+        private void FullyPay(int id)
+        {
+            // Arrange
+            var paid = new DateTime(2016, 1, 1, 14, 0, 0);
+
+            // Act
+            var result = ApiExplorer.IssuedInvoices.FullyPay(id, paid);
+
+            // Assert
+            Assert.That(result, Is.True);
+            Assert.That(ApiExplorer.IssuedInvoices.IssuedInvoice(id).PaymentStatus, Is.EqualTo(PaymentStatusEnum.Paid));
+        }
+
+        private void FullyUnPay(int id)
+        {
+            // Arrange
+            var paid = new DateTime(2016, 1, 1, 14, 0, 0);
+
+            // Act
+            ApiExplorer.IssuedInvoices.FullyPay(id, paid);
+            var result = ApiExplorer.IssuedInvoices.FullyUnpay(id);
+
+            // Assert
+            Assert.That(result, Is.True);
+            Assert.That(ApiExplorer.IssuedInvoices.IssuedInvoice(id).PaymentStatus, Is.EqualTo(PaymentStatusEnum.Unpaid));
         }
 
         private void Delete(int id)
@@ -64,6 +116,8 @@ namespace IdokladSdk.Integration.Tests
 
             // Assert
             Assert.IsNotNull(result);
+            Assert.IsNotNull(result.PurchaserDocumentAddress);
+            Assert.IsNotNull(result.PurchaserDocumentAddress.Id);
             Assert.AreEqual(id, result.Id);
         }
 

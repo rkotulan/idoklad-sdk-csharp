@@ -15,35 +15,35 @@ namespace IdokladSdk.Clients
         internal const string IdokladBaseUrl = "https://app.idoklad.cz/developer/api";
         internal const string DateFormat = "yyyy-MM-dd HH:mm";
 
-        private readonly ApiContext apiContext;
+        private readonly ApiContext _apiContext;
 
         protected RestClient Client = new RestClient(IdokladBaseUrl);
 
         protected BaseClient(ApiContext apiContext)
         {
-            this.apiContext = apiContext;
+            _apiContext = apiContext;
         }
 
         protected T Get<T>(string resource, IApiFilter filter = null)
         {
-            RestRequest request = this.CreateRequest(resource, Method.GET);
+            RestRequest request = CreateRequest(resource, Method.GET);
             request.ApplyFiltersAsQueryString(filter);
 
-            IRestResponse response = this.Client.Execute(request);
+            IRestResponse response = Client.Execute(request);
             
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 throw new ApplicationException("Response from API is " + response.StatusCode);
             }
 
-            return this.DeserializedResult<T>(response);
+            return DeserializedResult<T>(response);
         }
 
         protected bool Delete(string resource)
         {
-            RestRequest request = this.CreateRequest(resource, Method.DELETE);
+            RestRequest request = CreateRequest(resource, Method.DELETE);
 
-            IRestResponse response = this.Client.Execute(request);
+            IRestResponse response = Client.Execute(request);
 
             if (response.StatusCode == HttpStatusCode.NoContent || response.StatusCode == HttpStatusCode.OK)
             {
@@ -56,51 +56,51 @@ namespace IdokladSdk.Clients
         protected T Post<T, TI>(string resource, TI model)
         {
             List<ValidationMessage> errors;
-            if(!this.IsValidObject(model, out errors))
+            if(!IsValidObject(model, out errors))
             {
                 throw new ApplicationException("Model is not valid. " + string.Join(". ", errors.Select(x=> x.Message)));
             }
 
-            RestRequest request = this.CreateRequest(resource, Method.POST);
+            RestRequest request = CreateRequest(resource, Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.DateFormat = DateFormat;
 
             request.AddBody(model);
 
-            IRestResponse response = this.Client.Execute(request);
-            return this.DeserializedResult<T>(response);
+            IRestResponse response = Client.Execute(request);
+            return DeserializedResult<T>(response);
         }
 
         protected T Put<T, TI>(string resource, TI model)
         {
             if (model == null)
             {
-                throw new ArgumentNullException("Model is not presented");
+                throw new ArgumentNullException("model", "Model is not presented");
             }
 
             List<ValidationMessage> errors;
-            if (!this.IsValidObject(model, out errors))
+            if (!IsValidObject(model, out errors))
             {
                 throw new ApplicationException("Model is not valid. " + string.Join(". ", errors));
             }
 
-            RestRequest request = this.CreateRequest(resource, Method.PUT);
+            RestRequest request = CreateRequest(resource, Method.PUT);
             request.RequestFormat = DataFormat.Json;
             request.DateFormat = DateFormat;
             request.AddBody(model);
 
-            IRestResponse response = this.Client.Execute(request);
-            return this.DeserializedResult<T>(response);
+            IRestResponse response = Client.Execute(request);
+            return DeserializedResult<T>(response);
         }
 
         protected T Put<T>(string resource)
         {
-            RestRequest request = this.CreateRequest(resource, Method.PUT);
+            RestRequest request = CreateRequest(resource, Method.PUT);
             request.RequestFormat = DataFormat.Json;
             request.DateFormat = DateFormat;
 
-            IRestResponse response = this.Client.Execute(request);
-            return this.DeserializedResult<T>(response);
+            IRestResponse response = Client.Execute(request);
+            return DeserializedResult<T>(response);
         }
 
         protected bool IsValidObject(object obj, out List<ValidationMessage> results)
@@ -112,10 +112,9 @@ namespace IdokladSdk.Clients
         {
             var request = new RestRequest(resource, method);
 
-            request.AddHeader(ApiHeaders.Token, apiContext.AccessToken);
-            request.AddHeader(ApiHeaders.App, apiContext.AppName);
-            request.AddHeader(ApiHeaders.AppVersion, apiContext.AppVersion);
-            request.AddHeader(ApiHeaders.Agenda, apiContext.Agenda.ToString());
+            request.AddHeader(ApiHeaders.Token, _apiContext.AccessToken);
+            request.AddHeader(ApiHeaders.App, _apiContext.AppName);
+            request.AddHeader(ApiHeaders.AppVersion, _apiContext.AppVersion);
 
             request.AddHeader(ApiHeaders.SdkVersion, SdkSettings.Version);
 
