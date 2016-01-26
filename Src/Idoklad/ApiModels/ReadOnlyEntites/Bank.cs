@@ -6,37 +6,37 @@ namespace IdokladSdk.ApiModels.ReadOnlyEntites
     public class Bank : ApiModel
     {
         /// <summary>
-        /// Zkratka banky
+        /// Bank code
         /// </summary>
         public string Code { get; set; }
 
         /// <summary>
-        /// Informace o státu
+        /// Informaton about country
         /// </summary>
         public Country Country { get; set; }
 
         /// <summary>
-        /// Id státu
+        /// ID of the country
         /// </summary>
         public int CountryId { get; set; }
 
         /// <summary>
-        /// Datum poslední změny
+        /// Last change date
         /// </summary>
         public DateTime DateLastChange { get; set; }
 
         /// <summary>
-        /// Název banky
+        /// Name of the bank institution
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Kód banky
+        /// Code of the bank institution
         /// </summary>
         public string NumberCode { get; set; }
 
         /// <summary>
-        /// Swift identifikace banky
+        /// Swift code
         /// </summary>
         public string Swift { get; set; }
 

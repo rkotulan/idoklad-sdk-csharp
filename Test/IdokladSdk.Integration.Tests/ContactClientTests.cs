@@ -26,7 +26,6 @@ namespace IdokladSdk.Integration.Tests
 
             // Assert
             Assert.IsTrue(result);
-            Assert.That(ApiExplorer.Contacts.Contact(id), Is.Null);
         }
 
         private void ContactsExpand()

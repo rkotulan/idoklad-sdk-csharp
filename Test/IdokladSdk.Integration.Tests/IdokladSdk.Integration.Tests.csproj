@@ -45,12 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth.cs" />
+    <Compile Include="SystemClientTests.cs" />
     <Compile Include="IssuedInvoiceTests.cs" />
+    <Compile Include="CurrencyClientTests.cs" />
+    <Compile Include="PaymentOptionClientTests.cs" />
     <Compile Include="PriceListTests.cs" />
     <Compile Include="ContactClientTests.cs" />
     <Compile Include="BankClientTests.cs" />
     <Compile Include="IntegrationTestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VatRateClientTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Src\Idoklad\IdokladSdk.csproj">

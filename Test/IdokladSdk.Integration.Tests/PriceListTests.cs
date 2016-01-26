@@ -24,7 +24,6 @@ namespace IdokladSdk.Integration.Tests
 
             // Assert
             Assert.IsTrue(result);
-            Assert.That(ApiExplorer.PriceList.PriceListItem(id), Is.Null);
         }
 
         private void PriceListExpand(int id)

@@ -30,6 +30,12 @@ namespace IdokladSdk.Clients
             request.ApplyFiltersAsQueryString(filter);
 
             IRestResponse response = this.Client.Execute(request);
+            
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                throw new ApplicationException("Response from API is " + response.StatusCode);
+            }
+
             return this.DeserializedResult<T>(response);
         }
 

@@ -1,4 +1,5 @@
-﻿using IdokladSdk.ApiModels;
+﻿using System;
+using IdokladSdk.ApiModels;
 
 namespace IdokladSdk.Clients
 {
@@ -17,9 +18,9 @@ namespace IdokladSdk.Clients
         /// GET api/System/GetCodeBooksChanges
         /// Provides information about system tables changes.
         /// </summary>
-        public CodeBooksChanges Changes()
+        public CodeBooksChanges CodeBookChanges(DateTime lastCheck)
         {
-            return base.Get<CodeBooksChanges>(ResourceUrl + "/GetCodeBooksChanges");
+            return base.Get<CodeBooksChanges>(ResourceUrl + "/GetCodeBooksChanges?lastCheck=" + lastCheck.ToString(DateFormat));
         }
     }
 }

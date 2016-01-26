@@ -20,17 +20,17 @@ namespace IdokladSdk.ApiModels.BaseModels
         }
 
         /// <summary>
-        /// Stránka se seznamem dat
+        /// Page with data
         /// </summary>
         public List<TApiModel> Data { get; set; }
 
         /// <summary>
-        /// Celkový počet záznamu
+        /// Total count of records
         /// </summary>
         public int TotalItems { get; set; }
 
         /// <summary>
-        /// Počet stránek
+        /// Total pages
         /// </summary>
         public int TotalPages { get; set; }
     }

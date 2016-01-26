@@ -7,22 +7,22 @@ namespace IdokladSdk.ApiModels.CreditNote
     public class CreditNoteExpand : CreditNote
     {
         /// <summary>
-        /// Detail konstantního symbolu
+        /// Contant symbol details
         /// </summary>
         public ConstantSymbol ConstantSymbol { get; set; }
 
         /// <summary>
-        /// Detail měny
+        /// Currency details
         /// </summary>
         public Currency Currency { get; set; }
 
         /// <summary>
-        /// Kontaktní údaje o dodavateli
+        /// Supplier contact address
         /// </summary>
         public DocumentAddress MyCompanyDocumentAddress { get; set; }
 
         /// <summary>
-        /// Detail způsobu úhrady
+        /// Payment option details
         /// </summary>
         public PaymentOption PaymentOption { get; set; }
 
@@ -32,7 +32,7 @@ namespace IdokladSdk.ApiModels.CreditNote
         public ContactExpand Purchaser { get; set; }
 
         /// <summary>
-        /// Kontaktní údaje o odběrateli
+        /// Purchaser contact address
         /// </summary>
         public DocumentAddress PurchaserDocumentAddress { get; set; }
     }

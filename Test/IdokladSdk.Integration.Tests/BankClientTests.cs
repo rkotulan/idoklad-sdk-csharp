@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 using NUnit.Framework;
@@ -42,7 +43,7 @@ namespace IdokladSdk.Integration.Tests
         private void Changes()
         {
             // Act
-            var result = ApiExplorer.BankClients.Changes();
+            var result = ApiExplorer.BankClients.Changes(new DateTime(2015,1,1));
 
             // Assert
             Assert.IsNotNull(result);

@@ -1,4 +1,5 @@
-﻿using IdokladSdk.ApiModels.BaseModels;
+﻿using System;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
@@ -18,9 +19,9 @@ namespace IdokladSdk.Clients
         /// GET api/Banks/GetChanges
         /// Method returns list of banks, that were changed.
         /// </summary>
-        public RowsResultWrapper<Bank> Changes()
+        public RowsResultWrapper<Bank> Changes(DateTime lastCheck)
         {
-            return base.Get<RowsResultWrapper<Bank>>(ResourceUrl + "/GetChanges");
+            return base.Get<RowsResultWrapper<Bank>>(ResourceUrl + "/GetChanges?lastCheck=" + lastCheck.ToString(DateFormat));
         }
 
         /// <summary>

@@ -171,27 +171,27 @@ namespace IdokladSdk.ApiModels.IssuedInvoice
         public string OrderNumber { get; set; }
 
         /// <summary>
-        /// Id způsobu úhrady
+        /// Payment option ID
         /// </summary>
         public int PaymentOptionId { get; set; }
 
         /// <summary>
-        /// Stav zaplacení
+        /// Status of the payment
         /// </summary>
         public PaymentStatusEnum PaymentStatus { get; set; }
 
         /// <summary>
-        /// Id kontaktních údajů odběratele
+        /// Purchaser contact address ID
         /// </summary>
         public int PurchaserDocumentAddressId { get; set; }
 
         /// <summary>
-        /// Id odběratele
+        /// Purchase ID
         /// </summary>
         public int PurchaserId { get; set; }
 
         /// <summary>
-        /// Počet odesláných upomínek
+        /// Count of sent reminders
         /// </summary>
         public int RemindersCount { get; set; }
 
@@ -201,12 +201,12 @@ namespace IdokladSdk.ApiModels.IssuedInvoice
         public string ReportColorValue { get; set; }
 
         /// <summary>
-        /// Id typu tiskové sestavy
+        /// ID of the report type
         /// </summary>
         public int ReportId { get; set; }
 
         /// <summary>
-        /// Zaokrouhlovací částka
+        /// Rounding difference amount
         /// </summary>
         public decimal RoundingDifference { get; set; }
 
