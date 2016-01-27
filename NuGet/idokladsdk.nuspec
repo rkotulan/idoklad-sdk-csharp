@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>IdokladSdk</id>
+    <version>1.0.1</version>
+    <authors>Miroslav Holec</authors>
+    <owners>Miroslav Holec</owners>
+    <description>SDK for iDoklad API</description>
+    <language>en-US</language>
+    <projectUrl>https://github.com/mholec/idoklad-sdk-csharp</projectUrl>
+    <licenseUrl>https://github.com/mholec/idoklad-sdk-csharp/blob/master/LICENSE</licenseUrl>
+    <iconUrl>https://holecdrive.blob.core.windows.net/nuget/idokladsdk.png</iconUrl>
+    <tags>idoklad sdk rest api</tags>
+    <releaseNotes><![CDATA[
+            For full release notes see https://github.com/mholec/idoklad-sdk-csharp
+            ]]></releaseNotes>
+  </metadata>
+</package>

@@ -41,4 +41,9 @@ For example, here is the entire flow of work with contacts.
     // delete
     bool isDeleted = api.Contacts.Delete(addedContact.Id);
 
-**Happy accounting!**
+## Supported frameworks
+
+We currently support
+- .NET 4.5
+- .NET 4.5.1
+- .NET 4.5.2
