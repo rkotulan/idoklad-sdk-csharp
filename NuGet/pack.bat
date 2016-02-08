@@ -1,5 +1,5 @@
 REM rebuild solution
-msbuild.exe %~dp0\..\Src\Idoklad\Idoklad.sln /p:Configuration=Release 
+msbuild.exe %~dp0\..\Idoklad.sln /p:Configuration=Release 
 
 REM delete old packages
 rd package
@@ -23,7 +23,3 @@ nuget.exe update -self
 
 REM create package
 nuget.exe pack idokladsdk.nuspec -BasePath package -Output build
-del idoklad.nuspec
-
-
-REM nuget.exe pack %~dp0\..\Src\Idoklad\IdokladSdk.csproj -Build -Properties Configuration=Release

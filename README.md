@@ -48,3 +48,8 @@ We currently support
 - .NET 4.5.1
 - .NET 4.5.2
 - .NET 4.6
+
+## NuGet
+You can install **SDK for iDoklad API ** using the [NuGet](https://www.nuget.org)
+
+	PM> Install-Package IdokladSdk

@@ -32,7 +32,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdokladSdk.Net452", "Src\Id
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdokladSdk", "Src\Idoklad\IdokladSdk.csproj", "{EAFB58D7-3DBD-4374-9938-E15895F8AF62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdokladSdk.Net46", "Src\IdokladSdk.Net46\IdokladSdk.Net46\IdokladSdk.Net46.csproj", "{963D5AC5-D3CA-4829-A5EC-D6E8EB6D4F0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdokladSdk.Net46", "Src\IdokladSdk.Net46\IdokladSdk.Net46.csproj", "{963D5AC5-D3CA-4829-A5EC-D6E8EB6D4F0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
