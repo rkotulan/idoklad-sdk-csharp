@@ -262,6 +262,9 @@
     <Compile Include="..\Idoklad\Clients\IssuedInvoiceClient.cs">
       <Link>Clients\IssuedInvoiceClient.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\Clients\OAuth2Client.cs">
+      <Link>Clients\OAuth2Client.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\Clients\OAuthClient.cs">
       <Link>Clients\OAuthClient.cs</Link>
     </Compile>
