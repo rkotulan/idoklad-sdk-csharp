@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSampleApplication", "Samples\ConsoleSampleApplication\ConsoleSampleApplication.csproj", "{76BB713E-FB6D-4A0E-AF95-FA18FF357C7D}"
 EndProject
@@ -23,7 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{098B7C91
 	ProjectSection(SolutionItems) = preProject
 		NuGet\idokladsdk.nuspec = NuGet\idokladsdk.nuspec
 		NuGet\nuget.exe = NuGet\nuget.exe
-		NuGet\pack.bat = NuGet\pack.bat
+		NuGet\pack-build.bat = NuGet\pack-build.bat
+		NuGet\pack-local.bat = NuGet\pack-local.bat
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdokladSdk.Net451", "Src\IdokladSdk.Net451\IdokladSdk.Net451.csproj", "{E6BF756A-ABF2-46DB-B9AD-8DD6A22C2F5A}"
