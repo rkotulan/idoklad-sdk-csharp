@@ -41,6 +41,12 @@ For example, here is the entire flow of work with contacts.
     // delete
     bool isDeleted = api.Contacts.Delete(addedContact.Id);
 
+	// get all
+	var contacts = api.Contacts.Contacts(new Paging(int.MaxValue));
+
+	// get many
+	var contacts = api.Contacts.Contacts(new Paging(1, 20));
+
 ## Supported frameworks
 
 We currently support

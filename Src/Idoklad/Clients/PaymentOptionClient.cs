@@ -28,9 +28,9 @@ namespace IdokladSdk.Clients
         /// GET api/PaymentOptions
         /// Method returns list of payment options.
         /// </summary>
-        public RowsResultWrapper<PaymentOption> PaymentOptions()
+        public RowsResultWrapper<PaymentOption> PaymentOptions(Paging paging = null)
         {
-            return Get<RowsResultWrapper<PaymentOption>>(ResourceUrl);
+            return Get<RowsResultWrapper<PaymentOption>>(ResourceUrl, paging);
         }
 
         /// <summary>

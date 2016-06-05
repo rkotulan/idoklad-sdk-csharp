@@ -29,9 +29,9 @@ namespace IdokladSdk.Clients
         /// GET api/Banks
         /// Method returns list of banks.
         /// </summary>
-        public RowsResultWrapper<Bank> Banks()
+        public RowsResultWrapper<Bank> Banks(Paging paging = null)
         {
-            return Get<RowsResultWrapper<Bank>>(ResourceUrl);
+            return Get<RowsResultWrapper<Bank>>(ResourceUrl, paging);
         }
 
         /// <summary>

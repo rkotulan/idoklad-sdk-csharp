@@ -76,7 +76,7 @@ namespace IdokladSdk.Clients
         /// GET api/CreditNotes/{id}
         /// Returns information about credit note including summaries.
         /// </summary>
-        public CreditNote CreditNotes(int creditNoteId)
+        public CreditNote CreditNote(int creditNoteId)
         {
             return Get<CreditNote>(ResourceUrl + "/" + creditNoteId);
         }

@@ -1,11 +1,23 @@
 ﻿namespace IdokladSdk.ApiFilters
 {
-    public abstract class Paging : IPaging
+    public class Paging : IPaging, IApiFilter
     {
-        protected Paging()
+        public Paging()
         {
             Page = 1;
             PageSize = 20;
+        }
+
+        public Paging(int pageSize)
+        {
+            Page = 1;
+            PageSize = pageSize;
+        }
+
+        public Paging(int page, int pageSize)
+        {
+            Page = page;
+            PageSize = pageSize;
         }
 
         public int? Page { get; set; }

@@ -30,9 +30,9 @@ namespace IdokladSdk.Clients
         /// api/Currencies
         /// Method returns list of currencies.
         /// </summary>
-        public RowsResultWrapper<Currency> Currencies()
+        public RowsResultWrapper<Currency> Currencies(Paging paging = null)
         {
-            return Get<RowsResultWrapper<Currency>>(ResourceUrl);
+            return Get<RowsResultWrapper<Currency>>(ResourceUrl, paging);
         }
 
         /// <summary>

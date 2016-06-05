@@ -1,4 +1,5 @@
-﻿using IdokladSdk.ApiModels.BaseModels;
+﻿using IdokladSdk.ApiFilters;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.Clients
@@ -18,9 +19,9 @@ namespace IdokladSdk.Clients
         /// GET api/ExchangeRates
         /// Method returns list of exchange rates.
         /// </summary>
-        public RowsResultWrapper<ExchangeRate> ExchangeRates()
+        public RowsResultWrapper<ExchangeRate> ExchangeRates(Paging paging = null)
         {
-            return Get<RowsResultWrapper<ExchangeRate>>(ResourceUrl);
+            return Get<RowsResultWrapper<ExchangeRate>>(ResourceUrl, paging);
         }
 
         /// <summary>

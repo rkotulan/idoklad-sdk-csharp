@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.ApiModels.BaseModels;
 
@@ -64,9 +65,9 @@ namespace IdokladSdk.Clients
         /// GET api/Agendas
         /// List of agendas.
         /// </summary>
-        public RowsResultWrapper<Agenda> Agendas()
+        public RowsResultWrapper<Agenda> Agendas(Paging paging = null)
         {
-            return Get<RowsResultWrapper<Agenda>>(ResourceUrl);
+            return Get<RowsResultWrapper<Agenda>>(ResourceUrl, paging);
         }
 
         /// <summary>

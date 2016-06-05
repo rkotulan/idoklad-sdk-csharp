@@ -28,9 +28,9 @@ namespace IdokladSdk.Clients
         /// GET api/Countries
         /// Method returns list of countries.
         /// </summary>
-        public RowsResultWrapper<Country> Countries()
+        public RowsResultWrapper<Country> Countries(Paging paging = null)
         {
-            return Get<RowsResultWrapper<Country>>(ResourceUrl);
+            return Get<RowsResultWrapper<Country>>(ResourceUrl, paging);
         }
 
         /// <summary>

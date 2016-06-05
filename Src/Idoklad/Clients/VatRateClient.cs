@@ -28,9 +28,9 @@ namespace IdokladSdk.Clients
         /// GET api/VatRates
         /// Method returns list of Vat rates.
         /// </summary>
-        public RowsResultWrapper<VatRate> VatRates()
+        public RowsResultWrapper<VatRate> VatRates(Paging paging = null)
         {
-            return Get<RowsResultWrapper<VatRate>>(ResourceUrl);
+            return Get<RowsResultWrapper<VatRate>>(ResourceUrl, paging);
         }
 
         /// <summary>

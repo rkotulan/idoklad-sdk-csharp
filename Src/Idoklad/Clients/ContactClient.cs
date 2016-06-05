@@ -55,9 +55,9 @@ namespace IdokladSdk.Clients
         /// GET api/Contacts
         /// List of contacts.
         /// </summary>
-        public RowsResultWrapper<Contact> Contacts()
+        public RowsResultWrapper<Contact> Contacts(Paging paging = null)
         {
-            return Get<RowsResultWrapper<Contact>>(ResourceUrl);
+            return Get<RowsResultWrapper<Contact>>(ResourceUrl, paging);
         }
 
         /// <summary>

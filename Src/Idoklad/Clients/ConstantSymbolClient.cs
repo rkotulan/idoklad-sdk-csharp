@@ -29,9 +29,9 @@ namespace IdokladSdk.Clients
         /// GET api/ConstantSymbols
         /// Method returns list of constant symbols.
         /// </summary>
-        public RowsResultWrapper<ConstantSymbol> ConstantSymbols()
+        public RowsResultWrapper<ConstantSymbol> ConstantSymbols(Paging paging = null)
         {
-            return Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl);
+            return Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl, paging);
         }
 
         /// <summary>
