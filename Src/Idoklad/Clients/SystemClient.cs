@@ -8,7 +8,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class SystemClient : BaseClient
     {
-        internal const string ResourceUrl = "/System";
+        public const string ResourceUrl = "/System";
 
         public SystemClient(ApiContext apiContext) : base(apiContext)
         {

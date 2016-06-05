@@ -10,7 +10,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class BankClient : BaseClient
     {
-        internal const string ResourceUrl = "/Banks";
+        public const string ResourceUrl = "/Banks";
 
         public BankClient(ApiContext apiContext) : base(apiContext)
         {

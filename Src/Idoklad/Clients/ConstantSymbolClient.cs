@@ -10,7 +10,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class ConstantSymbolClient : BaseClient
     {
-        internal const string ResourceUrl = "/ConstantSymbols";
+        public const string ResourceUrl = "/ConstantSymbols";
 
         public ConstantSymbolClient(ApiContext apiContext) : base(apiContext)
         {

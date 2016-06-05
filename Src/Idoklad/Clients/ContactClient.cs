@@ -9,7 +9,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class ContactClient : BaseClient
     {
-        internal const string ResourceUrl = "/Contacts";
+        public const string ResourceUrl = "/Contacts";
 
         public ContactClient(ApiContext apiContext) : base(apiContext)
         {

@@ -9,7 +9,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class PriceListClient : BaseClient
     {
-        internal const string ResourceUrl = "/PriceListItems";
+        public const string ResourceUrl = "/PriceListItems";
 
         public PriceListClient(ApiContext apiContext) : base(apiContext)
         {

@@ -9,7 +9,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class PaymentOptionClient : BaseClient
     {
-        internal const string ResourceUrl = "/PaymentOptions";
+        public const string ResourceUrl = "/PaymentOptions";
 
         public PaymentOptionClient(ApiContext apiContext) : base(apiContext)
         {

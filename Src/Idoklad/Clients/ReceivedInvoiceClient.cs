@@ -12,7 +12,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class ReceivedInvoiceClient : BaseClient
     {
-        internal const string ResourceUrl = "/ReceivedInvoices";
+        public const string ResourceUrl = "/ReceivedInvoices";
 
         public ReceivedInvoiceClient(ApiContext apiContext) : base(apiContext)
         {

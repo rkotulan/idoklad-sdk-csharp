@@ -8,7 +8,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class ExchangeRateClient : BaseClient
     {
-        internal const string ResourceUrl = "/ExchangeRates";
+        public const string ResourceUrl = "/ExchangeRates";
 
         public ExchangeRateClient(ApiContext apiContext) : base(apiContext)
         {

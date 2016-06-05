@@ -9,7 +9,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class CountryClient : BaseClient
     {
-        internal const string ResourceUrl = "/Countries";
+        public const string ResourceUrl = "/Countries";
 
         public CountryClient(ApiContext apiContext) : base(apiContext)
         {

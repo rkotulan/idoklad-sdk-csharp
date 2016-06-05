@@ -11,7 +11,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class CreditNoteClient : BaseClient
     {
-        internal const string ResourceUrl = "/CreditNotes";
+        public const string ResourceUrl = "/CreditNotes";
 
         public CreditNoteClient(ApiContext apiContext) : base(apiContext)
         {

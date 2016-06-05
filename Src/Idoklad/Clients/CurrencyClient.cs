@@ -10,7 +10,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class CurrencyClient : BaseClient
     {
-        internal const string ResourceUrl = "/Currencies";
+        public const string ResourceUrl = "/Currencies";
 
         public CurrencyClient(ApiContext apiContext)
             : base(apiContext)

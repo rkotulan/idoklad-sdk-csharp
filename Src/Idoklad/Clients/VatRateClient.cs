@@ -9,7 +9,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class VatRateClient : BaseClient
     {
-        internal const string ResourceUrl = "/VatRates";
+        public const string ResourceUrl = "/VatRates";
 
         public VatRateClient(ApiContext apiContext) : base(apiContext)
         {

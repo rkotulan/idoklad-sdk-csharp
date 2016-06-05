@@ -7,7 +7,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class DocumentAddressClient : BaseClient
     {
-        internal const string ResourceUrl = "/DocumentAddresses";
+        public const string ResourceUrl = "/DocumentAddresses";
 
         public DocumentAddressClient(ApiContext apiContext) : base(apiContext)
         {

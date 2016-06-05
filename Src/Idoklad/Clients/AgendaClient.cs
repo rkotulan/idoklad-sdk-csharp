@@ -9,7 +9,7 @@ namespace IdokladSdk.Clients
     /// </summary>
     public class AgendaClient : BaseClient
     {
-        internal const string ResourceUrl = "/Agendas";
+        public const string ResourceUrl = "/Agendas";
 
         public AgendaClient(ApiContext apiContext) : base(apiContext)
         {
