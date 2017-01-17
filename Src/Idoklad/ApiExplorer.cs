@@ -118,20 +118,6 @@ namespace IdokladSdk
         public VatRateClient VatRates => _vatRateClient ?? (_vatRateClient = new VatRateClient(_apiContext));
 
         /// <summary>
-        /// Method for work with Vat rates.
-        /// API 2.0
-        /// </summary>
-        public VatRateClient VatRates2
-        {
-            get
-            {
-                EnsureVersion();
-
-                return _vatRateClient ?? (_vatRateClient = new VatRateClient(_apiContext));
-            }
-        }
-
-        /// <summary>
         /// Ensure current newest version
         /// </summary>
         private void EnsureVersion()
