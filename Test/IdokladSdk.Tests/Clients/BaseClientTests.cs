@@ -75,7 +75,7 @@ namespace IdokladSdk.Tests.Clients
             var request = client.ResquestTest("/resource", Method.GET);
 
             Assert.That(request.Method, Is.EqualTo(Method.GET));
-            Assert.True(request.Parameters.Any(x => x.Type == ParameterType.HttpHeader && x.Name == ApiHeaders.Token));
+            Assert.True(request.Parameters.Any(x => x.Type == ParameterType.HttpHeader && x.Name == ApiHeaders.SecureToken));
             Assert.True(request.Parameters.Any(x => x.Type == ParameterType.HttpHeader && x.Name == ApiHeaders.App && x.Value == "My app"));
             Assert.True(request.Parameters.Any(x => x.Type == ParameterType.HttpHeader && x.Name == ApiHeaders.AppVersion && x.Value == "1.0.9"));
             Assert.True(request.Parameters.Any(x => x.Type == ParameterType.HttpHeader && x.Name == ApiHeaders.SdkVersion && x.Value == SdkSettings.Version));

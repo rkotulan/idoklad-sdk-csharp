@@ -8,6 +8,7 @@ namespace IdokladSdk.Clients
     /// <summary>
     /// Provides authentication methods
     /// </summary>
+    [Obsolete("Use new ClientCredentialFlowAuth with API 2.0+ support")]
     public class OAuthClient
     {
         private const string ResourceUrl = "/Agendas/GetSecureToken?username={0}&password={1}";

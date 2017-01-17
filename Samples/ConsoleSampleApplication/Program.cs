@@ -2,6 +2,7 @@
 using IdokladSdk;
 using IdokladSdk.ApiModels;
 using IdokladSdk.Clients;
+using IdokladSdk.Clients.Auth;
 
 namespace ConsoleSampleApplication
 {
@@ -9,13 +10,19 @@ namespace ConsoleSampleApplication
     {
         static void Main(string[] args)
         {
-            var authClient = new OAuthClient("your@email.tld", "password");
-            var apiContext = new ApiContext(authClient.GetSecureToken())
+            var url = AuthorizationCodeAuth.GetClientAuthenticationUrl("client_id", "http://localhost:3432");
+            var authCredentials = new AuthorizationCodeAuth("client_id", "client_secret", "code", "http://localhost:3432");
+
+            var clientCred = new ClientCredentialAuth("client_id", "client_secret");
+
+            var apiContext = new ApiContext(clientCred)
             {
-                AppName = "Application name",
+                AppName = "Application name"
             };
 
             var api = new ApiExplorer(apiContext);
+
+            var test = api.Contacts.Contacts();
 
             // get template for new contact
             var template = api.Contacts.Default();

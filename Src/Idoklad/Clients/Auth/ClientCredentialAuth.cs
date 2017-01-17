@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Security.Authentication;
 using IdokladSdk.Extensions;
+using Newtonsoft.Json;
 using RestSharp;
 
-namespace IdokladSdk.Clients
+namespace IdokladSdk.Clients.Auth
 {
     /// <summary>
-    /// Provides authentication methods
+    /// Provides authentication using the Client Credential Flow
     /// </summary>
-    public class OAuth2Client
+    public class ClientCredentialAuth : IAuth
     {
-        private const string ResourceUrl = "https://idokladauthserver.azurewebsites.net/identity/connect/token";
+        private const string ResourceUrl = "https://app.idoklad.cz/identity/server/connect/token";
 
         private readonly string _clientId;
         private readonly string _clientSecret;
 
-        public OAuth2Client(string clientId, string clientSecret)
+        public ClientCredentialAuth(string clientId, string clientSecret)
         {
             if (clientId.IsNullOrEmpty() || clientSecret.IsNullOrEmpty())
             {
-                throw new ArgumentException("client_id and cliend_secret must be provided");
+                throw new ArgumentException("client_id and client_secret must be provided");
             }
 
             _clientId = clientId;
@@ -29,7 +30,7 @@ namespace IdokladSdk.Clients
         /// <summary>
         /// Returns secure token needed for authorization
         /// </summary>
-        public string GetSecureToken()
+        public Tokenizer GetSecureToken()
         {
             var client = new RestClient(ResourceUrl);
             var authRequest = new RestRequest(Method.POST);
@@ -42,14 +43,17 @@ namespace IdokladSdk.Clients
 
             IRestResponse authReponse = client.Execute(authRequest);
 
-            string token = authReponse.Content;
+            string responseJson = authReponse.Content;
 
-            if (token.IsNullOrEmpty())
+            if (responseJson.IsNullOrEmpty())
             {
                 throw new AuthenticationException("Authentication failed. Access token has not been obtained.");
             }
 
-            return token.RemoveQuotationMarks();
+            Tokenizer tokenizer = JsonConvert.DeserializeObject<Tokenizer>(responseJson);
+            tokenizer.GrantType = GrantType.client_credentials;
+
+            return tokenizer;
         }
     }
 }

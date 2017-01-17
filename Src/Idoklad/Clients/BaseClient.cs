@@ -17,11 +17,13 @@ namespace IdokladSdk.Clients
 
         private readonly ApiContext _apiContext;
 
-        protected RestClient Client = new RestClient(IdokladBaseUrl);
+        protected RestClient Client;
 
         protected BaseClient(ApiContext apiContext)
         {
             _apiContext = apiContext;
+
+            Client = apiContext.ApiVersion < 2 ? new RestClient(IdokladBaseUrl) : new RestClient(IdokladBaseUrl + "/v2");
         }
 
         protected T Get<T>(string resource, IApiFilter filter = null)
@@ -30,7 +32,7 @@ namespace IdokladSdk.Clients
             request.ApplyFiltersAsQueryString(filter);
 
             IRestResponse response = Client.Execute(request);
-            
+
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 throw new ApplicationException("Response from API is " + response.StatusCode);
@@ -112,9 +114,18 @@ namespace IdokladSdk.Clients
         {
             var request = new RestRequest(resource, method);
 
-            request.AddHeader(ApiHeaders.Token, _apiContext.AccessToken);
+            if (_apiContext.Token.GrantType == GrantType.any)
+            {
+                request.AddHeader(ApiHeaders.SecureToken, _apiContext.Token.AccessToken);
+            }
+            else
+            {
+                request.AddHeader(ApiHeaders.Authorization, "Bearer " + _apiContext.Token.AccessToken);
+            }
+
             request.AddHeader(ApiHeaders.App, _apiContext.AppName);
             request.AddHeader(ApiHeaders.AppVersion, _apiContext.AppVersion);
+            request.AddHeader(ApiHeaders.ApiVersion, _apiContext.ApiVersion.ToString());
 
             request.AddHeader(ApiHeaders.SdkVersion, SdkSettings.Version);
 

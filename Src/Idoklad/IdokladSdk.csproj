@@ -114,6 +114,7 @@
     <Compile Include="Attributes\StringValueAttribute.cs" />
     <Compile Include="ApiContext.cs" />
     <Compile Include="ApiExplorer.cs" />
+    <Compile Include="Clients\Auth\AuthorizationCodeAuth.cs" />
     <Compile Include="Clients\BankClient.cs" />
     <Compile Include="Clients\ConstantSymbolClient.cs" />
     <Compile Include="Clients\ContactClient.cs" />
@@ -124,8 +125,9 @@
     <Compile Include="Clients\CurrencyClient.cs" />
     <Compile Include="Clients\DocumentAddressClient.cs" />
     <Compile Include="Clients\ExchangeRateClient.cs" />
+    <Compile Include="Clients\Auth\IAuth.cs" />
     <Compile Include="Clients\IssuedInvoiceClient.cs" />
-    <Compile Include="Clients\OAuth2Client.cs" />
+    <Compile Include="Clients\Auth\ClientCredentialAuth.cs" />
     <Compile Include="Clients\OAuthClient.cs" />
     <Compile Include="Clients\PaymentOptionClient.cs" />
     <Compile Include="Clients\PriceListClient.cs" />
@@ -136,6 +138,8 @@
     <Compile Include="Constants\ApiHeaders.cs" />
     <Compile Include="Extensions\RestRequestExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="GrantType.cs" />
+    <Compile Include="Tokenizer.cs" />
     <Compile Include="ValidationAttributes\ValidEnumValueAttribute.cs" />
     <Compile Include="Enums\CreditCheckStatusDokladEnum.cs" />
     <Compile Include="Enums\ExportedStateEnum.cs" />
@@ -153,7 +157,12 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\IdokladSdk.Resources\IdokladSdk.Resources.csproj">
+      <Project>{e6be7914-a0c8-4130-be3d-7981d91be1e2}</Project>
+      <Name>IdokladSdk.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -230,6 +230,15 @@
     <Compile Include="..\Idoklad\Clients\AgendaClient.cs">
       <Link>Clients\AgendaClient.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\Clients\Auth\AuthorizationCodeAuth.cs">
+      <Link>Clients\Auth\AuthorizationCodeAuth.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Auth\ClientCredentialAuth.cs">
+      <Link>Clients\Auth\ClientCredentialAuth.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Auth\IAuth.cs">
+      <Link>Clients\Auth\IAuth.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\Clients\BankClient.cs">
       <Link>Clients\BankClient.cs</Link>
     </Compile>
@@ -259,9 +268,6 @@
     </Compile>
     <Compile Include="..\Idoklad\Clients\IssuedInvoiceClient.cs">
       <Link>Clients\IssuedInvoiceClient.cs</Link>
-    </Compile>
-    <Compile Include="..\Idoklad\Clients\OAuth2Client.cs">
-      <Link>Clients\OAuth2Client.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\Clients\OAuthClient.cs">
       <Link>Clients\OAuthClient.cs</Link>
@@ -314,6 +320,12 @@
     <Compile Include="..\Idoklad\Extensions\StringExtensions.cs">
       <Link>Extensions\StringExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\GrantType.cs">
+      <Link>GrantType.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Tokenizer.cs">
+      <Link>Tokenizer.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ValidationAttributes\ValidEnumValueAttribute.cs">
       <Link>ValidationAttributes\ValidEnumValueAttribute.cs</Link>
     </Compile>
@@ -324,6 +336,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\IdokladSdk.Resources\IdokladSdk.Resources.csproj">
+      <Project>{e6be7914-a0c8-4130-be3d-7981d91be1e2}</Project>
+      <Name>IdokladSdk.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
