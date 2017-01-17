@@ -1,21 +1,22 @@
 # IDoklad SDK for Csharp
 
-**The SDK works directly with idoklad API service.**
+**The SDK works directly with IDoklad API service. Below is described communication with the newest version IDoklad API 2.0**
 
 ## Quick start
 
 Example of use in the project **samples/ConsoleSampleApplication**
 
-### Step 1: Authorize
-At the beginning you have to sign in. Authentication is recommended at the beginning of each set of calls. IDoklad currently provides **token with unexpected life length**.
-
-	var authClient = new OAuthClient("your@email.tld", "password");
-	var apiContext = new ApiContext(authClient.GetSecureToken())
+### Step 1: Authorize (client_credential flow)
+At the beginning you have to sign in. Authentication is recommended at the beginning of each set of calls. 
+You need to have your client_id and client_secret. You can find this credentials in IDoklad settings page.
+ 
+	var credentials = new ClientCredentialAuth("client_id", "client_secret");
+	var apiContext = new ApiContext(credentials)
 	{
 	    AppName = "Application name",
 	};
 
-Of course you can skip authentication an create `ApiContext` directly using your token. This approach is on your own risk.
+Authentication using the legacy API 1.0 token is still available but not recommended.
 
 ### Step 2: Play
 
