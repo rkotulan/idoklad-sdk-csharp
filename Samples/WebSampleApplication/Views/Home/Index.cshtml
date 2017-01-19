@@ -1,0 +1,48 @@
+﻿@using IdokladSdk.Clients.Auth
+
+@{
+    ViewBag.Title = "Authorization Code Flow";
+}
+
+@if (string.IsNullOrEmpty(Settings.ClientId))
+{
+    <div class="alert alert-info">
+        Zde můžete otestovat Authorization Code Flow. Nejprve je nutné získat vaše ClientId a ClientSecret.
+        Najdete ho v iDokladu na adrese <a href="https://app.idoklad.cz/developerportal/Oauth">https://app.idoklad.cz/developerportal/Oauth</a><br/><br/>
+    
+        Údaje poté zadejte do konstant ve třídě <code>Settings.cs</code> a projekt znovu zkompilujte.
+    </div>
+}
+
+<h2>Authorization Code Flow</h2>
+<p>Pro otestování authorization code flow lze odeslat tento formulář.</p>
+
+<form action="https://app.idoklad.cz/identity/server/connect/authorize" method="get">
+    <div class="form-group">
+        <label for="client_id">client_id</label>
+        <input name="client_id" type="text" value="@Settings.ClientId" size="40" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="scope">scope</label>
+        <input name="scope" type="text" value="idoklad_api" size="40" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="response_type">response_type</label>
+        <input name="response_type" type="text" value="code" size="40" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="redirect_uri">redirect_uri</label>
+        <input name="redirect_uri" type="text" value="@Settings.Url" size="40" class="form-control"/>
+    </div>
+    <input class="btn btn-success" type="submit" value="Přihlásit uživatele na iDokladu" />
+</form>
+<br/>
+
+<h3>Tlačítko</h3>
+<p>Místo formuláře je však standardem udělat tlačítko, které má ve své URL uvedeny všechny data výše. Pro vygenerování
+    URL použijte <code>AuthorizationCodeAuth.GetClientAuthenticationUrl(...)</code> z Idoklad SDK</p>
+<pre>@AuthorizationCodeAuth.GetClientAuthenticationUrl(Settings.ClientId, Settings.Url)
+</pre>
+<p><br/>
+    <a href="@AuthorizationCodeAuth.GetClientAuthenticationUrl(Settings.ClientId, Settings.Url)" class="btn btn-info">Přihlásit přes iDoklad</a>    
+</p>

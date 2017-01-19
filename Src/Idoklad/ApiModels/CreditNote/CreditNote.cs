@@ -26,6 +26,10 @@ namespace IdokladSdk.ApiModels.CreditNote
         /// </summary>
         public string NoteForCreditNote { get; set; }
 
+        public int NumericSequenceId { get; set; }
+
+        public string AttachmentFileName { get; set; }
+
         /// <summary>
         /// Invoice items
         /// </summary>

@@ -61,10 +61,5 @@ namespace IdokladSdk.Clients.Auth
 
             return tokenizer;
         }
-
-        public Tokenizer RefreshToken(Tokenizer tokenizer)
-        {
-            return null;
-        }
     }
 }

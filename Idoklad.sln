@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdokladSdk.Net46", "Src\Ido
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdokladSdk.Resources", "IdokladSdk.Resources\IdokladSdk.Resources.csproj", "{E6BE7914-A0C8-4130-BE3D-7981D91BE1E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSampleApplication", "Samples\WebSampleApplication\WebSampleApplication.csproj", "{B8A1CF69-6513-47E6-B554-1A2903463481}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{E6BE7914-A0C8-4130-BE3D-7981D91BE1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6BE7914-A0C8-4130-BE3D-7981D91BE1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6BE7914-A0C8-4130-BE3D-7981D91BE1E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8A1CF69-6513-47E6-B554-1A2903463481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8A1CF69-6513-47E6-B554-1A2903463481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8A1CF69-6513-47E6-B554-1A2903463481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8A1CF69-6513-47E6-B554-1A2903463481}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,5 +94,6 @@ Global
 		{EAFB58D7-3DBD-4374-9938-E15895F8AF62} = {D17E1D16-B4F7-4085-B561-544D9880193B}
 		{963D5AC5-D3CA-4829-A5EC-D6E8EB6D4F0A} = {D17E1D16-B4F7-4085-B561-544D9880193B}
 		{E6BE7914-A0C8-4130-BE3D-7981D91BE1E2} = {D17E1D16-B4F7-4085-B561-544D9880193B}
+		{B8A1CF69-6513-47E6-B554-1A2903463481} = {1C406542-ADFC-4A0E-B051-D393EBCF237B}
 	EndGlobalSection
 EndGlobal

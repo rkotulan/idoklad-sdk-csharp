@@ -14,7 +14,6 @@ namespace ConsoleSampleApplication
             var authCredentials = new AuthorizationCodeAuth("client_id", "client_secret", "code", "http://localhost:3432");
 
             var clientCred = new ClientCredentialAuth("client_id", "client_secret");
-
             var apiContext = new ApiContext(clientCred)
             {
                 AppName = "Application name"

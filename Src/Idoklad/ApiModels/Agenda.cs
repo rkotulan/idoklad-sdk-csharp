@@ -39,5 +39,25 @@ namespace IdokladSdk.ApiModels
         /// Výchozí způsob zaokrouhlení
         /// </summary>
         public RoundEnum RoundingDifference { get; set; }
+
+        /// <summary>
+        /// Příznak zvláštního režimu uplatnění DPH na základě tržeb
+        /// </summary>
+        public bool IsRegisteredForVatOnPay { get; set; }
+
+        /// <summary>
+        /// Typ plátce DPH
+        /// </summary>
+        //public VatRegistrationTypeEnum VatRegistrationType { get; set; }
+
+        /// <summary>
+        /// Počet desetinných míst jednotkové ceny
+        /// </summary>
+        public int CountOfDecimalsForPrice { get; set; }
+
+        /// <summary>
+        /// Počet desetinných míst pro množství
+        /// </summary>
+        public int CountOfDecimalsForAmount { get; set; }
     }
 }

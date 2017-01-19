@@ -115,6 +115,7 @@
     <Compile Include="ApiContext.cs" />
     <Compile Include="ApiExplorer.cs" />
     <Compile Include="Clients\Auth\AuthorizationCodeAuth.cs" />
+    <Compile Include="Clients\Auth\AuthorizationCodeRefreshAuth.cs" />
     <Compile Include="Clients\BankClient.cs" />
     <Compile Include="Clients\ConstantSymbolClient.cs" />
     <Compile Include="Clients\ContactClient.cs" />

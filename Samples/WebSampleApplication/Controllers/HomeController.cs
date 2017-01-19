@@ -1,0 +1,38 @@
+﻿using System.Web.Mvc;
+using IdokladSdk;
+using IdokladSdk.ApiFilters;
+using IdokladSdk.Clients;
+using IdokladSdk.Clients.Auth;
+
+namespace WebSampleApplication.Controllers
+{
+    public class HomeController : Controller
+    {
+        private static Tokenizer _token;
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Code(string code)
+        {
+            AuthorizationCodeAuth auth = new AuthorizationCodeAuth(Settings.ClientId, Settings.ClientSecret, code, Settings.Url);
+
+            ApiContext api = new ApiContext(auth);
+            
+            _token = api.Token;
+
+            return RedirectToAction("Data");
+        }
+
+        public ActionResult Data()
+        {
+            ApiContext api = new ApiContext(_token);
+
+            IssuedInvoiceClient invoiceClient = new IssuedInvoiceClient(api);
+
+            return View(invoiceClient.IssuedInvoices(new IssuedInvoiceFilter { PageSize = 10 }).Data);
+        }
+    }
+}

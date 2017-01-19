@@ -6,7 +6,7 @@ namespace IdokladSdk.ApiModels.ReadOnlyEntites
     public class Bank : ApiModel
     {
         /// <summary>
-        /// Bank code
+        /// ISO 9362 Bank code
         /// </summary>
         public string Code { get; set; }
 

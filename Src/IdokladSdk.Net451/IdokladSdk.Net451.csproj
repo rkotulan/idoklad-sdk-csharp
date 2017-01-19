@@ -235,6 +235,9 @@
     <Compile Include="..\Idoklad\Clients\Auth\AuthorizationCodeAuth.cs">
       <Link>Clients\Auth\AuthorizationCodeAuth.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\Clients\Auth\AuthorizationCodeRefreshAuth.cs">
+      <Link>Clients\Auth\AuthorizationCodeRefreshAuth.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\Clients\Auth\ClientCredentialAuth.cs">
       <Link>Clients\Auth\ClientCredentialAuth.cs</Link>
     </Compile>

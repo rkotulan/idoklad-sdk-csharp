@@ -1,0 +1,15 @@
+﻿@model List<IdokladSdk.ApiModels.IssuedInvoice.IssuedInvoice>
+@{
+    ViewBag.Title = "Authorization Code Flow";
+}
+
+<h2>Přehled faktur</h2>
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.DocumentNumber</td>
+            <td>@item.Description</td>
+        </tr>
+    }
+</table>

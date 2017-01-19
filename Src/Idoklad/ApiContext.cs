@@ -6,7 +6,6 @@ namespace IdokladSdk
 {
     public class ApiContext
     {
-        private readonly IAuth _authenticationFlow;
         private Tokenizer _token;
 
         /// <summary>
@@ -63,6 +62,18 @@ namespace IdokladSdk
             };
         }
 
+        public ApiContext(Tokenizer token)
+        {
+            if (token == null)
+            {
+                throw new ArgumentNullException("Token object can not be null");
+            }
+
+            ApiVersion = 2;
+
+            _token = token;
+        }
+
         public ApiContext(IAuth authenticationFlow)
         {
             if (authenticationFlow == null)
@@ -73,7 +84,6 @@ namespace IdokladSdk
             ApiVersion = 2;
 
             _token = authenticationFlow.GetSecureToken();
-            _authenticationFlow = authenticationFlow;
         }
 
         /// <summary>
@@ -81,9 +91,8 @@ namespace IdokladSdk
         /// </summary>
         private void RefreshToken()
         {
-            AuthorizationCodeAuth authFlow = _authenticationFlow as AuthorizationCodeAuth;
-
-            _token = authFlow?.RefreshToken(_token);
+            AuthorizationCodeRefreshAuth refreshTokenAuth = new AuthorizationCodeRefreshAuth(_token);
+            _token = refreshTokenAuth.RefreshToken();
         }
     }
 }

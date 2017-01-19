@@ -5,7 +5,7 @@ namespace IdokladSdk.ApiModels.ReadOnlyEntites
     public class Currency : ApiModel
     {
         /// <summary>
-        /// Kód měny
+        /// ISO 4217 Kód měny
         /// </summary>
         public string Code { get; set; }
 
