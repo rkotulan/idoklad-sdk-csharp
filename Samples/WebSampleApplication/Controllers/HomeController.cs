@@ -30,6 +30,11 @@ namespace WebSampleApplication.Controllers
         {
             ApiContext api = new ApiContext(_token);
 
+            if (_token.Issued < api.Token.Issued)
+            {
+                _token = api.Token;
+            }
+
             IssuedInvoiceClient invoiceClient = new IssuedInvoiceClient(api);
 
             return View(invoiceClient.IssuedInvoices(new IssuedInvoiceFilter { PageSize = 10 }).Data);

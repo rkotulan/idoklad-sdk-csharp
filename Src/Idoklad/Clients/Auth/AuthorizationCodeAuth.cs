@@ -58,6 +58,9 @@ namespace IdokladSdk.Clients.Auth
 
             Tokenizer tokenizer = JsonConvert.DeserializeObject<Tokenizer>(responseJson);
             tokenizer.GrantType = GrantType.authorization_code;
+            tokenizer.ClientId = _clientId;
+            tokenizer.ClientSecret = _clientSecret;
+            tokenizer.RedirectUri = _redirectUri;
 
             return tokenizer;
         }

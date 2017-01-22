@@ -11,6 +11,9 @@ namespace IdokladSdk
         }
 
         public GrantType GrantType { get; internal set; }
+        public string ClientId { get; internal set; }
+        public string ClientSecret { get; internal set; }
+        public string RedirectUri { get; internal set; }
 
         [JsonProperty("access_token")]
         public string AccessToken { get; internal set; }
@@ -23,6 +26,7 @@ namespace IdokladSdk
 
         public DateTime Issued { get; }
 
+
         public bool IsValid(DateTime date)
         {
             return date < Issued.AddSeconds(Expires);
@@ -30,7 +34,7 @@ namespace IdokladSdk
 
         public bool ShouldBeRefreshedNow(int limitInSeconds)
         {
-            return GrantType == GrantType.authorization_code && !IsValid(DateTime.Now.AddSeconds(-1  * limitInSeconds));
+            return GrantType == GrantType.authorization_code && !IsValid(DateTime.Now.AddSeconds(limitInSeconds));
         }
     }
 }

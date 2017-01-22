@@ -92,6 +92,7 @@ namespace IdokladSdk
         private void RefreshToken()
         {
             AuthorizationCodeRefreshAuth refreshTokenAuth = new AuthorizationCodeRefreshAuth(_token);
+
             _token = refreshTokenAuth.RefreshToken();
         }
     }
