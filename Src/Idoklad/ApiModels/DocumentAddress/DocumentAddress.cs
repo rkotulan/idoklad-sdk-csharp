@@ -22,11 +22,9 @@ namespace IdokladSdk.ApiModels
         [StringLength(100)]
         public string Country { get; set; }
 
-        [ReadOnly(true)]
         public int? CountryId { get; set; }
 
         [DataType(DataType.DateTime)]
-        [ReadOnly(true)]
         public DateTime DateLastChange { get; set; }
 
         [StringLength(50)]

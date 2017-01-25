@@ -58,7 +58,8 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Datum poslední změny
         /// </summary>
-        [ReadOnly(true)]
         public DateTime? DateLastChange { get; set; }
+
+        public bool? HasStockMovement { get; set; }
     }
 }

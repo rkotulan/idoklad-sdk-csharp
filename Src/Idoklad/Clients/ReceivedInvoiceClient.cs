@@ -2,7 +2,6 @@ using System;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.ApiModels.BaseModels;
-using IdokladSdk.ApiModels.ReceivedInvoice;
 using IdokladSdk.Enums;
 
 namespace IdokladSdk.Clients

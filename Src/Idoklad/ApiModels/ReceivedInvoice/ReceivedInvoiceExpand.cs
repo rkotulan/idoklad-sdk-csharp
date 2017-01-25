@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
-namespace IdokladSdk.ApiModels.ReceivedInvoice
+namespace IdokladSdk.ApiModels
 {
     [KnownType(typeof (ReceivedInvoiceExpand))]
     public class ReceivedInvoiceExpand : ReceivedInvoice

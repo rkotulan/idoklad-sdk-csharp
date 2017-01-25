@@ -13,13 +13,11 @@ namespace IdokladSdk.ApiModels.BaseModels
         /// <summary>
         /// Resource identifier
         /// </summary>
-        [ReadOnly(true)]
         public virtual int Id { get; set; }
 
         /// <summary>
         /// List of resource links
         /// </summary>
-        [ReadOnly(true)]
         public IDictionary<string, string> Links { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
 using IdokladSdk.ValidationAttributes;
 
-namespace IdokladSdk.ApiModels.ReceivedInvoice
+namespace IdokladSdk.ApiModels
 {
     /// <summary>
     /// Received invoice item for invoice creation

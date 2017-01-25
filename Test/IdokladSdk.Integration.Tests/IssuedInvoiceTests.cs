@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
-using IdokladSdk.ApiModels.IssuedInvoice;
 using IdokladSdk.Enums;
 using NUnit.Framework;
 

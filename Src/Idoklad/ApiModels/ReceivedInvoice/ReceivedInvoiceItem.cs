@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using IdokladSdk.Enums;
 
-namespace IdokladSdk.ApiModels.ReceivedInvoice
+namespace IdokladSdk.ApiModels
 {
     /// <summary>
     /// Received invoice item.

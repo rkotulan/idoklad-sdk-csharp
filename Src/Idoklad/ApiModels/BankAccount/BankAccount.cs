@@ -26,7 +26,6 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Indikace výchozího bankovního účtu
         /// </summary>
-        [ReadOnly(true)]
         public bool IsDefault { get; set; }
     }
 }

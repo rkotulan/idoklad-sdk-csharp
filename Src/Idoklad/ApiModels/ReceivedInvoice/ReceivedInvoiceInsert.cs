@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace IdokladSdk.ApiModels.ReceivedInvoice
+namespace IdokladSdk.ApiModels
 {
     public class ReceivedInvoiceCreate
     {
@@ -67,7 +67,6 @@ namespace IdokladSdk.ApiModels.ReceivedInvoice
         /// <summary>
         /// Číslo faktury
         /// </summary>
-        [ReadOnly(true)]
         public string DocumentNumber { get; set; }
 
         /// <summary>

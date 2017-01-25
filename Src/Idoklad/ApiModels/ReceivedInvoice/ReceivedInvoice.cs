@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
 
-namespace IdokladSdk.ApiModels.ReceivedInvoice
+namespace IdokladSdk.ApiModels
 {
     public class ReceivedInvoice : ApiModel
     {

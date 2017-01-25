@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
 
-namespace IdokladSdk.ApiModels.IssuedInvoice
+namespace IdokladSdk.ApiModels
 {
     public class IssuedInvoiceBase : ApiModel
     {
@@ -325,5 +325,15 @@ namespace IdokladSdk.ApiModels.IssuedInvoice
         /// Snížena sazba daně 2
         /// </summary>
         public decimal VatRateReduced2 { get; set; }
+
+        /// <summary>
+        /// Attribute for application of VAT based on payments
+        /// </summary>
+        public VatOnPayStatusEnum VatOnPayStatus { get; set; }
+
+        /// <summary>
+        /// Date of VAT application 
+        /// </summary>
+        public DateTime DateOfVatApplication { get; set; }
     }
 }

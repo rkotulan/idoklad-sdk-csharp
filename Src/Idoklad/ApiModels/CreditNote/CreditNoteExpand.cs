@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
-namespace IdokladSdk.ApiModels.CreditNote
+namespace IdokladSdk.ApiModels
 {
     [KnownType(typeof (CreditNoteExpand))]
     public class CreditNoteExpand : CreditNote

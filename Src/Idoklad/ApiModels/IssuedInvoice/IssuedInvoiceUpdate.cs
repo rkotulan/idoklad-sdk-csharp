@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace IdokladSdk.ApiModels.IssuedInvoice
+namespace IdokladSdk.ApiModels
 {
     public class IssuedInvoiceUpdate
     {

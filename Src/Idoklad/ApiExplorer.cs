@@ -22,6 +22,17 @@ namespace IdokladSdk
         private SystemClient _systemClient;
         private VatRateClient _vatRateClient;
 
+        private CashRegisterClient _cashRegisterClient;
+        private CashVoucherClient _cashVoucherClient;
+        private IssuedDocumentPaymentClient _issuedDocumentPaymentClient;
+        private NumericSequenceClient _numericSequenceClient;
+        private ProformaInvoiceClient _proformaInvoiceClient;
+        private ReceivedDocumentPaymentClient _receivedDocumentPaymentClient;
+        private RegisteredSaleClient _registeredSaleClient;
+        private SalesOfficeClient _salesOfficeClient;
+        private SalesPosEquipmentClient _salesPosEquipmentClient;
+        private SalesReceiptClient _salesReceiptClient;
+
         public ApiExplorer(ApiContext apiContext)
         {
             _apiContext = apiContext;
@@ -59,7 +70,7 @@ namespace IdokladSdk
 
         /// <summary>
         /// Methods for price list.
-        /// /// API 1.0
+        /// API 1.0
         /// </summary>
         public PriceListClient PriceList => _priceListClient ?? (_priceListClient = new PriceListClient(_apiContext));
 
@@ -116,6 +127,56 @@ namespace IdokladSdk
         /// API 1.0
         /// </summary>
         public VatRateClient VatRates => _vatRateClient ?? (_vatRateClient = new VatRateClient(_apiContext));
+
+        /// <summary>
+        /// API 2.0
+        /// </summary>
+        public CashRegisterClient CashRegisterClient => _cashRegisterClient ?? (_cashRegisterClient = new CashRegisterClient(_apiContext));
+
+        /// <summary>
+        /// API 2.0
+        /// </summary>
+        public CashVoucherClient CashVoucherClient => _cashVoucherClient ?? (_cashVoucherClient = new CashVoucherClient(_apiContext));
+
+        /// <summary>
+        /// API 2.0
+        /// </summary>
+        public IssuedDocumentPaymentClient IssuedDocumentPaymentClient => _issuedDocumentPaymentClient ?? (_issuedDocumentPaymentClient = new IssuedDocumentPaymentClient(_apiContext));
+
+        /// <summary>
+        /// API 2.0
+        /// </summary>
+        public NumericSequenceClient NumericSequenceClient => _numericSequenceClient ?? (_numericSequenceClient = new NumericSequenceClient(_apiContext));
+
+        /// <summary>
+        /// API 2.0
+        /// </summary>
+        public ProformaInvoiceClient ProformaInvoiceClient => _proformaInvoiceClient ?? (_proformaInvoiceClient = new ProformaInvoiceClient(_apiContext));
+
+        /// <summary>
+        /// API 2.0
+        /// </summary>
+        public ReceivedDocumentPaymentClient ReceivedDocumentPaymentClient => _receivedDocumentPaymentClient ?? (_receivedDocumentPaymentClient = new ReceivedDocumentPaymentClient(_apiContext));
+
+        /// <summary>
+        /// API 2.0
+        /// </summary>
+        public RegisteredSaleClient RegisteredSaleClient => _registeredSaleClient ?? (_registeredSaleClient = new RegisteredSaleClient(_apiContext));
+
+        /// <summary>
+        /// API 2.0
+        /// </summary>
+        public SalesOfficeClient SalesOfficeClient => _salesOfficeClient ?? (_salesOfficeClient = new SalesOfficeClient(_apiContext));
+
+        /// <summary>
+        /// API 2.0
+        /// </summary>
+        public SalesPosEquipmentClient SalesPosEquipmentClient => _salesPosEquipmentClient ?? (_salesPosEquipmentClient = new SalesPosEquipmentClient(_apiContext));
+
+        /// <summary>
+        /// API 2.0
+        /// </summary>
+        public SalesReceiptClient SalesReceiptClient => _salesReceiptClient ?? (_salesReceiptClient = new SalesReceiptClient(_apiContext));
 
         /// <summary>
         /// Ensure current newest version

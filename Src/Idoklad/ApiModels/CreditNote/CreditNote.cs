@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using IdokladSdk.ApiModels.IssuedInvoice;
 
-namespace IdokladSdk.ApiModels.CreditNote
+namespace IdokladSdk.ApiModels
 {
     public class CreditNote : IssuedInvoiceBase
     {
@@ -26,8 +25,14 @@ namespace IdokladSdk.ApiModels.CreditNote
         /// </summary>
         public string NoteForCreditNote { get; set; }
 
+        /// <summary>
+        /// Numeric sequence ID
+        /// </summary>
         public int NumericSequenceId { get; set; }
 
+        /// <summary>
+        /// Name of the attached file. If no attachment is included, this will be empty.
+        /// </summary>
         public string AttachmentFileName { get; set; }
 
         /// <summary>

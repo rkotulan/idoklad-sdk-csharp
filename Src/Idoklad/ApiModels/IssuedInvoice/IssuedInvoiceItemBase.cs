@@ -10,7 +10,6 @@ namespace IdokladSdk.ApiModels
         [StringLength(20)]
         public string Code { get; set; }
 
-        [ReadOnly(true)]
         public DateTime DateLastChange { get; set; }
 
         /// <summary>

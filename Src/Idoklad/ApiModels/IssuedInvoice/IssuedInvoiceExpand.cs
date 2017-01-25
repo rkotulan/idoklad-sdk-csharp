@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
-namespace IdokladSdk.ApiModels.IssuedInvoice
+namespace IdokladSdk.ApiModels
 {
     /// <summary>
     /// Resource that represent issued invoice with exteded information about contact addresses, currency and constant

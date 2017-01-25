@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace IdokladSdk.ApiModels.CreditNote
+namespace IdokladSdk.ApiModels
 {
     /// <summary>
     /// Credit note item

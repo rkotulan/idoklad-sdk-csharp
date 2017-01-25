@@ -12,23 +12,18 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Identification of the contact for Money software
         /// </summary>
-        [ReadOnly(true)]
         public Guid AddressIdg { get; set; }
 
-        [ReadOnly(true)]
         public CreditCheckStatusDokladEnum CreditCheck { get; set; }
 
         [DataType(DataType.DateTime)]
-        [ReadOnly(true)]
         public DateTime DateLastChange { get; set; }
 
         /// <summary>
         /// Výchozí bankovní účet
         /// </summary>
-        [ReadOnly(true)]
         public new BankAccount DefaultBankAccount { get; set; }
 
-        [ReadOnly(true)]
         public override int Id { get; set; }
     }
 }
