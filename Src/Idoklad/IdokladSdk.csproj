@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiFilters\CashRegisterFilter.cs" />
+    <Compile Include="ApiFilters\CashVoucherFilter.cs" />
     <Compile Include="ApiFilters\ChangeFilter.cs" />
     <Compile Include="ApiFilters\ContactFilter.cs" />
     <Compile Include="ApiFilters\CreditNoteFilter.cs" />
@@ -62,9 +64,17 @@
     <Compile Include="ApiFilters\IApiFilter.cs" />
     <Compile Include="ApiFilters\IPaging.cs" />
     <Compile Include="ApiFilters\IssuedInvoiceFilter.cs" />
+    <Compile Include="ApiFilters\NumericSequenceFilter.cs" />
     <Compile Include="ApiFilters\Paging.cs" />
+    <Compile Include="ApiFilters\PaymentFilter.cs" />
     <Compile Include="ApiFilters\PriceListFilter.cs" />
+    <Compile Include="ApiFilters\ProformaInvoiceFilter.cs" />
+    <Compile Include="ApiFilters\ReceivedDocumentPaymentFilter.cs" />
     <Compile Include="ApiFilters\ReceivedInvoiceFilter.cs" />
+    <Compile Include="ApiFilters\RegisteredSaleFilter.cs" />
+    <Compile Include="ApiFilters\SalesOfficeFilter.cs" />
+    <Compile Include="ApiFilters\SalesPosEquipmentFilter.cs" />
+    <Compile Include="ApiFilters\SalesReceiptFilter.cs" />
     <Compile Include="ApiModels\Agenda.cs" />
     <Compile Include="ApiModels\AgendaSummary.cs" />
     <Compile Include="ApiModels\BankAccount\BankAccount.cs" />
@@ -76,8 +86,10 @@
     <Compile Include="ApiModels\CashRegister\CashRegister.cs" />
     <Compile Include="ApiModels\CashRegister\CashRegisterExpand.cs" />
     <Compile Include="ApiModels\CashVoucher\CashVoucher.cs" />
+    <Compile Include="ApiModels\CashVoucher\CashVoucherCreate.cs" />
     <Compile Include="ApiModels\CashVoucher\CashVoucherExpand.cs" />
     <Compile Include="ApiModels\CashVoucher\CashVoucherItem.cs" />
+    <Compile Include="ApiModels\CashVoucher\CashVoucherItemCreate.cs" />
     <Compile Include="ApiModels\CodeBooksChanges.cs" />
     <Compile Include="ApiModels\Contact\Contact.cs" />
     <Compile Include="ApiModels\Contact\ContactExpand.cs" />
@@ -99,7 +111,10 @@
     <Compile Include="ApiModels\NumericSequence\NumericSequence.cs" />
     <Compile Include="ApiModels\Payment\IssuedDocumentPayment.cs" />
     <Compile Include="ApiModels\Payment\Payment.cs" />
+    <Compile Include="ApiModels\Payment\PaymentCreate.cs" />
     <Compile Include="ApiModels\Payment\ReceivedDocumentPayment.cs" />
+    <Compile Include="ApiModels\Payment\ReceivedDocumentPaymentCreate.cs" />
+    <Compile Include="ApiModels\Payment\ReceivedDocumentPaymentExpand.cs" />
     <Compile Include="ApiModels\PriceList\PriceList.cs" />
     <Compile Include="ApiModels\PriceList\PriceListExpand.cs" />
     <Compile Include="ApiModels\ProformaInvoice\ProformaInvoice.cs" />
@@ -117,17 +132,22 @@
     <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceItem.cs" />
     <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceItemInsert.cs" />
     <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceItemUpdate.cs" />
+    <Compile Include="ApiModels\RegisteredSale\ElectronicRecordsOfSales.cs" />
     <Compile Include="ApiModels\RegisteredSale\RegisteredSale.cs" />
+    <Compile Include="ApiModels\RegisteredSale\RegisteredSaleCreate.cs" />
     <Compile Include="ApiModels\RegisteredSale\RegisteredSaleExpand.cs" />
-    <Compile Include="ApiModels\RegisteredSale\RegisteredSalesInformation.cs" />
+    <Compile Include="ApiModels\RegisteredSale\RegisteredSaleInformation.cs" />
     <Compile Include="ApiModels\SalesOffice\SalesOffice.cs" />
     <Compile Include="ApiModels\SalesPosEquipment\SalesPosEquipment.cs" />
     <Compile Include="ApiModels\SalesPosEquipment\SalesPosEquipmentExpand.cs" />
     <Compile Include="ApiModels\SalesPosEquipment\SalesPosEquipmentInfo.cs" />
     <Compile Include="ApiModels\SalesReceipt\SalesReceipt.cs" />
+    <Compile Include="ApiModels\SalesReceipt\SalesReceiptCreate.cs" />
     <Compile Include="ApiModels\SalesReceipt\SalesReceiptExpand.cs" />
     <Compile Include="ApiModels\SalesReceipt\SalesReceiptItem.cs" />
+    <Compile Include="ApiModels\SalesReceipt\SalesReceiptItemCreate.cs" />
     <Compile Include="ApiModels\SalesReceipt\SalesReceiptPayment.cs" />
+    <Compile Include="ApiModels\SalesReceipt\SalesReceiptPaymentCreate.cs" />
     <Compile Include="ApiModels\SummaryTopPartner.cs" />
     <Compile Include="ApiValidator.cs" />
     <Compile Include="Attributes\MailMacroValueAttribute.cs" />
@@ -173,8 +193,10 @@
     <Compile Include="Enums\EetResponsibilityEnum.cs" />
     <Compile Include="Enums\EetStatusEnum.cs" />
     <Compile Include="Enums\ImportedStateEnum.cs" />
+    <Compile Include="Enums\InvoiceTypeEnum.cs" />
     <Compile Include="Enums\MovementTypeEnum.cs" />
     <Compile Include="Enums\SalesPosEquipmentTypeEnum.cs" />
+    <Compile Include="Enums\SalesTypeEnum.cs" />
     <Compile Include="Enums\VatOnPayStatusEnum.cs" />
     <Compile Include="Extensions\RestRequestExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />

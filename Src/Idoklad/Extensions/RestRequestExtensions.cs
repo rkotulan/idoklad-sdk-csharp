@@ -19,7 +19,7 @@ namespace IdokladSdk.Extensions
             {
                 return;
             }
-
+            
             PropertyInfo[] properties = apiFilter.GetType().GetProperties();
 
             foreach (var propertyInfo in properties.Where(x=> x.GetValue(apiFilter) != null))

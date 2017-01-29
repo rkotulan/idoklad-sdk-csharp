@@ -56,6 +56,12 @@
     <Compile Include="..\Idoklad\ApiExplorer.cs">
       <Link>ApiExplorer.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\CashRegisterFilter.cs">
+      <Link>ApiFilters\CashRegisterFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\CashVoucherFilter.cs">
+      <Link>ApiFilters\CashVoucherFilter.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiFilters\ChangeFilter.cs">
       <Link>ApiFilters\ChangeFilter.cs</Link>
     </Compile>
@@ -77,14 +83,38 @@
     <Compile Include="..\Idoklad\ApiFilters\IssuedInvoiceFilter.cs">
       <Link>ApiFilters\IssuedInvoiceFilter.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\NumericSequenceFilter.cs">
+      <Link>ApiFilters\NumericSequenceFilter.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiFilters\Paging.cs">
       <Link>ApiFilters\Paging.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\PaymentFilter.cs">
+      <Link>ApiFilters\PaymentFilter.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ApiFilters\PriceListFilter.cs">
       <Link>ApiFilters\PriceListFilter.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\ProformaInvoiceFilter.cs">
+      <Link>ApiFilters\ProformaInvoiceFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\ReceivedDocumentPaymentFilter.cs">
+      <Link>ApiFilters\ReceivedDocumentPaymentFilter.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiFilters\ReceivedInvoiceFilter.cs">
       <Link>ApiFilters\ReceivedInvoiceFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\RegisteredSaleFilter.cs">
+      <Link>ApiFilters\RegisteredSaleFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\SalesOfficeFilter.cs">
+      <Link>ApiFilters\SalesOfficeFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\SalesPosEquipmentFilter.cs">
+      <Link>ApiFilters\SalesPosEquipmentFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\SalesReceiptFilter.cs">
+      <Link>ApiFilters\SalesReceiptFilter.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ApiModels\Agenda.cs">
       <Link>ApiModels\Agenda.cs</Link>
@@ -119,11 +149,17 @@
     <Compile Include="..\Idoklad\ApiModels\CashVoucher\CashVoucher.cs">
       <Link>ApiModels\CashVoucher\CashVoucher.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiModels\CashVoucher\CashVoucherCreate.cs">
+      <Link>ApiModels\CashVoucher\CashVoucherCreate.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiModels\CashVoucher\CashVoucherExpand.cs">
       <Link>ApiModels\CashVoucher\CashVoucherExpand.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ApiModels\CashVoucher\CashVoucherItem.cs">
       <Link>ApiModels\CashVoucher\CashVoucherItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiModels\CashVoucher\CashVoucherItemCreate.cs">
+      <Link>ApiModels\CashVoucher\CashVoucherItemCreate.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ApiModels\CodeBooksChanges.cs">
       <Link>ApiModels\CodeBooksChanges.cs</Link>
@@ -188,8 +224,17 @@
     <Compile Include="..\Idoklad\ApiModels\Payment\Payment.cs">
       <Link>ApiModels\Payment\Payment.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiModels\Payment\PaymentCreate.cs">
+      <Link>ApiModels\Payment\PaymentCreate.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiModels\Payment\ReceivedDocumentPayment.cs">
       <Link>ApiModels\Payment\ReceivedDocumentPayment.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiModels\Payment\ReceivedDocumentPaymentCreate.cs">
+      <Link>ApiModels\Payment\ReceivedDocumentPaymentCreate.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiModels\Payment\ReceivedDocumentPaymentExpand.cs">
+      <Link>ApiModels\Payment\ReceivedDocumentPaymentExpand.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ApiModels\PriceList\PriceList.cs">
       <Link>ApiModels\PriceList\PriceList.cs</Link>
@@ -242,14 +287,20 @@
     <Compile Include="..\Idoklad\ApiModels\ReceivedInvoice\ReceivedInvoiceUpdate.cs">
       <Link>ApiModels\ReceivedInvoice\ReceivedInvoiceUpdate.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiModels\RegisteredSale\ElectronicRecordsOfSales.cs">
+      <Link>ApiModels\RegisteredSale\ElectronicRecordsOfSales.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiModels\RegisteredSale\RegisteredSale.cs">
       <Link>ApiModels\RegisteredSale\RegisteredSale.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiModels\RegisteredSale\RegisteredSaleCreate.cs">
+      <Link>ApiModels\RegisteredSale\RegisteredSaleCreate.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ApiModels\RegisteredSale\RegisteredSaleExpand.cs">
       <Link>ApiModels\RegisteredSale\RegisteredSaleExpand.cs</Link>
     </Compile>
-    <Compile Include="..\Idoklad\ApiModels\RegisteredSale\RegisteredSalesInformation.cs">
-      <Link>ApiModels\RegisteredSale\RegisteredSalesInformation.cs</Link>
+    <Compile Include="..\Idoklad\ApiModels\RegisteredSale\RegisteredSaleInformation.cs">
+      <Link>ApiModels\RegisteredSale\RegisteredSaleInformation.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ApiModels\SalesOffice\SalesOffice.cs">
       <Link>ApiModels\SalesOffice\SalesOffice.cs</Link>
@@ -266,14 +317,23 @@
     <Compile Include="..\Idoklad\ApiModels\SalesReceipt\SalesReceipt.cs">
       <Link>ApiModels\SalesReceipt\SalesReceipt.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiModels\SalesReceipt\SalesReceiptCreate.cs">
+      <Link>ApiModels\SalesReceipt\SalesReceiptCreate.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiModels\SalesReceipt\SalesReceiptExpand.cs">
       <Link>ApiModels\SalesReceipt\SalesReceiptExpand.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ApiModels\SalesReceipt\SalesReceiptItem.cs">
       <Link>ApiModels\SalesReceipt\SalesReceiptItem.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiModels\SalesReceipt\SalesReceiptItemCreate.cs">
+      <Link>ApiModels\SalesReceipt\SalesReceiptItemCreate.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiModels\SalesReceipt\SalesReceiptPayment.cs">
       <Link>ApiModels\SalesReceipt\SalesReceiptPayment.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiModels\SalesReceipt\SalesReceiptPaymentCreate.cs">
+      <Link>ApiModels\SalesReceipt\SalesReceiptPaymentCreate.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ApiModels\SummaryTopPartner.cs">
       <Link>ApiModels\SummaryTopPartner.cs</Link>
@@ -410,6 +470,9 @@
     <Compile Include="..\Idoklad\Enums\ImportedStateEnum.cs">
       <Link>Enums\ImportedStateEnum.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\Enums\InvoiceTypeEnum.cs">
+      <Link>Enums\InvoiceTypeEnum.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\Enums\IssuedInvoiceItemTypeEnum.cs">
       <Link>Enums\IssuedInvoiceItemTypeEnum.cs</Link>
     </Compile>
@@ -427,6 +490,9 @@
     </Compile>
     <Compile Include="..\Idoklad\Enums\SalesPosEquipmentTypeEnum.cs">
       <Link>Enums\SalesPosEquipmentTypeEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Enums\SalesTypeEnum.cs">
+      <Link>Enums\SalesTypeEnum.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\Enums\VatOnPayStatusEnum.cs">
       <Link>Enums\VatOnPayStatusEnum.cs</Link>

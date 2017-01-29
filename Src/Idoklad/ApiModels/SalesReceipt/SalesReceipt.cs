@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
-using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
-    public class SalesReceipt
+    public class SalesReceipt : ApiModel
     {
         /// <summary> 
         /// ID

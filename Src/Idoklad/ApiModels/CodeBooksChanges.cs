@@ -1,9 +1,11 @@
-﻿namespace IdokladSdk.ApiModels
+﻿using IdokladSdk.ApiModels.BaseModels;
+
+namespace IdokladSdk.ApiModels
 {
     /// <summary>
     /// Indication of changes of code books.
     /// </summary>
-    public class CodeBooksChanges
+    public class CodeBooksChanges : ApiModel
     {
         public bool Bank { get; set; }
 

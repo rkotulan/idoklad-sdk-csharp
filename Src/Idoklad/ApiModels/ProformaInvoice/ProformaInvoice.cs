@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiModels
 {
-    public class ProformaInvoice
+    public class ProformaInvoice : ApiModel
     {
         /// <summary>
         /// Name of the attached file. If no attachment is included, this will be empty.

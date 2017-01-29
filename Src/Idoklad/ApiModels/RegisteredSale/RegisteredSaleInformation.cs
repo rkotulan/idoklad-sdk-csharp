@@ -2,7 +2,7 @@
 
 namespace IdokladSdk.ApiModels
 {
-    public class RegisteredSalesInformation
+    public class RegisteredSaleInformation
     {
         /// <summary>
         /// Base tax basic rate

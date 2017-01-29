@@ -1,11 +1,13 @@
-﻿using IdokladSdk.Enums;
+﻿using System.ComponentModel.DataAnnotations;
+using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiModels
 {
-    public class CashVoucherItem
+    public class CashVoucherItemCreate
     {
         public decimal Amount { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         public decimal Price { get; set; }
@@ -19,5 +21,6 @@ namespace IdokladSdk.ApiModels
         public decimal VatRate { get; set; }
 
         public VatRateTypeEnum VatRateType { get; set; }
+
     }
 }

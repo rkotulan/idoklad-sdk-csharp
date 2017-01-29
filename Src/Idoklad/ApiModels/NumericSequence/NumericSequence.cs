@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiModels
 {
-    public class NumericSequence
+    public class NumericSequence : ApiModel
     {
         /// <summary>
         /// Number of last invoice. The next invoice will be saved with the number (LastInvoiceNumber + 1)

@@ -1,8 +1,9 @@
-﻿using IdokladSdk.Enums;
+﻿using IdokladSdk.ApiModels.BaseModels;
+using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiModels
 {
-    public class SalesPosEquipment
+    public class SalesPosEquipment : ApiModel
     {
         /// <summary>
         /// Cash register id.

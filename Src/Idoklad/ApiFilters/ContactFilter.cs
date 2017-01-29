@@ -7,8 +7,10 @@ namespace IdokladSdk.ApiFilters
     /// </summary>
     public class ContactFilter : Paging, IApiFilter
     {
+        public int? Id { get; set; }
         public DateTime? DateLastChange { get; set; }
-        public string Query { get; set; }
-        public FilterType? FilterType { get; set; }
+        public string IdentificationNumber { get; set; }
+        public string CompanyName { get; set; }
+        public string Email { get; set; }
     }
 }

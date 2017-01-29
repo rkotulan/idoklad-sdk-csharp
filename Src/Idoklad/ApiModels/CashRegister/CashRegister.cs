@@ -1,8 +1,9 @@
 ﻿using System;
+using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.ApiModels
 {
-    public class CashRegister
+    public class CashRegister : ApiModel
     {
         /// <summary>
         /// Currency Id

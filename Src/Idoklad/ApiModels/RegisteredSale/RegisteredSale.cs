@@ -1,9 +1,10 @@
 ﻿using System;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiModels
 {
-    public class RegisteredSale
+    public class RegisteredSale : ApiModel
     {
         /// <summary>
         /// Base tax basic rate

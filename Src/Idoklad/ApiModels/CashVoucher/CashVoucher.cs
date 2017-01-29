@@ -1,12 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
 using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
-    public class CashVoucher
+    public class CashVoucher : ApiModel
     {
 
         /// <summary>

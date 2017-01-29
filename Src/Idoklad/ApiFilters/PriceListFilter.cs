@@ -7,9 +7,9 @@ namespace IdokladSdk.ApiFilters
     /// </summary>
     public class PriceListFilter : Paging, IApiFilter
     {
+        public int? Id { get; set; }
         public int? CurrencyId { get; set; }
+        public string Name { get; set; }
         public DateTime? DateLastChange { get; set; }
-        public FilterType? Filter { get; set; }
-        public string Query { get; set; }
     }
 }

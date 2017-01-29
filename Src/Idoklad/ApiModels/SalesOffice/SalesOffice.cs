@@ -1,6 +1,8 @@
-﻿namespace IdokladSdk.ApiModels
+﻿using IdokladSdk.ApiModels.BaseModels;
+
+namespace IdokladSdk.ApiModels
 {
-    public class SalesOffice
+    public class SalesOffice : ApiModel
     {
         public int Designation { get; set; }
 

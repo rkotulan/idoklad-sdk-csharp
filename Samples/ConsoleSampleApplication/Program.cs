@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using IdokladSdk;
+using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.Clients;
 using IdokladSdk.Clients.Auth;
@@ -21,7 +22,7 @@ namespace ConsoleSampleApplication
 
             var api = new ApiExplorer(apiContext);
 
-            var test = api.Contacts.Contacts();
+            var test = api.Contacts.Contacts(new ContactFilter());
 
             // get template for new contact
             var template = api.Contacts.Default();
