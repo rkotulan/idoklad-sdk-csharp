@@ -58,6 +58,9 @@
     <Compile Include="..\Idoklad\ApiExplorer.cs">
       <Link>ApiExplorer.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\ApiFilter.cs">
+      <Link>ApiFilters\ApiFilter.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiFilters\CashRegisterFilter.cs">
       <Link>ApiFilters\CashRegisterFilter.cs</Link>
     </Compile>
@@ -73,6 +76,9 @@
     <Compile Include="..\Idoklad\ApiFilters\CreditNoteFilter.cs">
       <Link>ApiFilters\CreditNoteFilter.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\FilterKind.cs">
+      <Link>ApiFilters\FilterKind.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiFilters\FilterType.cs">
       <Link>ApiFilters\FilterType.cs</Link>
     </Compile>
@@ -87,6 +93,9 @@
     </Compile>
     <Compile Include="..\Idoklad\ApiFilters\NumericSequenceFilter.cs">
       <Link>ApiFilters\NumericSequenceFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiFilters\OrderDirection.cs">
+      <Link>ApiFilters\OrderDirection.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ApiFilters\Paging.cs">
       <Link>ApiFilters\Paging.cs</Link>
@@ -163,6 +172,12 @@
     <Compile Include="..\Idoklad\ApiModels\CashVoucher\CashVoucherItemCreate.cs">
       <Link>ApiModels\CashVoucher\CashVoucherItemCreate.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiModels\CashVoucher\CashVoucherItemUpdate.cs">
+      <Link>ApiModels\CashVoucher\CashVoucherItemUpdate.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiModels\CashVoucher\CashVoucherUpdate.cs">
+      <Link>ApiModels\CashVoucher\CashVoucherUpdate.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiModels\CodeBooksChanges.cs">
       <Link>ApiModels\CodeBooksChanges.cs</Link>
     </Compile>
@@ -223,6 +238,12 @@
     <Compile Include="..\Idoklad\ApiModels\Payment\IssuedDocumentPayment.cs">
       <Link>ApiModels\Payment\IssuedDocumentPayment.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiModels\Payment\IssuedDocumentPaymentCreate.cs">
+      <Link>ApiModels\Payment\IssuedDocumentPaymentCreate.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiModels\Payment\IssuedDocumentPaymentExpand.cs">
+      <Link>ApiModels\Payment\IssuedDocumentPaymentExpand.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiModels\Payment\Payment.cs">
       <Link>ApiModels\Payment\Payment.cs</Link>
     </Compile>
@@ -244,8 +265,17 @@
     <Compile Include="..\Idoklad\ApiModels\PriceList\PriceListExpand.cs">
       <Link>ApiModels\PriceList\PriceListExpand.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiModels\PriceList\PriceListUpdate.cs">
+      <Link>ApiModels\PriceList\PriceListUpdate.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiModels\ProformaInvoice\ProformaInvoice.cs">
       <Link>ApiModels\ProformaInvoice\ProformaInvoice.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiModels\ProformaInvoice\ProformaInvoiceCreate.cs">
+      <Link>ApiModels\ProformaInvoice\ProformaInvoiceCreate.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiModels\ProformaInvoice\ProformaInvoiceExpand.cs">
+      <Link>ApiModels\ProformaInvoice\ProformaInvoiceExpand.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ApiModels\ReadOnlyEntites\Bank.cs">
       <Link>ApiModels\ReadOnlyEntites\Bank.cs</Link>
@@ -280,8 +310,8 @@
     <Compile Include="..\Idoklad\ApiModels\ReceivedInvoice\ReceivedInvoiceItem.cs">
       <Link>ApiModels\ReceivedInvoice\ReceivedInvoiceItem.cs</Link>
     </Compile>
-    <Compile Include="..\Idoklad\ApiModels\ReceivedInvoice\ReceivedInvoiceItemInsert.cs">
-      <Link>ApiModels\ReceivedInvoice\ReceivedInvoiceItemInsert.cs</Link>
+    <Compile Include="..\Idoklad\ApiModels\ReceivedInvoice\ReceivedInvoiceItemCreate.cs">
+      <Link>ApiModels\ReceivedInvoice\ReceivedInvoiceItemCreate.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ApiModels\ReceivedInvoice\ReceivedInvoiceItemUpdate.cs">
       <Link>ApiModels\ReceivedInvoice\ReceivedInvoiceItemUpdate.cs</Link>
@@ -513,6 +543,15 @@
     </Compile>
     <Compile Include="..\Idoklad\Tokenizer.cs">
       <Link>Tokenizer.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ValidationAttributes\CollectionRangeAttribute.cs">
+      <Link>ValidationAttributes\CollectionRangeAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ValidationAttributes\DecimalGreaterThanZero.cs">
+      <Link>ValidationAttributes\DecimalGreaterThanZero.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ValidationAttributes\MinCollectionLengthAttribute.cs">
+      <Link>ValidationAttributes\MinCollectionLengthAttribute.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\ValidationAttributes\ValidEnumValueAttribute.cs">
       <Link>ValidationAttributes\ValidEnumValueAttribute.cs</Link>

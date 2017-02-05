@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
+using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
@@ -122,6 +123,7 @@ namespace IdokladSdk.ApiModels
         /// Export to another accounting software indication. (It is recommended to use only one external accounting software
         /// beside iDoklad.)
         /// </summary>
+        [ValidEnumValue]
         public ExportedStateEnum Exported { get; set; }
 
         /// <summary>
@@ -178,6 +180,7 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Status of the payment
         /// </summary>
+        [ValidEnumValue]
         public PaymentStatusEnum PaymentStatus { get; set; }
 
         /// <summary>
@@ -329,6 +332,7 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Attribute for application of VAT based on payments
         /// </summary>
+        [ValidEnumValue]
         public VatOnPayStatusEnum VatOnPayStatus { get; set; }
 
         /// <summary>

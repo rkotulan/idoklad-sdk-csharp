@@ -13,7 +13,6 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Množství položky
         /// </summary>
-        [Range(0.0, double.MaxValue)]
         public decimal Amount { get; set; }
 
         /// <summary>

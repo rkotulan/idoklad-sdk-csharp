@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using IdokladSdk.Enums;
+using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
@@ -9,6 +11,7 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Date of issue
         /// </summary>
+        [DataType(DataType.DateTime)]
         public DateTime DateOfIssue { get; set; }
 
         /// <summary>
@@ -22,6 +25,8 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Number assigned by external application.
         /// </summary>
+        [Required(AllowEmptyStrings = true)]
+        [StringLength(20)]
         public string ExternalDocumentNumber { get; set; }
 
         /// <summary>
@@ -42,9 +47,13 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// List of items. Must be non-empty.
         /// </summary>
+        [MinCollectionLength(1)]
         public ICollection<SalesReceiptItemCreate> SalesReceiptItems { get; set; }
 
-        /// <summary>List of payments.</summary>
+        /// <summary>
+        /// List of payments.
+        /// </summary>
+        [CollectionRange(1, 2)]
         public ICollection<SalesReceiptPaymentCreate> SalesReceiptPayments { get; set; }
 
         /// <summary>
@@ -55,6 +64,7 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Export to another accounting software indication. (It is recommended to use only one external accounting software beside iDoklad.)
         /// </summary>
+        [ValidEnumValue]
         public ExportedStateEnum Exported { get; set; }
     }
 }

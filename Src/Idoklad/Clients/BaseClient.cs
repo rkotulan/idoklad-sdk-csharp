@@ -29,7 +29,7 @@ namespace IdokladSdk.Clients
         protected T Get<T>(string resource, IApiFilter filter = null)
         {
             RestRequest request = CreateRequest(resource, Method.GET);
-            request.ApplyFiltersAsQueryString(filter);
+            request.ApplyFiltersAsQueryString(filter, _apiContext.ApiVersion);
 
             IRestResponse response = Client.Execute(request);
 

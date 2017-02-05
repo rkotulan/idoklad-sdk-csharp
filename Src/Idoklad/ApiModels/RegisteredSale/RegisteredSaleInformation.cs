@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace IdokladSdk.ApiModels
 {
@@ -27,41 +28,54 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Taxpayers security code
         /// </summary>
+        [Required]
+        [RegularExpression(@"^([0-9a-fA-F]{8}-){4}[0-9a-fA-F]{8}$")]
         public string Bkp { get; set; }
 
         /// <summary>
         /// Date of answer
         /// </summary>
+        [DataType(DataType.DateTime)]
         public DateTime DateOfAnswer { get; set; }
 
         /// <summary>
         /// Date of sale
         /// </summary>
+        [DataType(DataType.DateTime)]
         public DateTime DateOfSale { get; set; }
 
         /// <summary>
         /// Date of send
         /// </summary>
+        [DataType(DataType.DateTime)]
         public DateTime DateOfSend { get; set; }
 
         /// <summary>
         /// Fiscal identification code
         /// </summary>
+        [Required]
+        [RegularExpression(@"^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fAF]{3}-[0-9a-fA-F]{12}-[0-9a-fA-F]{2}$")]
         public string Fik { get; set; }
 
         /// <summary>
         /// Taxpayers signature code
         /// </summary>
+        [Required(AllowEmptyStrings = true)]
+        [StringLength(344, MinimumLength = 344)]
         public string Pkp { get; set; }
 
         /// <summary>
         /// Receipt number
         /// </summary>
+        [Required]
+        [RegularExpression(@"^[0-9a-zA-Z\.,:;/#\-_ ]{1,20}$")]
         public string ReceiptNumber { get; set; }
 
         /// <summary>
         /// Sales office designation
         /// </summary>
+        [Required]
+        [RegularExpression(@"^[1-9][0-9]{0,5}$")]
         public int SalesOfficeDesignation { get; set; }
 
         /// <summary>
@@ -122,11 +136,14 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Universally unique identifier
         /// </summary>
+        [Required]
         public Guid Uuid { get; set; }
 
         /// <summary>
         /// VAT of taxpayer
         /// </summary>
+        [Required]
+        [RegularExpression(@"^CZ[0-9]{8,10}$")]
         public string VatIdentificationNumber { get; set; }
     }
 }

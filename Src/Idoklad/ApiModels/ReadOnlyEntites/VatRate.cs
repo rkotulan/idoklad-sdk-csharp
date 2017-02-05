@@ -1,6 +1,7 @@
 ﻿using System;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
+using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels.ReadOnlyEntites
 {
@@ -44,6 +45,7 @@ namespace IdokladSdk.ApiModels.ReadOnlyEntites
         /// <summary>
         /// Typ sazby
         /// </summary>
+        [ValidEnumValue]
         public VatRateTypeEnum RateType { get; set; }
     }
 }

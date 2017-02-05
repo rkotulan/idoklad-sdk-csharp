@@ -1,4 +1,6 @@
+using System.ComponentModel.DataAnnotations;
 using IdokladSdk.Enums;
+using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
@@ -12,6 +14,8 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Item name.
         /// </summary>
+        [Required(AllowEmptyStrings = false)]
+        [StringLength(200)]
         public string Name { get; set; }
 
         /// <summary>
@@ -27,16 +31,20 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Price type.
         /// </summary>
+        [ValidEnumValue]
         public PriceTypeEnum PriceType { get; set; }
 
         /// <summary>
         /// Unit of measure.
         /// </summary>
+        [Required(AllowEmptyStrings = true)]
+        [StringLength(20)]
         public string Unit { get; set; }
 
         /// <summary>
         /// Vat rate type.
         /// </summary>
+        [ValidEnumValue]
         public VatRateTypeEnum VatRateType { get; set; }
     }
 }

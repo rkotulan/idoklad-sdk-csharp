@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using IdokladSdk.Enums;
+using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
@@ -111,6 +112,7 @@ namespace IdokladSdk.ApiModels
         /// Položky faktury přijaté
         /// </summary>
         [Required]
+        [MinCollectionLength(1)]
         public IEnumerable<ReceivedInvoiceItemCreate> ReceivedInvoiceItems { get; set; }
 
         /// <summary>
@@ -130,5 +132,16 @@ namespace IdokladSdk.ApiModels
         /// </summary>
         [StringLength(10)]
         public string VariableSymbol { get; set; }
+
+        /// <summary>
+        /// Attribute for application of VAT based on payments
+        /// </summary>
+        [ValidEnumValue]
+        public VatOnPayStatusEnum VatOnPayStatus { get; set; }
+
+        /// <summary>
+        /// Date of VAT application 
+        /// </summary>
+        public DateTime DateOfVatApplication { get; set; }
     }
 }

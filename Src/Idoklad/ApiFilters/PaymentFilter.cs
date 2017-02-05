@@ -4,7 +4,7 @@ namespace IdokladSdk.ApiFilters
 {
 
 
-    public class PaymentFilter : Paging, IApiFilter
+    public class PaymentFilter : ApiFilter, IApiFilter
     {
         public int? Id { get; set; }
         public int? InvoiceId { get; set; }

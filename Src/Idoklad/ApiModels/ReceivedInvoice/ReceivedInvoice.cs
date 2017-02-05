@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
+using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
@@ -83,6 +84,7 @@ namespace IdokladSdk.ApiModels
         /// Export to another accounting software indication. (It is recommended to use only one external accounting software
         /// beside iDoklad.)
         /// </summary>
+        [ValidEnumValue]
         public ExportedStateEnum Exported { get; set; }
 
         /// <summary>
@@ -182,5 +184,21 @@ namespace IdokladSdk.ApiModels
         /// </summary>
         [StringLength(10)]
         public string VariableSymbol { get; set; }
+
+        /// <summary>
+        /// Attribute for application of VAT based on payments
+        /// </summary>
+        [ValidEnumValue]
+        public VatOnPayStatusEnum VatOnPayStatus { get; set; }
+
+        /// <summary>
+        /// Date of VAT application 
+        /// </summary>
+        public DateTime DateOfVatApplication { get; set; }
+
+        /// <summary>
+        /// Name of the attached file. If no attachment is included, this will be empty.
+        /// </summary>
+        public string AttachmentFileName { get; set; }
     }
 }

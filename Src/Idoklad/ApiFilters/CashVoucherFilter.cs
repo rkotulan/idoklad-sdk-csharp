@@ -6,7 +6,7 @@ namespace IdokladSdk.ApiFilters
     /// <summary>
     /// Custom filter for cash register
     /// </summary>
-    public class CashVoucherFilter : Paging, IApiFilter
+    public class CashVoucherFilter : ApiFilter, IApiFilter
     {
         public int? Id { get; set; }
         public int? CashRegisterId { get; set; }

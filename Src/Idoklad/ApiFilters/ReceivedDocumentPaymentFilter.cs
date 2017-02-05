@@ -2,7 +2,7 @@ using System;
 
 namespace IdokladSdk.ApiFilters
 {
-    public class ReceivedDocumentPaymentFilter : Paging, IApiFilter
+    public class ReceivedDocumentPaymentFilter : ApiFilter, IApiFilter
     {
         public int? Id { get; set; }
         public int? InvoiceId { get; set; }

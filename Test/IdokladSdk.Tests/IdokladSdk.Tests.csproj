@@ -59,8 +59,6 @@
     <Compile Include="Clients\BaseClientTests.cs" />
     <Compile Include="Clients\FakeClient.cs" />
     <Compile Include="Clients\OAuthClientTests.cs" />
-    <Compile Include="Extensions\FakeFilter.cs" />
-    <Compile Include="Extensions\RestRequestExtensionsTests.cs" />
     <Compile Include="Extensions\StringExtensionsTests.cs" />
     <Compile Include="FakeApiModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

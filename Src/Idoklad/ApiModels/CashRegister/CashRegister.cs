@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.ApiModels
 {
+    [KnownType(typeof(CashRegister))]
     public class CashRegister : ApiModel
     {
         /// <summary>

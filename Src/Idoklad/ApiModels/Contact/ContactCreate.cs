@@ -15,5 +15,10 @@ namespace IdokladSdk.ApiModels
         public override int CountryId { get; set; }
 
         public new BankAccountCreate DefaultBankAccount { get; set; }
+
+        /// <summary>
+        /// Attribute for application of VAT based on payments
+        /// </summary>
+        public bool IsRegisteredForVatOnPay { get; set; }
     }
 }

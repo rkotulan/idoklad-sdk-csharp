@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.Clients;
 using RestSharp;
@@ -13,30 +14,58 @@ namespace IdokladSdk.Extensions
         /// <summary>
         /// Converts any IApiFilter implementation to QueryParameters applied on RestRequest
         /// </summary>
-        public static void ApplyFiltersAsQueryString(this RestRequest request, IApiFilter apiFilter)
+        public static void ApplyFiltersAsQueryString(this RestRequest request, IApiFilter apiFilter, int apiVersion)
         {
             if (apiFilter == null)
             {
                 return;
             }
-            
-            PropertyInfo[] properties = apiFilter.GetType().GetProperties();
 
-            foreach (var propertyInfo in properties.Where(x=> x.GetValue(apiFilter) != null))
+            if (apiVersion < 2)
             {
-                if (propertyInfo.PropertyType == typeof (DateTime) || propertyInfo.PropertyType == typeof (DateTime?))
-                {
-                    request.AddQueryParameter(propertyInfo.Name, ((DateTime)propertyInfo.GetValue(apiFilter)).ToString(BaseClient.DateFormat));
-                    continue;
-                }
+                string[] ignoredPropertyNames = new[] {"FilterType", "SortOrders"};
+                PropertyInfo[] properties = apiFilter.GetType().GetProperties().Where(x => !ignoredPropertyNames.Contains(x.Name)).ToArray();
 
-                if (propertyInfo.PropertyType == typeof(FilterType))
+                foreach (var propertyInfo in properties.Where(x => x.GetValue(apiFilter) != null))
                 {
-                    request.AddQueryParameter(propertyInfo.Name, ExtractFilterTypeToString(propertyInfo.GetValue(apiFilter)));
-                    continue;
-                }
+                    if (propertyInfo.PropertyType == typeof(DateTime) || propertyInfo.PropertyType == typeof(DateTime?))
+                    {
+                        request.AddQueryParameter(propertyInfo.Name,
+                            ((DateTime) propertyInfo.GetValue(apiFilter)).ToString(BaseClient.DateFormat));
+                        continue;
+                    }
 
-                request.AddQueryParameter(propertyInfo.Name, propertyInfo.GetValue(apiFilter).ToString());
+                    if (propertyInfo.PropertyType == typeof(FilterType))
+                    {
+                        request.AddQueryParameter(propertyInfo.Name,
+                            ExtractFilterTypeToString(propertyInfo.GetValue(apiFilter)));
+                        continue;
+                    }
+
+                    request.AddQueryParameter(propertyInfo.Name, propertyInfo.GetValue(apiFilter).ToString());
+                }
+            }
+            else
+            {
+                var filter = (ApiFilter) apiFilter;
+                
+                // Filter Type
+                request.AddQueryParameter("filtertype", filter.FilterType.ToString().ToLowerInvariant());
+
+                // Paging
+                request.AddQueryParameter("page", filter.Page.ToString());
+                request.AddQueryParameter("pagesize", filter.PageSize.ToString());
+
+                // Sort
+                var sortString = string.Empty;
+                foreach (var filterSortOrder in filter.SortOrders)
+                {
+                    sortString = sortString + filterSortOrder.Key + "~" + filterSortOrder.Value.ToString().ToLowerInvariant();
+                    if (filterSortOrder.Key != filter.SortOrders.LastOrDefault().Key)
+                    {
+                        sortString = sortString + "|";
+                    }
+                }
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
+using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
@@ -112,6 +113,7 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Responsibility for handlig of electronic records of sales.
         /// </summary>
+        [ValidEnumValue]
         public EetResponsibilityEnum EetResponsibility { get; set; }
 
         /// <summary>
@@ -127,6 +129,7 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Export to another accounting software indication. (It is recommended to use only one external accounting software beside iDoklad.)
         /// </summary>
+        [ValidEnumValue]
         public ExportedStateEnum Exported { get; set; }
 
         /// <summary>
@@ -188,6 +191,7 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Stav zaplacení
         /// </summary>
+        [ValidEnumValue]
         public PaymentStatusEnum PaymentStatus { get; set; }
 
         public ICollection<IssuedInvoiceItem> ProformaInvoiceItems { get; set; }
@@ -321,6 +325,7 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Attribute for application of VAT based on payments
         /// </summary>
+        [ValidEnumValue]
         public VatOnPayStatusEnum VatOnPayStatus { get; set; }
 
         /// <summary>

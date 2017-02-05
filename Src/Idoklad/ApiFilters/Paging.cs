@@ -1,6 +1,6 @@
 ﻿namespace IdokladSdk.ApiFilters
 {
-    public class Paging : IPaging, IApiFilter
+    public class Paging : IApiFilter
     {
         public Paging()
         {
@@ -21,7 +21,6 @@
         }
 
         public int? Page { get; set; }
-
         public int? PageSize { get; set; }
     }
 }

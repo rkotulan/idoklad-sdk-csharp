@@ -1,6 +1,8 @@
+using IdokladSdk.ApiModels.BaseModels;
+
 namespace IdokladSdk.ApiModels
 {
-    public class SalesReceiptPayment
+    public class SalesReceiptPayment : ApiModel
     {
         /// <summary>
         /// Payment amount

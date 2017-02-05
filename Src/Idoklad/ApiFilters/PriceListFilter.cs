@@ -5,7 +5,7 @@ namespace IdokladSdk.ApiFilters
     /// <summary>
     /// Custom filter for price list items
     /// </summary>
-    public class PriceListFilter : Paging, IApiFilter
+    public class PriceListFilter : ApiFilter, IApiFilter
     {
         public int? Id { get; set; }
         public int? CurrencyId { get; set; }

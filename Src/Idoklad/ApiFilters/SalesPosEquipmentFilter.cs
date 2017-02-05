@@ -2,7 +2,7 @@ using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiFilters
 {
-    public class SalesPosEquipmentFilter : Paging, IApiFilter
+    public class SalesPosEquipmentFilter : ApiFilter, IApiFilter
     {
         public int? Id { get; set; }
         public SalesPosEquipmentTypeEnum SalesPosEquipmentType { get; set; }

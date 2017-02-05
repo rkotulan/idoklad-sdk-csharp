@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace IdokladSdk.ApiModels
 {
     public class SalesReceiptPaymentCreate
@@ -15,6 +17,8 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// Payment transaction code.
         /// </summary>
+        [Required(AllowEmptyStrings = true)]
+        [StringLength(20)]
         public string PaymentTransactionCode { get; set; }
     }
 }

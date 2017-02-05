@@ -1,5 +1,6 @@
 ﻿using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
+using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {

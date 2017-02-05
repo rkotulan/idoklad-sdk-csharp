@@ -1,6 +1,6 @@
 ﻿namespace IdokladSdk.ApiFilters
 {
-    public class SalesOfficeFilter : Paging, IApiFilter
+    public class SalesOfficeFilter : ApiFilter, IApiFilter
     {
         public int? Id { get; set; }
     }

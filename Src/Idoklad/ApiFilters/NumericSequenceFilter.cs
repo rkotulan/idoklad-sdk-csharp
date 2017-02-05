@@ -2,7 +2,7 @@
 
 namespace IdokladSdk.ApiFilters
 {
-    public class NumericSequenceFilter : Paging, IApiFilter
+    public class NumericSequenceFilter : ApiFilter, IApiFilter
     {
         public int? Id { get; set; }
         public bool? IsDefault { get; set; }

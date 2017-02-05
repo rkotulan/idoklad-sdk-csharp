@@ -6,7 +6,7 @@ namespace IdokladSdk.ApiFilters
     /// <summary>
     /// Custom filter for credit notes
     /// </summary>
-    public class CreditNoteFilter : Paging, IApiFilter
+    public class CreditNoteFilter : ApiFilter, IApiFilter
     {
         public int? ConstantSymbolId { get; set; }
         public int? CurrencyId { get; set; }

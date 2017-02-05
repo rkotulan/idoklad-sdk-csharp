@@ -3,7 +3,7 @@ using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiFilters
 {
-    public class SalesReceiptFilter : Paging, IApiFilter
+    public class SalesReceiptFilter : ApiFilter, IApiFilter
     {
         public int? Id { get; set; }
         public DateTime? DateOfIssue { get; set; }

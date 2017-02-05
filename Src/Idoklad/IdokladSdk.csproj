@@ -55,17 +55,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiFilters\Paging.cs" />
     <Compile Include="ApiFilters\CashRegisterFilter.cs" />
     <Compile Include="ApiFilters\CashVoucherFilter.cs" />
     <Compile Include="ApiFilters\ChangeFilter.cs" />
     <Compile Include="ApiFilters\ContactFilter.cs" />
     <Compile Include="ApiFilters\CreditNoteFilter.cs" />
+    <Compile Include="ApiFilters\FilterKind.cs" />
     <Compile Include="ApiFilters\FilterType.cs" />
     <Compile Include="ApiFilters\IApiFilter.cs" />
     <Compile Include="ApiFilters\IPaging.cs" />
     <Compile Include="ApiFilters\IssuedInvoiceFilter.cs" />
     <Compile Include="ApiFilters\NumericSequenceFilter.cs" />
-    <Compile Include="ApiFilters\Paging.cs" />
+    <Compile Include="ApiFilters\OrderDirection.cs" />
+    <Compile Include="ApiFilters\ApiFilter.cs" />
     <Compile Include="ApiFilters\PaymentFilter.cs" />
     <Compile Include="ApiFilters\PriceListFilter.cs" />
     <Compile Include="ApiFilters\ProformaInvoiceFilter.cs" />
@@ -86,6 +89,8 @@
     <Compile Include="ApiModels\CashRegister\CashRegister.cs" />
     <Compile Include="ApiModels\CashRegister\CashRegisterExpand.cs" />
     <Compile Include="ApiModels\CashVoucher\CashVoucher.cs" />
+    <Compile Include="ApiModels\CashVoucher\CashVoucherItemUpdate.cs" />
+    <Compile Include="ApiModels\CashVoucher\CashVoucherUpdate.cs" />
     <Compile Include="ApiModels\CashVoucher\CashVoucherCreate.cs" />
     <Compile Include="ApiModels\CashVoucher\CashVoucherExpand.cs" />
     <Compile Include="ApiModels\CashVoucher\CashVoucherItem.cs" />
@@ -110,6 +115,8 @@
     <Compile Include="ApiModels\IssuedInvoice\IssuedInvoiceBase.cs" />
     <Compile Include="ApiModels\NumericSequence\NumericSequence.cs" />
     <Compile Include="ApiModels\Payment\IssuedDocumentPayment.cs" />
+    <Compile Include="ApiModels\Payment\IssuedDocumentPaymentCreate.cs" />
+    <Compile Include="ApiModels\Payment\IssuedDocumentPaymentExpand.cs" />
     <Compile Include="ApiModels\Payment\Payment.cs" />
     <Compile Include="ApiModels\Payment\PaymentCreate.cs" />
     <Compile Include="ApiModels\Payment\ReceivedDocumentPayment.cs" />
@@ -117,7 +124,10 @@
     <Compile Include="ApiModels\Payment\ReceivedDocumentPaymentExpand.cs" />
     <Compile Include="ApiModels\PriceList\PriceList.cs" />
     <Compile Include="ApiModels\PriceList\PriceListExpand.cs" />
+    <Compile Include="ApiModels\PriceList\PriceListUpdate.cs" />
     <Compile Include="ApiModels\ProformaInvoice\ProformaInvoice.cs" />
+    <Compile Include="ApiModels\ProformaInvoice\ProformaInvoiceCreate.cs" />
+    <Compile Include="ApiModels\ProformaInvoice\ProformaInvoiceExpand.cs" />
     <Compile Include="ApiModels\ReadOnlyEntites\Bank.cs" />
     <Compile Include="ApiModels\ReadOnlyEntites\ConstantSymbol.cs" />
     <Compile Include="ApiModels\ReadOnlyEntites\Country.cs" />
@@ -130,7 +140,7 @@
     <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceInsert.cs" />
     <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceUpdate.cs" />
     <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceItem.cs" />
-    <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceItemInsert.cs" />
+    <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceItemCreate.cs" />
     <Compile Include="ApiModels\ReceivedInvoice\ReceivedInvoiceItemUpdate.cs" />
     <Compile Include="ApiModels\RegisteredSale\ElectronicRecordsOfSales.cs" />
     <Compile Include="ApiModels\RegisteredSale\RegisteredSale.cs" />
@@ -192,6 +202,7 @@
     <Compile Include="Enums\EetRegimeEnum.cs" />
     <Compile Include="Enums\EetResponsibilityEnum.cs" />
     <Compile Include="Enums\EetStatusEnum.cs" />
+    <Compile Include="Enums\ElectronicRecordsOfSalesStatusEnum.cs" />
     <Compile Include="Enums\ImportedStateEnum.cs" />
     <Compile Include="Enums\InvoiceTypeEnum.cs" />
     <Compile Include="Enums\MovementTypeEnum.cs" />
@@ -202,6 +213,9 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="GrantType.cs" />
     <Compile Include="Tokenizer.cs" />
+    <Compile Include="ValidationAttributes\CollectionRangeAttribute.cs" />
+    <Compile Include="ValidationAttributes\DecimalGreaterThanZero.cs" />
+    <Compile Include="ValidationAttributes\MinCollectionLengthAttribute.cs" />
     <Compile Include="ValidationAttributes\ValidEnumValueAttribute.cs" />
     <Compile Include="Enums\CreditCheckStatusDokladEnum.cs" />
     <Compile Include="Enums\ExportedStateEnum.cs" />

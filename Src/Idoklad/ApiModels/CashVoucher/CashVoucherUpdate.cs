@@ -1,11 +1,8 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using IdokladSdk.Enums;
-using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
-    public class CashVoucherCreate
+    public class CashVoucherUpdate
     {
         /// <summary> 
         /// Cash register id
@@ -15,13 +12,7 @@ namespace IdokladSdk.ApiModels
         /// <summary>
         /// The date of transaction 
         /// </summary>
-        [Required]
         public DateTime DateOfTransaction { get; set; }
-
-        /// <summary>
-        /// Electronic records of sales information.
-        /// </summary>
-        public ElectronicRecordsOfSales ElectronicRecordsOfSales { get; set; }
 
         /// <summary>
         /// Exchange rate
@@ -33,26 +24,10 @@ namespace IdokladSdk.ApiModels
         /// </summary>
         public decimal? ExchangeRateAmount { get; set; }
 
-        /// <summary>
-        /// Document Serial Number
-        /// </summary>
-        public int DocumentSerialNumber { get; set; }
-
-        /// <summary>
-        /// Export to another accounting software indication. (It is recommended to use only one external accounting software beside iDoklad.)
-        /// </summary>
-        [ValidEnumValue]
-        public ExportedStateEnum Exported { get; set; }
-
         /// <summary> 
-        /// Model of entity for inserting a new item.
+        /// Model of entity for updating a cash voucher item.
         /// </summary>
-        public CashVoucherItemCreate Item { get; set; }
-
-        /// <summary> 
-        /// The movement type (issue/entry)
-        /// </summary>
-        public MovementTypeEnum MovementType { get; set; }
+        public CashVoucherItemUpdate Item { get; set; }
 
         /// <summary>
         /// Id of your contact information at the time of saving.

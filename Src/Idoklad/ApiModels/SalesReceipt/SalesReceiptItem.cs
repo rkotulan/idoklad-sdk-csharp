@@ -1,8 +1,9 @@
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiModels
 {
-    public class SalesReceiptItem
+    public class SalesReceiptItem : ApiModel
     {
         /// <summary>
         /// Amount/number of items

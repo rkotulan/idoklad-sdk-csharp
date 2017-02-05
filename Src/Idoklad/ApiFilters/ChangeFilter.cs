@@ -2,7 +2,7 @@
 
 namespace IdokladSdk.ApiFilters
 {
-    public class ChangeFilter : Paging, IApiFilter
+    public class ChangeFilter : ApiFilter, IApiFilter
     {
         public DateTime LastCheck { get; set; }
 

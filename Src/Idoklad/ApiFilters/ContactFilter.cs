@@ -5,7 +5,7 @@ namespace IdokladSdk.ApiFilters
     /// <summary>
     /// Custom filter for contact
     /// </summary>
-    public class ContactFilter : Paging, IApiFilter
+    public class ContactFilter : ApiFilter, IApiFilter
     {
         public int? Id { get; set; }
         public DateTime? DateLastChange { get; set; }
