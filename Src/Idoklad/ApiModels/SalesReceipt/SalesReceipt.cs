@@ -5,10 +5,12 @@ using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiModels
 {
-    public class SalesReceipt : ApiModel
+    public class SalesReceipt : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary> 
-        /// ID
+        /// Currency ID
         /// </summary>
         public int CurrencyId { get; set; }
 

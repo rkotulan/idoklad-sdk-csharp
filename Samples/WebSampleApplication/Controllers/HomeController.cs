@@ -37,7 +37,7 @@ namespace WebSampleApplication.Controllers
 
             IssuedInvoiceClient invoiceClient = new IssuedInvoiceClient(api);
 
-            return View(invoiceClient.IssuedInvoices(new IssuedInvoiceFilter { PageSize = 10 }).Data);
+            return View(invoiceClient.IssuedInvoices().Data);
         }
     }
 }

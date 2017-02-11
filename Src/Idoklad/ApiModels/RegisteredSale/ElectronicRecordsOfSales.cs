@@ -4,7 +4,7 @@ namespace IdokladSdk.ApiModels
 {
     public class ElectronicRecordsOfSales
     {
-        //public ElectronicRecordsOfSalesStatusEnum? EetStatus { get; set; }
+        public ElectronicRecordsOfSalesStatusEnum? EetStatus { get; set; }
 
         public bool IsEet { get; set; }
 

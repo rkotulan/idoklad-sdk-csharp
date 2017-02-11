@@ -4,8 +4,10 @@ using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.ApiModels
 {
-    public class DocumentAddress : ApiModel
+    public class DocumentAddress 
     {
+        public int Id { get; set; }
+
         [StringLength(50)]
         public string AccountNumber { get; set; }
 

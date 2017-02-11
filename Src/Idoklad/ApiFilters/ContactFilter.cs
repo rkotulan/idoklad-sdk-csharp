@@ -5,12 +5,12 @@ namespace IdokladSdk.ApiFilters
     /// <summary>
     /// Custom filter for contact
     /// </summary>
-    public class ContactFilter : ApiFilter, IApiFilter
+    public class ContactFilter : FilterableObjectBase
     {
-        public int? Id { get; set; }
-        public DateTime? DateLastChange { get; set; }
-        public string IdentificationNumber { get; set; }
-        public string CompanyName { get; set; }
-        public string Email { get; set; }
+        public FilterItem Id { get; set; } = new FilterItem("Id");
+        public CompareFilterItem DateLastChange { get; set; } = new CompareFilterItem("DateLastChange");
+        public FilterItem IdentificationNumber { get; set; } = new FilterItem("IdentificationNumber");
+        public ContainFilterItem CompanyName { get; set; } = new ContainFilterItem("CompanyName");
+        public ContainFilterItem Email { get; set; } = new ContainFilterItem("Email");
     }
 }

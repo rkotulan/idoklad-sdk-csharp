@@ -6,7 +6,7 @@ using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
-    public class IssuedInvoiceBase : ApiModel
+    public class IssuedInvoiceBase : IApiModel
     {
         /// <summary>
         /// Tax base - basic rate

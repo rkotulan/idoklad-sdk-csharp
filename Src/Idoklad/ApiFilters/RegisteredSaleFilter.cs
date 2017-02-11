@@ -1,17 +1,17 @@
-﻿using System;
-using IdokladSdk.Enums;
-
-namespace IdokladSdk.ApiFilters
+﻿namespace IdokladSdk.ApiFilters
 {
-    public class RegisteredSaleFilter : ApiFilter, IApiFilter
+    /// <summary>
+    /// Custom filter for registered sale
+    /// </summary>
+    public class RegisteredSaleFilter : FilterableObjectBase
     {
-        public int? Id { get; set; }
-        public int? SalesReceiptId { get; set; }
-        public int? CashVoucherId { get; set; }
-        public int? IssuedInvoicePaymentId { get; set; }
-        public int? SalesPosEquipmentId { get; set; }
-        public DocumentTypeEnum? DocumentType { get; set; }
-        public string DocumentNumber { get; set; }
-        public DateTime? DateOfSale { get; set; }
+        public FilterItem Id { get; set; } = new FilterItem("Id");
+        public FilterItem SalesReceiptId { get; set; } = new FilterItem("SalesReceiptId");
+        public FilterItem CashVoucherId { get; set; } = new FilterItem("CashVoucherId");
+        public FilterItem IssuedInvoicePaymentId { get; set; } = new FilterItem("IssuedInvoicePaymentId");
+        public FilterItem SalesPosEquipmentId { get; set; } = new FilterItem("SalesPosEquipmentId");
+        public FilterItem DocumentType { get; set; } = new FilterItem("DocumentType");
+        public ContainFilterItem DocumentNumber { get; set; } = new ContainFilterItem("DocumentNumber");
+        public FilterItem DateOfSale { get; set; } = new FilterItem("DateOfSale");
     }
 }

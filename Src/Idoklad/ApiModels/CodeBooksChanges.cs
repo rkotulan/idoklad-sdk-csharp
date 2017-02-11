@@ -5,8 +5,10 @@ namespace IdokladSdk.ApiModels
     /// <summary>
     /// Indication of changes of code books.
     /// </summary>
-    public class CodeBooksChanges : ApiModel
+    public class CodeBooksChanges : IApiModel
     {
+        public int Id { get; set; }
+
         public bool Bank { get; set; }
 
         public bool ConstantSymbols { get; set; }

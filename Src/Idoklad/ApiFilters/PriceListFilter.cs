@@ -1,15 +1,13 @@
-﻿using System;
-
-namespace IdokladSdk.ApiFilters
+﻿namespace IdokladSdk.ApiFilters
 {
     /// <summary>
-    /// Custom filter for price list items
+    /// Custom filter for price list
     /// </summary>
-    public class PriceListFilter : ApiFilter, IApiFilter
+    public class PriceListFilter : FilterableObjectBase
     {
-        public int? Id { get; set; }
-        public int? CurrencyId { get; set; }
-        public string Name { get; set; }
-        public DateTime? DateLastChange { get; set; }
+        public FilterItem Id { get; set; } = new FilterItem("Id");
+        public FilterItem CurrencyId { get; set; } = new FilterItem("CurrencyId");
+        public ContainFilterItem Name { get; set; } = new ContainFilterItem("Name");
+        public CompareFilterItem DateLastChange { get; set; } = new CompareFilterItem("DateLastChange");
     }
 }

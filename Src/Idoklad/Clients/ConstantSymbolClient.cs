@@ -20,18 +20,18 @@ namespace IdokladSdk.Clients
         /// GET api/ConstantSymbols/GetChanges
         /// Method returns list of constant symbols, that were changed.
         /// </summary>
-        public RowsResultWrapper<ConstantSymbol> Changes(ChangeFilter filter)
+        public RowsResultWrapper<ConstantSymbol> Changes(DateTime lastCheck, ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl + "/GetChanges", filter);
+            return Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl + "/GetChanges"  + "?lastCheck=" + lastCheck.ToString(ApiContext.Configuration.DateFormat), filter);
         }
 
         /// <summary>
         /// GET api/ConstantSymbols
         /// Method returns list of constant symbols.
         /// </summary>
-        public RowsResultWrapper<ConstantSymbol> ConstantSymbols(Paging paging = null)
+        public RowsResultWrapper<ConstantSymbol> ConstantSymbols(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl, paging);
+            return Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl, filter);
         }
 
         /// <summary>

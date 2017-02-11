@@ -7,7 +7,7 @@ using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
-    public class ProformaInvoiceCreate : ApiModel
+    public class ProformaInvoiceCreate : IApiModel
     {
         /// <summary>
         /// Responsibility for handlig of electronic records of sales

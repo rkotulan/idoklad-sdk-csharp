@@ -1,14 +1,13 @@
-﻿using System;
-using IdokladSdk.Enums;
-
-namespace IdokladSdk.ApiFilters
+﻿namespace IdokladSdk.ApiFilters
 {
-    public class SalesReceiptFilter : ApiFilter, IApiFilter
+    /// <summary>
+    /// Custom filter for sales receipt
+    /// </summary>
+    public class SalesReceiptFilter : FilterableObjectBase
     {
-        public int? Id { get; set; }
-        public DateTime? DateOfIssue { get; set; }
-        public ExportedStateEnum? Exported { get; set; }
-        public int? SalesPosEquipmentId { get; set; }
-        public string DocumentNumber { get; set; }
+        public FilterItem Id { get; set; } = new FilterItem("Id");
+        public CompareFilterItem DateOfIssue { get; set; } = new CompareFilterItem("DateOfIssue");
+        public FilterItem Exported { get; set; } = new FilterItem("Exported");
+        public FilterItem SalesPosEquipmentId { get; set; } = new FilterItem("SalesPosEquipmentId");
     }
 }

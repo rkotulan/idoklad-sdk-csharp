@@ -1,6 +1,7 @@
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.ApiModels.BaseModels;
+using IdokladSdk.Enums;
 
 namespace IdokladSdk.Clients
 {
@@ -13,10 +14,19 @@ namespace IdokladSdk.Clients
         }
 
         /// <summary>
+        /// DELETE api/SalesReceipts/{id}
+        /// Deletes sales receipt by Id.
+        /// </summary>
+        public bool Delete(int salesReceiptId)
+        {
+            return Delete(ResourceUrl + "/" + salesReceiptId);
+        }
+
+        /// <summary>
         /// GET api/SalesReceipts
         /// Method returns list of sales recipes.
         /// </summary>
-        public RowsResultWrapper<SalesReceipt> SalesReceipts(Paging paging = null)
+        public RowsResultWrapper<SalesReceipt> SalesReceipts(PageFilter paging = null)
         {
             return Get<RowsResultWrapper<SalesReceipt>>(ResourceUrl, paging);
         }
@@ -34,7 +44,7 @@ namespace IdokladSdk.Clients
         /// GET api/SalesReceipts/Expand
         /// List of sales receipts with related entities.
         /// </summary>
-        public RowsResultWrapper<SalesReceiptExpand> SalesReceiptsExpand(SalesReceiptFilter filter = null)
+        public RowsResultWrapper<SalesReceiptExpand> SalesReceiptsExpand(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<SalesReceiptExpand>>(ResourceUrl + "/Expand", filter);
         }
@@ -73,6 +83,59 @@ namespace IdokladSdk.Clients
         public string SalesReceiptsPdfCompressed(int salesReceiptPdf)
         {
             return Get<string>(ResourceUrl + "/" + salesReceiptPdf + "/GetPdfCompressed");
+        }
+
+        /// <summary>
+        /// POST api/SalesReceipts
+        /// Create new sales receipt.
+        /// </summary>
+        public SalesReceipt Create(SalesReceiptCreate model)
+        {
+            return Post<SalesReceipt, SalesReceiptCreate>(ResourceUrl, model);
+        }
+
+        /// <summary>
+        /// POST api/SalesReceipts/Recount
+        /// Create new sales receipt.
+        /// </summary>
+        public SalesReceipt Recount(SalesReceiptCreate model)
+        {
+            return Post<SalesReceipt, SalesReceiptCreate>(ResourceUrl  + "/Recount", model);
+        }
+
+        /// <summary>
+        /// POST api/SalesReceipts/{id}/Recount
+        /// Create new sales receipt.
+        /// </summary>
+        public SalesReceipt Recount(int salesReceiptId, SalesReceiptCreate model)
+        {
+            return Post<SalesReceipt, SalesReceiptCreate>(ResourceUrl +"/" + salesReceiptId + "/Recount", model);
+        }
+
+        /// <summary>
+        /// PUT api/SalesReceipts/{id}
+        /// </summary>
+        public SalesReceipt Update(int salesReceiptId, SalesReceiptUpdate salesReceipt)
+        {
+            return Put<SalesReceipt, SalesReceiptUpdate>(ResourceUrl + "/" + salesReceiptId, salesReceipt);
+        }
+
+        /// <summary>
+        /// PUT api/SalesReceipts/{id}/Imported/{value}
+        /// Updates the Imported property of the sales receipt.
+        /// </summary>
+        public bool Update(int salesReceiptId, ImportedStateEnum importedState)
+        {
+            return Put<bool>(ResourceUrl + "/" + salesReceiptId + "/" + (int)importedState);
+        }
+
+        /// <summary>
+        /// PUT api/SalesReceipts/{id}/Exported/{value}
+        /// Updates the Exported property of the sales receipt.
+        /// </summary>
+        public bool Update(int salesReceiptId, ExportedStateEnum exportedState)
+        {
+            return Put<bool>(ResourceUrl + "/" + salesReceiptId + "/" + (int)exportedState);
         }
     }
 }

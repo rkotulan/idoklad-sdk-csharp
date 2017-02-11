@@ -5,8 +5,10 @@ using IdokladSdk.ApiModels.BaseModels;
 namespace IdokladSdk.ApiModels
 {
     [KnownType(typeof(CashRegister))]
-    public class CashRegister : ApiModel
+    public class CashRegister : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Currency Id
         /// </summary>

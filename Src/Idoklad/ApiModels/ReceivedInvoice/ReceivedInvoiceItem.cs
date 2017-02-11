@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiModels
@@ -8,8 +9,10 @@ namespace IdokladSdk.ApiModels
     /// Received invoice item.
     /// </summary>
     [KnownType(typeof (ReceivedInvoiceItem))]
-    public class ReceivedInvoiceItem : ReceivedInvoiceItemUpdate
+    public class ReceivedInvoiceItem : ReceivedInvoiceItemUpdate, IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Datum vytvoření
         /// </summary>

@@ -2,8 +2,10 @@
 
 namespace IdokladSdk.ApiModels
 {
-    public class SalesOffice : ApiModel
+    public class SalesOffice : IApiModel
     {
+        public int Id { get; set; }
+
         public int Designation { get; set; }
 
         public string Name { get; set; }

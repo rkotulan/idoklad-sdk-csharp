@@ -3,8 +3,10 @@ using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.ApiModels.ReadOnlyEntites
 {
-    public class PaymentOption : ApiModel
+    public class PaymentOption : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Kód způsobu úhrady
         /// </summary>

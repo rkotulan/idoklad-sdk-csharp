@@ -3,8 +3,10 @@ using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.ApiModels.ReadOnlyEntites
 {
-    public class ExchangeRate : ApiModel
+    public class ExchangeRate : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Množství cizí měny
         /// </summary>

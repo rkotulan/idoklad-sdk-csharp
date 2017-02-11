@@ -1,6 +1,7 @@
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.ApiModels.BaseModels;
+using IdokladSdk.Enums;
 
 namespace IdokladSdk.Clients
 {
@@ -16,9 +17,9 @@ namespace IdokladSdk.Clients
         /// GET api/ReceivedDocumentPayments
         /// Method returns list of received document payments.
         /// </summary>
-        public RowsResultWrapper<ReceivedDocumentPayment> ReceivedDocumentPayments(Paging paging = null)
+        public RowsResultWrapper<ReceivedDocumentPayment> ReceivedDocumentPayments(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<ReceivedDocumentPayment>>(ResourceUrl, paging);
+            return Get<RowsResultWrapper<ReceivedDocumentPayment>>(ResourceUrl, filter);
         }
 
         /// <summary>
@@ -34,7 +35,7 @@ namespace IdokladSdk.Clients
         /// GET api/ReceivedDocumentPayments/Expand
         /// List of received document payment with related entities.
         /// </summary>
-        public RowsResultWrapper<ReceivedDocumentPaymentExpand> ReceivedDocumentPaymentsExpand(ReceivedDocumentPaymentFilter filter = null)
+        public RowsResultWrapper<ReceivedDocumentPaymentExpand> ReceivedDocumentPaymentsExpand(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<ReceivedDocumentPaymentExpand>>(ResourceUrl + "/Expand", filter);
         }
@@ -55,6 +56,33 @@ namespace IdokladSdk.Clients
         public ReceivedDocumentPaymentCreate Default(int documentId)
         {
             return Get<ReceivedDocumentPaymentCreate>(ResourceUrl + "/Default" + "/" + documentId);
+        }
+
+        /// <summary>
+        /// DELETE api/ReceivedDocumentPayments/{id}
+        /// Deletes payment by Id. If payment has cash voucher, it is deleted as well.
+        /// </summary>
+        public bool Delete(int paymentId)
+        {
+            return Delete(ResourceUrl + "/" + paymentId);
+        }
+
+        /// <summary>
+        /// POST api/ReceivedDocumentPayments
+        /// Create new payment. Payment should contains id of payed document.
+        /// </summary>
+        public ReceivedDocumentPayment Create(ReceivedDocumentPaymentCreate receivedDocumentPayment)
+        {
+            return Post<ReceivedDocumentPayment, ReceivedDocumentPaymentCreate>(ResourceUrl, receivedDocumentPayment);
+        }
+
+        /// <summary>
+        /// PUT api/ReceivedDocumentPayments/{id}/Exported/{exported}
+        /// Method updates Exported property of the payment.
+        /// </summary>
+        public bool Update(int paymentId, ExportedStateEnum exportedState)
+        {
+            return Put<bool>(ResourceUrl + "/" + paymentId  + "/" + "Exported" + "/" + (int)exportedState);
         }
     }
 }

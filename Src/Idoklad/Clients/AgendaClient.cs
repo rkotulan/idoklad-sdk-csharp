@@ -65,9 +65,9 @@ namespace IdokladSdk.Clients
         /// GET api/Agendas
         /// List of agendas.
         /// </summary>
-        public RowsResultWrapper<Agenda> Agendas(Paging paging = null)
+        public RowsResultWrapper<Agenda> Agendas(PageFilter filter = null)
         {
-            return Get<RowsResultWrapper<Agenda>>(ResourceUrl, paging);
+            return Get<RowsResultWrapper<Agenda>>(ResourceUrl, filter);
         }
 
         /// <summary>

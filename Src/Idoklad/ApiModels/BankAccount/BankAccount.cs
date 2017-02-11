@@ -1,30 +1,32 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Runtime.Serialization;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
 namespace IdokladSdk.ApiModels
 {
     [KnownType(typeof (BankAccount))]
-    public class BankAccount : BankAccountCreate
+    public class BankAccount : BankAccountCreate, IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
-        /// Informace o bance
+        /// Information about bank
         /// </summary>
         public Bank Bank { get; set; }
 
         /// <summary>
-        /// Informace o měně
+        /// Currency
         /// </summary>
         public Currency Currency { get; set; }
 
         /// <summary>
-        /// Datum poslední změny
+        /// Date of last change
         /// </summary>
         public DateTime DateLastChange { get; set; }
 
         /// <summary>
-        /// Indikace výchozího bankovního účtu
+        /// Indication for bank account (is default)
         /// </summary>
         public bool IsDefault { get; set; }
     }

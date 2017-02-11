@@ -1,7 +1,10 @@
 ﻿namespace IdokladSdk.ApiFilters
 {
-    public class SalesOfficeFilter : ApiFilter, IApiFilter
+    /// <summary>
+    /// Custom filter for sales office
+    /// </summary>
+    public class SalesOfficeFilter : FilterableObjectBase
     {
-        public int? Id { get; set; }
+        public FilterItem Id { get; set; } = new FilterItem("Id");
     }
 }

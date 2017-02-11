@@ -4,8 +4,10 @@ using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiModels
 {
-    public class RegisteredSale : ApiModel
+    public class RegisteredSale : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Base tax basic rate
         /// </summary>

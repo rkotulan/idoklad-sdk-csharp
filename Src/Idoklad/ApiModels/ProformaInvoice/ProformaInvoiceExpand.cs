@@ -5,22 +5,22 @@ namespace IdokladSdk.ApiModels
     public class ProformaInvoiceExpand : ProformaInvoice
     {
         /// <summary>
-        /// Detail konstantního symbolu
+        /// Constan symbol details
         /// </summary>
         public ConstantSymbol ConstantSymbol { get; set; }
 
         /// <summary>
-        /// Detail měny
+        /// Information about currency
         /// </summary>
         public Currency Currency { get; set; }
 
         /// <summary>
-        /// Kontaktní údaje o dodavateli
+        /// Contact info
         /// </summary>
         public DocumentAddress MyCompanyDocumentAddress { get; set; }
 
         /// <summary>
-        /// Detail způsobu úhrady
+        /// Details about payment options
         /// </summary>
         public PaymentOption PaymentOption { get; set; }
 
@@ -30,7 +30,7 @@ namespace IdokladSdk.ApiModels
         public ContactExpand Purchaser { get; set; }
 
         /// <summary>
-        /// Kontaktní údaje o odběrateli
+        /// Purchaser address
         /// </summary>
         public DocumentAddress PurchaserDocumentAddress { get; set; }
     }

@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
 using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
-    public class CashVoucherItem : ApiModel
+    public class CashVoucherItem 
     {
+        public int Id { get; set; }
         public decimal Amount { get; set; }
 
         [Required]

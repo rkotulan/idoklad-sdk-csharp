@@ -5,6 +5,8 @@ namespace IdokladSdk.ApiModels
 {
     public class CreditNote : IssuedInvoiceBase
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Id of the issued invoice
         /// </summary>

@@ -1,12 +1,13 @@
-﻿using IdokladSdk.Enums;
-
-namespace IdokladSdk.ApiFilters
+﻿namespace IdokladSdk.ApiFilters
 {
-    public class NumericSequenceFilter : ApiFilter, IApiFilter
+    /// <summary>
+    /// Custom filter for change
+    /// </summary>
+    public class NumericSequenceFilter : FilterableObjectBase
     {
-        public int? Id { get; set; }
-        public bool? IsDefault { get; set; }
-        public DocumentTypeEnum? DocumentType { get; set; }
+        public FilterItem Id { get; set; } = new FilterItem("Id");
+        public FilterItem IsDefault { get; set; } = new FilterItem("IsDefault");
+        public FilterItem DocumentType { get; set; } = new FilterItem("DocumentType");
 
     }
 }

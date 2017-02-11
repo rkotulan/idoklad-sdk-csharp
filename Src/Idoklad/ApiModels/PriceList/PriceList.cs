@@ -6,56 +6,58 @@ using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
-    public class PriceList : ApiModel
+    public class PriceList : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
-        /// Množství položky
+        /// Item amount
         /// </summary>
         public decimal? Amount { get; set; }
 
         /// <summary>
-        /// Kód položky ceníku
+        /// Code from price list
         /// </summary>
         [StringLength(20)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Id měny
+        /// Currency ID
         /// </summary>
         public int? CurrencyId { get; set; }
 
         /// <summary>
-        /// Název položky
+        /// Name of the item
         /// </summary>
         [StringLength(200)]
         [Required]
         public string Name { get; set; }
 
         /// <summary>
-        /// Cena za jednotku
+        /// Price for one piece
         /// </summary>
         public decimal? Price { get; set; }
 
         /// <summary>
-        /// Typ ceny položky
+        /// Type of price
         /// </summary>
         [ValidEnumValue]
         public PriceTypeEnum? PriceType { get; set; }
 
         /// <summary>
-        /// Měrná jednotka
+        /// Unit
         /// </summary>
         [StringLength(20)]
         public string Unit { get; set; }
 
         /// <summary>
-        /// Typ DPH položky
+        /// VAT rate type
         /// </summary>
         [ValidEnumValue]
         public VatRateTypeEnum? VatRateType { get; set; }
 
         /// <summary>
-        /// Datum poslední změny
+        /// Last change of price list item
         /// </summary>
         public DateTime? DateLastChange { get; set; }
 

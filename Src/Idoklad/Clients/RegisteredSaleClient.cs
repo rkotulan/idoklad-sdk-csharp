@@ -17,9 +17,9 @@ namespace IdokladSdk.Clients
         /// GET api/RegisteredSales
         /// Method returns list of registered sales.
         /// </summary>
-        public RowsResultWrapper<RegisteredSale> RegisteredSales(Paging paging = null)
+        public RowsResultWrapper<RegisteredSale> RegisteredSales(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<RegisteredSale>>(ResourceUrl, paging);
+            return Get<RowsResultWrapper<RegisteredSale>>(ResourceUrl, filter);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace IdokladSdk.Clients
         /// GET api/RegisteredSales/Expand
         /// List of registered sales with related entities.
         /// </summary>
-        public RowsResultWrapper<RegisteredSaleExpand> RegisteredSalesExpand(RegisteredSaleFilter filter = null)
+        public RowsResultWrapper<RegisteredSaleExpand> RegisteredSalesExpand(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<RegisteredSaleExpand>>(ResourceUrl + "/Expand", filter);
         }
@@ -56,6 +56,15 @@ namespace IdokladSdk.Clients
         public RegisteredSaleCreate Default()
         {
             return Get<RegisteredSaleCreate>(ResourceUrl + "/Default");
+        }
+
+        /// <summary>
+        /// POST api/RegisteredSales/{type}/{id}
+        /// Create new registered sale.
+        /// </summary>
+        public RegisteredSale Create(SalesTypeEnum salesType, int salesDocumentId, RegisteredSaleCreate model)
+        {
+            return Post<RegisteredSale, RegisteredSaleCreate>(ResourceUrl + "/" + (int)salesType + "/" + salesDocumentId, model);
         }
     }
 }

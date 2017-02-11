@@ -3,8 +3,10 @@ using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiModels
 {
-    public class SalesPosEquipment : ApiModel
+    public class SalesPosEquipment : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Cash register id.
         /// </summary>

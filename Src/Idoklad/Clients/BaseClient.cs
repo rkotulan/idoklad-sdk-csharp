@@ -12,24 +12,21 @@ namespace IdokladSdk.Clients
 {
     public abstract class BaseClient
     {
-        internal const string IdokladBaseUrl = "https://app.idoklad.cz/developer/api";
-        internal const string DateFormat = "yyyy-MM-dd HH:mm";
-
-        private readonly ApiContext _apiContext;
+        protected readonly ApiContext ApiContext;
 
         protected RestClient Client;
 
         protected BaseClient(ApiContext apiContext)
         {
-            _apiContext = apiContext;
+            ApiContext = apiContext;
 
-            Client = apiContext.ApiVersion < 2 ? new RestClient(IdokladBaseUrl) : new RestClient(IdokladBaseUrl + "/v2");
+            Client = new RestClient(ApiContext.Configuration.IdokladBaseUrl);
         }
 
-        protected T Get<T>(string resource, IApiFilter filter = null)
+        protected T Get<T>(string resource, IFilter filter = null)
         {
             RestRequest request = CreateRequest(resource, Method.GET);
-            request.ApplyFiltersAsQueryString(filter, _apiContext.ApiVersion);
+            request.ApplyFiltersAsQueryString(filter);
 
             IRestResponse response = Client.Execute(request);
 
@@ -41,9 +38,14 @@ namespace IdokladSdk.Clients
             return DeserializedResult<T>(response);
         }
 
-        protected bool Delete(string resource)
+        protected bool Delete(string resource, object[] ids = null)
         {
             RestRequest request = CreateRequest(resource, Method.DELETE);
+
+            if (ids != null)
+            {
+                request.AddBody(ids);
+            }
 
             IRestResponse response = Client.Execute(request);
 
@@ -65,7 +67,7 @@ namespace IdokladSdk.Clients
 
             RestRequest request = CreateRequest(resource, Method.POST);
             request.RequestFormat = DataFormat.Json;
-            request.DateFormat = DateFormat;
+            request.DateFormat = ApiContext.Configuration.DateFormat;
 
             request.AddBody(model);
 
@@ -88,7 +90,7 @@ namespace IdokladSdk.Clients
 
             RestRequest request = CreateRequest(resource, Method.PUT);
             request.RequestFormat = DataFormat.Json;
-            request.DateFormat = DateFormat;
+            request.DateFormat = ApiContext.Configuration.DateFormat;
             request.AddBody(model);
 
             IRestResponse response = Client.Execute(request);
@@ -99,7 +101,7 @@ namespace IdokladSdk.Clients
         {
             RestRequest request = CreateRequest(resource, Method.PUT);
             request.RequestFormat = DataFormat.Json;
-            request.DateFormat = DateFormat;
+            request.DateFormat = ApiContext.Configuration.DateFormat;
 
             IRestResponse response = Client.Execute(request);
             return DeserializedResult<T>(response);
@@ -114,19 +116,17 @@ namespace IdokladSdk.Clients
         {
             var request = new RestRequest(resource, method);
 
-            if (_apiContext.Token.GrantType == GrantType.any)
+            if (ApiContext.Token.GrantType == GrantType.any)
             {
-                request.AddHeader(ApiHeaders.SecureToken, _apiContext.Token.AccessToken);
+                request.AddHeader(ApiHeaders.SecureToken, ApiContext.Token.AccessToken);
             }
             else
             {
-                request.AddHeader(ApiHeaders.Authorization, "Bearer " + _apiContext.Token.AccessToken);
+                request.AddHeader(ApiHeaders.Authorization, "Bearer " + ApiContext.Token.AccessToken);
             }
 
-            request.AddHeader(ApiHeaders.App, _apiContext.AppName);
-            request.AddHeader(ApiHeaders.AppVersion, _apiContext.AppVersion);
-            request.AddHeader(ApiHeaders.ApiVersion, _apiContext.ApiVersion.ToString());
-
+            request.AddHeader(ApiHeaders.App, ApiContext.AppName);
+            request.AddHeader(ApiHeaders.AppVersion, ApiContext.AppVersion);
             request.AddHeader(ApiHeaders.SdkVersion, SdkSettings.Version);
 
             return request;

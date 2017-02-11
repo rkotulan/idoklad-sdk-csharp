@@ -20,18 +20,18 @@ namespace IdokladSdk.Clients
         /// GET api/Banks/GetChanges
         /// Method returns list of banks, that were changed.
         /// </summary>
-        public RowsResultWrapper<Bank> Changes(ChangeFilter filter)
+        public RowsResultWrapper<Bank> Changes(DateTime lastCheck, ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<Bank>>(ResourceUrl + "/GetChanges", filter);
+            return Get<RowsResultWrapper<Bank>>(ResourceUrl + "/GetChanges" + "?lastCheck=" + lastCheck.ToString(ApiContext.Configuration.DateFormat), filter);
         }
 
         /// <summary>
         /// GET api/Banks
         /// Method returns list of banks.
         /// </summary>
-        public RowsResultWrapper<Bank> Banks(Paging paging = null)
+        public RowsResultWrapper<Bank> Banks(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<Bank>>(ResourceUrl, paging);
+            return Get<RowsResultWrapper<Bank>>(ResourceUrl, filter);
         }
 
         /// <summary>

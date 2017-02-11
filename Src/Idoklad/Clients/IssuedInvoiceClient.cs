@@ -33,7 +33,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool FullyPay(int invoiceId, DateTime paid)
         {
-            return Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(DateFormat));
+            return Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(ApiContext.Configuration.DateFormat));
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace IdokladSdk.Clients
         /// GET api/IssuedInvoices/Expand
         /// Returns Issued invoice list with related entities such as contact information etc.
         /// </summary>
-        public RowsResultWrapper<IssuedInvoiceExpand> IssuedInvoicesExpand(IssuedInvoiceFilter filter = null)
+        public RowsResultWrapper<IssuedInvoiceExpand> IssuedInvoicesExpand(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<IssuedInvoiceExpand>>(ResourceUrl + "/Expand", filter);
         }
@@ -103,7 +103,7 @@ namespace IdokladSdk.Clients
         /// GET api/IssuedInvoices/{contactId}/IssuedInvoices
         /// Returns invoice list for specific contact.
         /// </summary>
-        public RowsResultWrapper<IssuedInvoice> IssuedInvoicesByContact(int contactId, IssuedInvoiceFilter filter = null)
+        public RowsResultWrapper<IssuedInvoice> IssuedInvoicesByContact(int contactId, ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<IssuedInvoice>>(ResourceUrl + "/" + contactId + "/IssuedInvoices", filter);
         }
@@ -193,7 +193,7 @@ namespace IdokladSdk.Clients
         /// GET api/IssuedInvoices
         /// Returns list of issued invoices. Filters are optional.
         /// </summary>
-        public RowsResultWrapper<IssuedInvoice> IssuedInvoices(IssuedInvoiceFilter filter = null)
+        public RowsResultWrapper<IssuedInvoice> IssuedInvoices(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<IssuedInvoice>>(ResourceUrl, filter);
         }

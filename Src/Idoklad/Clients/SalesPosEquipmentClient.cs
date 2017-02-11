@@ -16,9 +16,9 @@ namespace IdokladSdk.Clients
         /// GET api/SalesPosEquipment
         /// Method returns list of sales pos equipments.
         /// </summary>
-        public RowsResultWrapper<SalesPosEquipment> SalesPosEquipment(Paging paging = null)
+        public RowsResultWrapper<SalesPosEquipment> SalesPosEquipment(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<SalesPosEquipment>>(ResourceUrl, paging);
+            return Get<RowsResultWrapper<SalesPosEquipment>>(ResourceUrl, filter);
         }
 
         /// <summary>

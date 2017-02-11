@@ -3,8 +3,10 @@ using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.ApiModels.ReadOnlyEntites
 {
-    public class Bank : ApiModel
+    public class Bank : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// ISO 9362 Bank code
         /// </summary>

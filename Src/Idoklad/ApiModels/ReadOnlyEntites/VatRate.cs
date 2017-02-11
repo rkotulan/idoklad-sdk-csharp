@@ -5,8 +5,10 @@ using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels.ReadOnlyEntites
 {
-    public class VatRate : ApiModel
+    public class VatRate : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Informace o státu
         /// </summary>

@@ -8,7 +8,7 @@ namespace IdokladSdk.ApiModels
     /// <summary>
     /// Received invoice item for invoice creation
     /// </summary>
-    public class ReceivedInvoiceItemCreate : ApiModel
+    public class ReceivedInvoiceItemCreate 
     {
         /// <summary>
         /// Množství položky

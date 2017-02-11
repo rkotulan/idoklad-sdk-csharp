@@ -16,7 +16,7 @@ namespace IdokladSdk.Clients
         /// GET api/NumericSequences
         /// Method returns list of numeric sequences.
         /// </summary>
-        public RowsResultWrapper<NumericSequence> NumericSequences(Paging paging = null)
+        public RowsResultWrapper<NumericSequence> NumericSequences(PageFilter paging = null)
         {
             return Get<RowsResultWrapper<NumericSequence>>(ResourceUrl, paging);
         }

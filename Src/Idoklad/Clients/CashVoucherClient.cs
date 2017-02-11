@@ -17,9 +17,9 @@ namespace IdokladSdk.Clients
         /// GET api/CashVouchers
         /// Method returns list of cash vouchers.
         /// </summary>
-        public RowsResultWrapper<CashVoucher> CashVouchers(Paging paging = null)
+        public RowsResultWrapper<CashVoucher> CashVouchers(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<CashVoucher>>(ResourceUrl, paging);
+            return Get<RowsResultWrapper<CashVoucher>>(ResourceUrl, filter);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace IdokladSdk.Clients
         /// GET api/CashVouchers/Expand
         /// List of cash vouchers with related entities.
         /// </summary>
-        public RowsResultWrapper<CashVoucherExpand> CashVouchersExpand(CashVoucherFilter filter = null)
+        public RowsResultWrapper<CashVoucherExpand> CashVouchersExpand(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<CashVoucherExpand>>(ResourceUrl + "/Expand", filter);
         }
@@ -53,9 +53,9 @@ namespace IdokladSdk.Clients
         /// GET api/CashVouchers/Default
         /// Returns default cash voucher. This resource is suitable for creation of new contact by the POST method.
         /// </summary>
-        public CashVoucher Default()
+        public CashVoucher Default(MovementTypeEnum movementType)
         {
-            return Get<CashVoucher>(ResourceUrl + "/Default");
+            return Get<CashVoucher>(ResourceUrl + "/Default" + "/" + (int)movementType);
         }
 
         /// <summary>
@@ -83,6 +83,42 @@ namespace IdokladSdk.Clients
         public CashVoucherCreate Default(MovementTypeEnum movementType, InvoiceTypeEnum invoiceType, int invoiceId)
         {
             return Get<CashVoucherCreate>(ResourceUrl + "/Default/"+ (int)movementType + "/" + (int)invoiceType + "/" + invoiceId);
+        }
+
+        /// <summary>
+        /// POST api/CashVouchers
+        /// Add new cash voucher.
+        /// </summary>
+        public CashVoucher Create(CashVoucherCreate model)
+        {
+            return Post<CashVoucher, CashVoucherCreate>(ResourceUrl, model);
+        }
+
+        /// <summary>
+        /// POST api/CashVouchers/Pair/{invoiceType}/{invoiceId}
+        /// Add new cash voucher.
+        /// </summary>
+        public CashVoucher Create(CashVoucherCreate model, InvoiceTypeEnum invoiceType, int invoiceId)
+        {
+            return Post<CashVoucher, CashVoucherCreate>(ResourceUrl + "/Pair" + "/" + (int)invoiceType + "/" + invoiceId, model);
+        }
+
+        /// <summary>
+        /// POST api/CashVouchers/Pair/{cashVoucherId}/{invoiceType}/{invoiceId}
+        /// Add new cash voucher.
+        /// </summary>
+        public CashVoucher Create(CashVoucherCreate model, int cashVoucherId, InvoiceTypeEnum invoiceType, int invoiceId)
+        {
+            return Post<CashVoucher, CashVoucherCreate>(ResourceUrl + "/Pair" + "/" + cashVoucherId + "/" + (int)invoiceType + "/" + invoiceId, model);
+        }
+
+        /// <summary>
+        /// PUT api/CashVouchers/{id}
+        /// Update cash voucher. 
+        /// </summary>
+        public CashVoucher Update(int cashVoucherId, ExportedStateEnum exportedState)
+        {
+            return Put<CashVoucher>(ResourceUrl + "/" + cashVoucherId + "/Exported" + "/" + (int)exportedState);
         }
     }
 }

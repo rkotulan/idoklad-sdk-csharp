@@ -3,8 +3,10 @@ using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.ApiModels.ReadOnlyEntites
 {
-    public class Country : ApiModel
+    public class Country : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Kód státu
         /// </summary>

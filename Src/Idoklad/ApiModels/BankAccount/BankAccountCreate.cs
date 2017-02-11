@@ -5,7 +5,7 @@ namespace IdokladSdk.ApiModels
     public class BankAccountCreate : BankAccountUpdate
     {
         /// <summary>
-        /// Id měny
+        /// Currency ID
         /// </summary>
         [Required]
         public new int CurrencyId { get; set; }

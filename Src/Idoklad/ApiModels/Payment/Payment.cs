@@ -6,8 +6,10 @@ using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
-    public class Payment : ApiModel
+    public class Payment : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Currency Id
         /// </summary>

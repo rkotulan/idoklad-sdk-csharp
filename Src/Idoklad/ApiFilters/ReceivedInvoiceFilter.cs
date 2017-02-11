@@ -1,11 +1,11 @@
-using System;
-using IdokladSdk.Enums;
-
 namespace IdokladSdk.ApiFilters
 {
+    /// <summary>
+    /// Custom filter for recived invoice
+    /// </summary>
     public class ReceivedInvoiceFilter : IssuedInvoiceFilter
     {
-        public PaymentStatusEnum? PaymentStatus { get; set; }
-        public DateTime? DateOfReceiving { get; set; }
+        public FilterItem PaymentStatus { get; set; } = new FilterItem("PaymentStatus");
+        public CompareFilterItem DateOfReceiving { get; set; } = new CompareFilterItem("DateOfReceiving");
     }
 }

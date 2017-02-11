@@ -1,4 +1,5 @@
-﻿using IdokladSdk.ApiFilters;
+﻿using System;
+using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
@@ -19,18 +20,18 @@ namespace IdokladSdk.Clients
         /// GET api/Countries/GetChanges
         /// Method returns list of countries, that were changed.
         /// </summary>
-        public RowsResultWrapper<Country> Changes(ChangeFilter filter)
+        public RowsResultWrapper<Country> Changes(DateTime lastCheck, ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<Country>>(ResourceUrl + "/GetChanges", filter);
+            return Get<RowsResultWrapper<Country>>(ResourceUrl + "/GetChanges" + "?lastCheck=" + lastCheck.ToString(ApiContext.Configuration.DateFormat), filter);
         }
 
         /// <summary>
         /// GET api/Countries
         /// Method returns list of countries.
         /// </summary>
-        public RowsResultWrapper<Country> Countries(Paging paging = null)
+        public RowsResultWrapper<Country> Countries(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<Country>>(ResourceUrl, paging);
+            return Get<RowsResultWrapper<Country>>(ResourceUrl, filter);
         }
 
         /// <summary>

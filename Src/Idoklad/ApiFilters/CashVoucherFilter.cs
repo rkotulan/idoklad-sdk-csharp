@@ -1,20 +1,17 @@
-using System;
-using IdokladSdk.Enums;
-
 namespace IdokladSdk.ApiFilters
 {
     /// <summary>
-    /// Custom filter for cash register
+    /// Custom filter for cash voucher
     /// </summary>
-    public class CashVoucherFilter : ApiFilter, IApiFilter
+    public class CashVoucherFilter : FilterableObjectBase
     {
-        public int? Id { get; set; }
-        public int? CashRegisterId { get; set; }
-        public int? CurrencyId { get; set; }
-        public ExportedStateEnum? Exported { get; set; }
-        public MovementTypeEnum? MovementType { get; set; }
-        public DateTime? DateLastChange { get; set; }
-        public DateTime? DateOfTransaction { get; set; }
-        public string DocumentNumber { get; set; }
+        public FilterItem Id { get; set; } = new FilterItem("Id");
+        public FilterItem CashRegisterId { get; set; } = new FilterItem("CashRegisterId");
+        public FilterItem CurrencyId { get; set; } = new FilterItem("CurrencyId");
+        public FilterItem Exported { get; set; } = new FilterItem("Exported");
+        public FilterItem MovementType { get; set; } = new FilterItem("MovementType");
+        public CompareFilterItem DateLastChange { get; set; } = new CompareFilterItem("DateLastChange");
+        public CompareFilterItem DateOfTransaction { get; set; } = new CompareFilterItem("DateOfTransaction");
+        public ContainFilterItem DocumentNumber { get; set; } = new ContainFilterItem("DocumentNumber");
     }
 }

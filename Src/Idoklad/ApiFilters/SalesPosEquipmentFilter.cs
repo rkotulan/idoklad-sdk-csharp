@@ -1,10 +1,11 @@
-using IdokladSdk.Enums;
-
 namespace IdokladSdk.ApiFilters
 {
-    public class SalesPosEquipmentFilter : ApiFilter, IApiFilter
+    /// <summary>
+    /// Custom filter for sales pos equipment
+    /// </summary>
+    public class SalesPosEquipmentFilter : FilterableObjectBase
     {
-        public int? Id { get; set; }
-        public SalesPosEquipmentTypeEnum SalesPosEquipmentType { get; set; }
+        public FilterItem Id { get; set; } = new FilterItem("Id");
+        public FilterItem SalesPosEquipmentType { get; set; } = new FilterItem("SalesPosEquipmentType");
     }
 }

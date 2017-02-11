@@ -1,10 +1,6 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
 using IdokladSdk.ApiFilters;
-using IdokladSdk.Clients;
 using RestSharp;
 
 namespace IdokladSdk.Extensions
@@ -14,49 +10,46 @@ namespace IdokladSdk.Extensions
         /// <summary>
         /// Converts any IApiFilter implementation to QueryParameters applied on RestRequest
         /// </summary>
-        public static void ApplyFiltersAsQueryString(this RestRequest request, IApiFilter apiFilter, int apiVersion)
+        public static void ApplyFiltersAsQueryString(this RestRequest request, IFilter apiFilter)
         {
             if (apiFilter == null)
             {
                 return;
             }
 
-            if (apiVersion < 2)
+            // Paging
+            request.AddQueryParameter("page", apiFilter.Page.ToString());
+            request.AddQueryParameter("pagesize", apiFilter.PageSize.ToString());
+
+            if (!(apiFilter is ApiFilter))
             {
-                string[] ignoredPropertyNames = new[] {"FilterType", "SortOrders"};
-                PropertyInfo[] properties = apiFilter.GetType().GetProperties().Where(x => !ignoredPropertyNames.Contains(x.Name)).ToArray();
-
-                foreach (var propertyInfo in properties.Where(x => x.GetValue(apiFilter) != null))
-                {
-                    if (propertyInfo.PropertyType == typeof(DateTime) || propertyInfo.PropertyType == typeof(DateTime?))
-                    {
-                        request.AddQueryParameter(propertyInfo.Name,
-                            ((DateTime) propertyInfo.GetValue(apiFilter)).ToString(BaseClient.DateFormat));
-                        continue;
-                    }
-
-                    if (propertyInfo.PropertyType == typeof(FilterType))
-                    {
-                        request.AddQueryParameter(propertyInfo.Name,
-                            ExtractFilterTypeToString(propertyInfo.GetValue(apiFilter)));
-                        continue;
-                    }
-
-                    request.AddQueryParameter(propertyInfo.Name, propertyInfo.GetValue(apiFilter).ToString());
-                }
+                return;
             }
-            else
+
+            var filter = (ApiFilter)apiFilter;
+
+            // Filter Type
+            request.AddQueryParameter("filtertype", filter.FilterType.ToString().ToLowerInvariant());
+
+            // Filters
+            if (filter.Filters.Any())
             {
-                var filter = (ApiFilter) apiFilter;
-                
-                // Filter Type
-                request.AddQueryParameter("filtertype", filter.FilterType.ToString().ToLowerInvariant());
+                var filterString = string.Empty;
+                foreach (var filterItem in filter.Filters)
+                {
+                    filterString = filterString + filterItem.ToString();
 
-                // Paging
-                request.AddQueryParameter("page", filter.Page.ToString());
-                request.AddQueryParameter("pagesize", filter.PageSize.ToString());
+                    if (filterItem != filter.Filters.LastOrDefault())
+                    {
+                        filterString = filterString + "|";
+                    }
+                }
+                request.AddQueryParameter("filter", filterString);
+            }
 
-                // Sort
+            // Sort
+            if (filter.SortOrders.Any())
+            {
                 var sortString = string.Empty;
                 foreach (var filterSortOrder in filter.SortOrders)
                 {
@@ -66,6 +59,7 @@ namespace IdokladSdk.Extensions
                         sortString = sortString + "|";
                     }
                 }
+                request.AddQueryParameter("sort", sortString);
             }
         }
 
@@ -76,10 +70,10 @@ namespace IdokladSdk.Extensions
         public static string ExtractFilterTypeToString(object filterType)
         {
             int defeault = 0;
-            if (filterType.GetType() == typeof (FilterType))
+            if (filterType.GetType() == typeof(FilterOperator))
             {
-                var type = (FilterType)filterType;
-                defeault = (int) type;
+                var type = (FilterOperator)filterType;
+                defeault = (int)type;
             }
 
             return defeault.ToString(CultureInfo.InvariantCulture);

@@ -1,14 +1,15 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiModels
 {
     [KnownType(typeof (Contact))]
-    public class Contact : ContactCreate
+    public class Contact : ContactCreate, IApiModel
     {
-        public override int Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Identification of the contact for Money software

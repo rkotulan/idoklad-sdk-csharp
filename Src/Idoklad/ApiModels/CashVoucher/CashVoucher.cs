@@ -7,8 +7,9 @@ using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
-    public class CashVoucher : ApiModel
+    public class CashVoucher : IApiModel
     {
+        public int Id { get; set; }
 
         /// <summary>
         /// Cash register

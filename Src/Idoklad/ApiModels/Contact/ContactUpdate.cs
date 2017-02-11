@@ -3,7 +3,7 @@ using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.ApiModels
 {
-    public class ContactUpdate : ApiModel
+    public class ContactUpdate 
     {
         /// <summary>
         /// Město kontaktu

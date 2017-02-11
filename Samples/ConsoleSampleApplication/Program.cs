@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using IdokladSdk;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
-using IdokladSdk.Clients;
 using IdokladSdk.Clients.Auth;
 
 namespace ConsoleSampleApplication
@@ -11,18 +11,29 @@ namespace ConsoleSampleApplication
     {
         static void Main(string[] args)
         {
-            var url = AuthorizationCodeAuth.GetClientAuthenticationUrl("client_id", "http://localhost:3432");
-            var authCredentials = new AuthorizationCodeAuth("client_id", "client_secret", "code", "http://localhost:3432");
+            //var url = AuthorizationCodeAuth.GetClientAuthenticationUrl("client_id", "http://localhost:3432");
+            //var authCredentials = new AuthorizationCodeAuth("client_id", "client_secret", "code", "http://localhost:3432");
 
+            // choose authorization flow
             var clientCred = new ClientCredentialAuth("client_id", "client_secret");
+
+            // initialise context with configuration
             var apiContext = new ApiContext(clientCred)
             {
-                AppName = "Application name"
+                AppName = "Application name",
+                Configuration = {DateFormat = "yyyy-MM-dd HH:mm"}
             };
 
+            // initialise api explorer
             var api = new ApiExplorer(apiContext);
 
-            var test = api.Contacts.Contacts(new ContactFilter());
+            // prepare custom filter for querying
+            var contactFilter = new ContactFilter();
+            contactFilter.DateLastChange.IsEqualOrGreatherThan(new DateTime(2016,1,1));
+
+            // query data using custom filter
+            var contacts = api.Contacts.ContactsExpand(
+                new ApiFilter(contactFilter, FilterType.And).AddOrderDesc("Id").WithPaging(1, 5));
 
             // get template for new contact
             var template = api.Contacts.Default();

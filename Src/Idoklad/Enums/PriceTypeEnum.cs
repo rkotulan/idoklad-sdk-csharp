@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace IdokladSdk.Enums
+﻿namespace IdokladSdk.Enums
 {
     /// <summary>
     /// Possible Price type values

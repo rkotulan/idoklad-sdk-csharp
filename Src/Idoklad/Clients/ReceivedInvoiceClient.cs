@@ -32,7 +32,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool FullyPay(int invoiceId, DateTime paid)
         {
-            return Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(DateFormat));
+            return Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(ApiContext.Configuration.DateFormat));
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace IdokladSdk.Clients
         /// GET api/Receivedinvoices/Expand
         /// Returns Receivied invoice list with related entities such as contact information etc.
         /// </summary>
-        public RowsResultWrapper<ReceivedInvoiceExpand> ReceivedInvoicesExpand(ReceivedInvoiceFilter filter = null)
+        public RowsResultWrapper<ReceivedInvoiceExpand> ReceivedInvoicesExpand(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<ReceivedInvoiceExpand>>(ResourceUrl + "/Expand", filter);
         }
@@ -162,10 +162,19 @@ namespace IdokladSdk.Clients
         }
 
         /// <summary>
+        /// DELETE api/ReceivedInvoices/DeleteAttachment/{invoiceId}
+        /// Deletes a received invoice attachment.
+        /// </summary>
+        public bool DeleteAttachment(int invoiceId)
+        {
+            return Delete(ResourceUrl + "/" + "DeleteAttachment" + "/" +  invoiceId);
+        }
+
+        /// <summary>
         /// GET api/ReceivedInvoices
         /// Returns list of received invoices. Filters are optional.
         /// </summary>
-        public RowsResultWrapper<ReceivedInvoice> ReceivedInvoices(ReceivedInvoiceFilter filter = null)
+        public RowsResultWrapper<ReceivedInvoice> ReceivedInvoices(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<ReceivedInvoice>>(ResourceUrl, filter);
         }
@@ -196,7 +205,16 @@ namespace IdokladSdk.Clients
         /// </summary>
         public ReceivedInvoice Update(int invoiceId, ReceivedInvoiceUpdate invoice)
         {
-            return Post<ReceivedInvoice, ReceivedInvoiceUpdate>(ResourceUrl + "/" + invoiceId, invoice);
+            return Put<ReceivedInvoice, ReceivedInvoiceUpdate>(ResourceUrl + "/" + invoiceId, invoice);
+        }
+
+        /// <summary>
+        /// PUT api/ReceivedInvoices/SetAttachment/{invoicdId}
+        /// Sets an attachment to the given received invoice. If an attachment already exists, it will be overwritten.
+        /// </summary>
+        public bool SetAttachment(int invoiceId)
+        {
+            return Put<bool>(ResourceUrl + "/" + "SetAttachment" + "/" + invoiceId);
         }
     }
 }

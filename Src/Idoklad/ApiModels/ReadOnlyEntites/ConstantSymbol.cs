@@ -3,35 +3,37 @@ using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.ApiModels.ReadOnlyEntites
 {
-    public class ConstantSymbol : ApiModel
+    public class ConstantSymbol : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
-        /// Čtyřmístný kód
+        /// Code (4 places)
         /// </summary>
         public string Code { get; set; }
 
         /// <summary>
-        /// Informace o státu
+        /// Information about country
         /// </summary>
         public Country Country { get; set; }
 
         /// <summary>
-        /// Id státu
+        /// Country ID
         /// </summary>
         public int CountryId { get; set; }
 
         /// <summary>
-        /// Datum poslední změny
+        /// Date of last change
         /// </summary>
         public DateTime DateLastChange { get; set; }
 
         /// <summary>
-        /// Příznak výchozího konstantního symbolu pro daný stát
+        /// Is constant symbol default pro country?
         /// </summary>
         public bool IsDefault { get; set; }
 
         /// <summary>
-        /// Jméno konstantního symbolu
+        /// Name of the constant symbol
         /// </summary>
         public string Name { get; set; }
     }

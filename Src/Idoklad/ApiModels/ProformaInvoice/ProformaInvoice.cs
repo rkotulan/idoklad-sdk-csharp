@@ -7,8 +7,10 @@ using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
-    public class ProformaInvoice : ApiModel
+    public class ProformaInvoice : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Name of the attached file. If no attachment is included, this will be empty.
         /// </summary>

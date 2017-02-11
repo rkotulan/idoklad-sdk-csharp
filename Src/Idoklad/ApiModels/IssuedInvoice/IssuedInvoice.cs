@@ -4,6 +4,8 @@ namespace IdokladSdk.ApiModels
 {
     public class IssuedInvoice : IssuedInvoiceBase
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Invoice items
         /// </summary>

@@ -1,40 +1,39 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using IdokladSdk.ApiModels.BaseModels;
 
 namespace IdokladSdk.ApiModels
 {
-    public class BankAccountUpdate : ApiModel
+    public class BankAccountUpdate
     {
         /// <summary>
-        /// Číslo účtu
+        /// Bank account number
         /// </summary>
         [StringLength(50)]
         public string AccountNumber { get; set; }
 
         /// <summary>
-        /// Id banky
+        /// Bank ID
         /// </summary>
         public int? BankId { get; set; }
 
         /// <summary>
-        /// Id měny
+        /// Currency ID
         /// </summary>
         public virtual int? CurrencyId { get; set; }
 
         /// <summary>
-        /// Mezinárodní číslo bankovního účtu
+        /// International bank account number
         /// </summary>
         [StringLength(50)]
         public string Iban { get; set; }
 
         /// <summary>
-        /// Název bankovního účtu
+        /// Name of the bank account
         /// </summary>
         [StringLength(100)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Swift banky
+        /// Swift code
         /// </summary>
         [StringLength(11)]
         public string Swift { get; set; }

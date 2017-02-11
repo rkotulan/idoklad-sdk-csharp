@@ -5,6 +5,8 @@ namespace IdokladSdk.ApiModels
 {
     public class RegisteredSaleInformation
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Base tax basic rate
         /// </summary>

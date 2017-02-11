@@ -1,9 +1,6 @@
-﻿using IdokladSdk.ApiModels.ReadOnlyEntites;
-
-namespace IdokladSdk.ApiModels
+﻿namespace IdokladSdk.ApiModels
 {
     public class ReceivedDocumentPaymentCreate : PaymentCreate
     {
-
     }
 }

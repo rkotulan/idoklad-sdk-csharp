@@ -3,8 +3,10 @@ using IdokladSdk.Enums;
 
 namespace IdokladSdk.ApiModels
 {
-    public class Agenda : ApiModel
+    public class Agenda : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Id kontaktních údajů agendy
         /// </summary>

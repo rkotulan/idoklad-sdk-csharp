@@ -1,11 +1,12 @@
 ﻿using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.Enums;
-using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
-    public class NumericSequence : ApiModel
+    public class NumericSequence : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Number of last invoice. The next invoice will be saved with the number (LastInvoiceNumber + 1)
         /// </summary>

@@ -21,18 +21,18 @@ namespace IdokladSdk.Clients
         /// GET api/Currencies/GetChanges
         /// Method returns list of currencies, that were changed.
         /// </summary>
-        public RowsResultWrapper<Currency> Changes(ChangeFilter filter)
+        public RowsResultWrapper<Currency> Changes(DateTime lastCheck, ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<Currency>>(ResourceUrl + "/GetChanges", filter);
+            return Get<RowsResultWrapper<Currency>>(ResourceUrl + "/GetChanges"  + "?lastCheck=" + lastCheck.ToString(ApiContext.Configuration.DateFormat), filter);
         }
 
         /// <summary>
         /// api/Currencies
         /// Method returns list of currencies.
         /// </summary>
-        public RowsResultWrapper<Currency> Currencies(Paging paging = null)
+        public RowsResultWrapper<Currency> Currencies(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<Currency>>(ResourceUrl, paging);
+            return Get<RowsResultWrapper<Currency>>(ResourceUrl, filter);
         }
 
         /// <summary>

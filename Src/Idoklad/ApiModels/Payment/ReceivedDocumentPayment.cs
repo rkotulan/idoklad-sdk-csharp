@@ -1,6 +1,4 @@
-﻿using IdokladSdk.Enums;
-
-namespace IdokladSdk.ApiModels
+﻿namespace IdokladSdk.ApiModels
 {
     public class ReceivedDocumentPayment : Payment
     {

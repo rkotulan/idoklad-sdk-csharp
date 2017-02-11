@@ -3,9 +3,8 @@
     /// <summary>
     /// Custom filter for cash register
     /// </summary>
-    public class CashRegisterFilter : ApiFilter, IApiFilter
+    public class CashRegisterFilter : FilterableObjectBase
     {
-        public int? Id { get; set; }
-        public int? CurrencyId { get; set; }
+        public FilterItem CurrencyId { get; set; } = new FilterItem("CurrencyId");
     }
 }

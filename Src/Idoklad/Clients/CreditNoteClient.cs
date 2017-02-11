@@ -23,7 +23,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool FullyPay(int creditNoteId, DateTime paid)
         {
-            return Put<bool>(ResourceUrl + "/" + creditNoteId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(DateFormat));
+            return Put<bool>(ResourceUrl + "/" + creditNoteId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(ApiContext.Configuration.DateFormat));
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace IdokladSdk.Clients
         /// GET api/CreditNotes/Expand
         /// Returns credit note list with related entities such as contact information etc.
         /// </summary>
-        public RowsResultWrapper<CreditNoteExpand> CreditNotesExpand(CreditNoteFilter filter = null)
+        public RowsResultWrapper<CreditNoteExpand> CreditNotesExpand(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<CreditNoteExpand>>(ResourceUrl + "/Expand", filter);
         }
@@ -67,7 +67,7 @@ namespace IdokladSdk.Clients
         /// GET api/CreditNotes
         /// Returns list of credit notes. Filters are optional.
         /// </summary>
-        public RowsResultWrapper<CreditNote> CreditNotes(CreditNoteFilter filter = null)
+        public RowsResultWrapper<CreditNote> CreditNotes(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<CreditNote>>(ResourceUrl, filter);
         }

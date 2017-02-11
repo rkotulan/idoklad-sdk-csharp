@@ -1,12 +1,13 @@
 ﻿using System;
 using IdokladSdk.Clients.Auth;
-using IdokladSdk.Extensions;
 
 namespace IdokladSdk
 {
     public class ApiContext
     {
         private Tokenizer _token;
+
+        public ApiContextConfiguration Configuration { get; set; } = new ApiContextConfiguration();
 
         /// <summary>
         /// Refresh token before expiration limit (in seconds)
@@ -39,37 +40,12 @@ namespace IdokladSdk
         /// </summary>
         public string AppVersion { get; set; }
 
-        /// <summary>
-        /// Current API version support
-        /// </summary>
-        public int ApiVersion { get; private set; }
-
-        [Obsolete("Use new method accepting IClientCredentialFlow")]
-        public ApiContext(string accessToken)
-        {
-            if (accessToken.IsNullOrEmpty())
-            {
-                throw new ArgumentNullException("Access Token can not be null");
-            }
-
-            ApiVersion = 1;
-
-            _token = new Tokenizer
-            {
-                AccessToken = accessToken,
-                Expires = 86400,
-                GrantType = GrantType.any
-            };
-        }
-
         public ApiContext(Tokenizer token)
         {
             if (token == null)
             {
                 throw new ArgumentNullException("Token object can not be null");
             }
-
-            ApiVersion = 2;
 
             _token = token;
         }
@@ -80,8 +56,6 @@ namespace IdokladSdk
             {
                 throw new ArgumentNullException("Authentication object can not be null");
             }
-
-            ApiVersion = 2;
 
             _token = authenticationFlow.GetSecureToken();
         }

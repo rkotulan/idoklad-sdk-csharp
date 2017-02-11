@@ -1,10 +1,14 @@
-﻿namespace IdokladSdk.ApiModels
+﻿using IdokladSdk.ApiModels.BaseModels;
+
+namespace IdokladSdk.ApiModels
 {
     /// <summary>
     /// Counts of agendas resources
     /// </summary>
-    public class AgendaSummary
+    public class AgendaSummary : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Počet kontaktů
         /// </summary>

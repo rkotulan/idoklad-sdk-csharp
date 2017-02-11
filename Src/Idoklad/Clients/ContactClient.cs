@@ -28,7 +28,7 @@ namespace IdokladSdk.Clients
         /// GET api/Contacts/Expand
         /// List of contacts with related entities.
         /// </summary>
-        public RowsResultWrapper<ContactExpand> ContactsExpand(ContactFilter filter = null)
+        public RowsResultWrapper<ContactExpand> ContactsExpand(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<ContactExpand>>(ResourceUrl + "/Expand", filter);
         }
@@ -55,9 +55,9 @@ namespace IdokladSdk.Clients
         /// GET api/Contacts
         /// List of contacts.
         /// </summary>
-        public RowsResultWrapper<Contact> Contacts(Paging paging = null)
+        public RowsResultWrapper<Contact> Contacts(PageFilter filter = null)
         {
-            return Get<RowsResultWrapper<Contact>>(ResourceUrl, paging);
+            return Get<RowsResultWrapper<Contact>>(ResourceUrl, filter);
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace IdokladSdk.Clients
 
         /// <summary>
         /// PUT api/Contacts/{id}
-        /// Update contact. Partial update is also possible.
+        /// Update contact. 
         /// </summary>
         public Contact Update(int contactId, ContactUpdate model)
         {

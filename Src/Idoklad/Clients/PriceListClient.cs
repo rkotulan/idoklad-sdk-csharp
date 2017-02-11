@@ -43,10 +43,19 @@ namespace IdokladSdk.Clients
         }
 
         /// <summary>
+        /// DELETE api/PriceListItems/Batch/{deleteIfReferenced}
+        /// Method deletes price list items, including ones referenced on invoices, stock, etc.
+        /// </summary>
+        public bool DeleteBatch(bool deleteIfReferenced, object[] ids)
+        {
+            return Delete(ResourceUrl + "/" + "Batch" + "/" + deleteIfReferenced, ids);
+        }
+
+        /// <summary>
         /// GET api/PriceListItems
         /// Returns price list with pages.
         /// </summary>
-        public RowsResultWrapper<PriceList> PriceListItems(PriceListFilter filter)
+        public RowsResultWrapper<PriceList> PriceListItems(ApiFilter filter)
         {
             return Get<RowsResultWrapper<PriceList>>(ResourceUrl, filter);
         }

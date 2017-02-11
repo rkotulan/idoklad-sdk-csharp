@@ -1,4 +1,5 @@
-﻿using IdokladSdk.ApiFilters;
+﻿using System;
+using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
 
@@ -16,12 +17,21 @@ namespace IdokladSdk.Clients
         }
 
         /// <summary>
+        /// GET api/ExchangeRates/GetChanges
+        /// Method returns list of exchange rates, that were changed.
+        /// </summary>
+        public RowsResultWrapper<ExchangeRate> Changes(DateTime lastCheck, ApiFilter filter = null)
+        {
+            return Get<RowsResultWrapper<ExchangeRate>>(ResourceUrl + "/GetChanges" + "?lastCheck=" + lastCheck.ToString(ApiContext.Configuration.DateFormat), filter);
+        }
+
+        /// <summary>
         /// GET api/ExchangeRates
         /// Method returns list of exchange rates.
         /// </summary>
-        public RowsResultWrapper<ExchangeRate> ExchangeRates(Paging paging = null)
+        public RowsResultWrapper<ExchangeRate> ExchangeRates(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<ExchangeRate>>(ResourceUrl, paging);
+            return Get<RowsResultWrapper<ExchangeRate>>(ResourceUrl, filter);
         }
 
         /// <summary>

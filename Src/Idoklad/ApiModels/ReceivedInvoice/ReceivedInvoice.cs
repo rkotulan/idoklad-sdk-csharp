@@ -7,8 +7,10 @@ using IdokladSdk.ValidationAttributes;
 
 namespace IdokladSdk.ApiModels
 {
-    public class ReceivedInvoice : ApiModel
+    public class ReceivedInvoice : IApiModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Id měny
         /// </summary>

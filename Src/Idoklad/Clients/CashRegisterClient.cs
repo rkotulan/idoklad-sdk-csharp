@@ -16,9 +16,9 @@ namespace IdokladSdk.Clients
         /// GET api/CashRegisters
         /// Method returns list of cash registers.
         /// </summary>
-        public RowsResultWrapper<CashRegister> CashRegisters(Paging paging = null)
+        public RowsResultWrapper<CashRegister> CashRegisters(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<CashRegister>>(ResourceUrl, paging);
+            return Get<RowsResultWrapper<CashRegister>>(ResourceUrl, filter);
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace IdokladSdk.Clients
         /// GET api/CashRegisters/Expand
         /// List of cash registers with related entities.
         /// </summary>
-        public RowsResultWrapper<CashRegisterExpand> CashRegistersExpand(CashRegisterFilter filter = null)
+        public RowsResultWrapper<CashRegisterExpand> CashRegistersExpand(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<CashRegisterExpand>>(ResourceUrl + "/Expand", filter);
         }
