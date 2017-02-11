@@ -2,25 +2,30 @@
 
 **The SDK works directly with IDoklad API service. Below is described communication with the newest version IDoklad API 2.0**
 
-## Quick start
+Legacy version of SDK 1.0 is available in special branch: **[SDK_V1](https://github.com/mholec/idoklad-sdk-csharp/tree/SDK_V1)**. We recommend to use this version of SDK. This version fully supports newest version of iDoklad API.
 
-Example of use in the project **samples/ConsoleSampleApplication**
+## Quick start (examples)
+
+- Basic use with client credential flow: **samples/ConsoleSampleApplication**
+- Basic use with authorization code flow **samples/WebSampleApplication**
 
 ### Step 1: Authorize (client_credential flow)
 At the beginning you have to sign in. Authentication is recommended at the beginning of each set of calls. 
-You need to have your client_id and client_secret. You can find this credentials in IDoklad settings page.
+You need to have your ClientId and ClientSecret. You can find this credentials in **[IDoklad settings page](https://app.idoklad.cz/Setting/LogonUser)**.
  
 	var credentials = new ClientCredentialAuth("client_id", "client_secret");
-	var apiContext = new ApiContext(credentials)
-	{
-	    AppName = "Application name",
-	};
 
-Authentication using the legacy API 1.0 token is still available but not recommended.
+    var apiContext = new ApiContext(clientCred)
+    {
+        AppName = "Application name",
+        Configuration = {DateFormat = "yyyy-MM-dd HH:mm"}
+    };
+
+Authentication using the legacy API 1.0 is not available anymore.
 
 ### Step 2: Play
 
-Once you have `ApiContext` with valid token, you can create `ApiExplorer` and **start to make various calls to API**.
+Once you have `ApiContext`, you can create `ApiExplorer` and **start to make various calls to API**.
 
 
 For example, here is the entire flow of work with contacts.
@@ -43,10 +48,17 @@ For example, here is the entire flow of work with contacts.
     bool isDeleted = api.Contacts.Delete(addedContact.Id);
 
 	// get all
-	var contacts = api.Contacts.Contacts(new Paging(int.MaxValue));
+	var allContacts = api.Contacts.Contacts(new ApiFilter().WithPaging(1, int.MaxValue));
 
 	// get many
 	var contacts = api.Contacts.Contacts(new Paging(1, 20));
+
+	// get many with filter
+    var contactFilter = new ContactFilter();
+    contactFilter.DateLastChange.IsEqualOrGreatherThan(new DateTime(2016,1,1));
+
+    var contacts = api.Contacts.ContactsExpand(
+        new ApiFilter(contactFilter, FilterType.And).AddOrderDesc("Id").WithPaging(1, 5));
 
 ## Supported frameworks
 

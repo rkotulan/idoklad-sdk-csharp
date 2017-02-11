@@ -27,14 +27,6 @@ namespace ConsoleSampleApplication
             // initialise api explorer
             var api = new ApiExplorer(apiContext);
 
-            // prepare custom filter for querying
-            var contactFilter = new ContactFilter();
-            contactFilter.DateLastChange.IsEqualOrGreatherThan(new DateTime(2016,1,1));
-
-            // query data using custom filter
-            var contacts = api.Contacts.ContactsExpand(
-                new ApiFilter(contactFilter, FilterType.And).AddOrderDesc("Id").WithPaging(1, 5));
-
             // get template for new contact
             var template = api.Contacts.Default();
 
@@ -49,7 +41,17 @@ namespace ConsoleSampleApplication
 
             // delete
             bool isDeleted = api.Contacts.Delete(addedContact.Id);
-            
+
+            // get all
+            var allContacts = api.Contacts.Contacts(new ApiFilter().WithPaging(1, int.MaxValue));
+
+            // prepare custom filter for querying
+            var contactFilter = new ContactFilter();
+            contactFilter.DateLastChange.IsEqualOrGreatherThan(new DateTime(2016, 1, 1));
+
+            // query data using custom filter
+            var contacts = api.Contacts.ContactsExpand(
+                new ApiFilter(contactFilter, FilterType.And).AddOrderDesc("Id").WithPaging(1, 5));
 
             List<ValidationMessage> errors;
             bool isValid = ApiValidator.ValidateObject(contact, out errors);
