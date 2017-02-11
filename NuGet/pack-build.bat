@@ -1,7 +1,4 @@
-REM this file is using by build server
-REM it must create unnecessary folders and copy all assemblies for nuspec file
-
-REM delete old packages
+EM delete old packages
 rd package
 rd build
 
@@ -17,3 +14,5 @@ copy %~dp0\..\Src\Idoklad\bin\Release\IdokladSdk.dll package\lib\net45
 copy %~dp0\..\Src\IdokladSdk.Net451\bin\Release\IdokladSdk.dll package\lib\net451
 copy %~dp0\..\Src\IdokladSdk.Net452\bin\Release\IdokladSdk.dll package\lib\net452
 copy %~dp0\..\Src\IdokladSdk.Net46\bin\Release\IdokladSdk.dll package\lib\net46
+
+REM another task must create nupkg package during the build process
