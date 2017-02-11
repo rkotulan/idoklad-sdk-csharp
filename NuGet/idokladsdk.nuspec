@@ -3,13 +3,13 @@
   <metadata>
     <id>IdokladSdk</id>
     <title>SDK for iDoklad API</title>
-    <version>1.1.0</version>
+    <version>2.0.0</version>
     <authors>Miroslav Holec</authors>
     <owners>Cigler Software, a.s.</owners>
     <summary>Cigler Software, a.s.</summary>
     <description>The SDK that works directly with czech idoklad API service.</description>
     <language>en-US</language>
-    <copyright>© 2016, Cigler Software, a.s.</copyright>
+    <copyright>© 2016 - 2017, Cigler Software, a.s.</copyright>
     <projectUrl>https://github.com/mholec/idoklad-sdk-csharp</projectUrl>
     <licenseUrl>https://github.com/mholec/idoklad-sdk-csharp/blob/master/LICENSE</licenseUrl>
     <iconUrl>https://holecdrive.blob.core.windows.net/nuget/idokladsdk.png</iconUrl>
