@@ -1,6 +1,6 @@
 # IDoklad SDK for Csharp
 
-**The SDK works directly with idoklad API service.**
+**The SDK works directly with idoklad API service version 1.0**
 
 ## Quick start
 
