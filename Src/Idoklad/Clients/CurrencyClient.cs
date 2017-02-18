@@ -23,7 +23,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<Currency> Changes(DateTime lastCheck, ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<Currency>>(ResourceUrl + "/GetChanges"  + "?lastCheck=" + lastCheck.ToString(ApiContext.Configuration.DateFormat), filter);
+            return Get<RowsResultWrapper<Currency>>(ResourceUrl + "/GetChanges"  + "?lastCheck=" + lastCheck.ToString(ApiContextConfiguration.DateFormat), filter);
         }
 
         /// <summary>

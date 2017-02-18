@@ -67,7 +67,7 @@ namespace IdokladSdk.Clients
 
             RestRequest request = CreateRequest(resource, Method.POST);
             request.RequestFormat = DataFormat.Json;
-            request.DateFormat = ApiContext.Configuration.DateFormat;
+            request.DateFormat = ApiContextConfiguration.DateFormat;
 
             request.AddBody(model);
 
@@ -90,7 +90,7 @@ namespace IdokladSdk.Clients
 
             RestRequest request = CreateRequest(resource, Method.PUT);
             request.RequestFormat = DataFormat.Json;
-            request.DateFormat = ApiContext.Configuration.DateFormat;
+            request.DateFormat = ApiContextConfiguration.DateFormat;
             request.AddBody(model);
 
             IRestResponse response = Client.Execute(request);
@@ -101,7 +101,7 @@ namespace IdokladSdk.Clients
         {
             RestRequest request = CreateRequest(resource, Method.PUT);
             request.RequestFormat = DataFormat.Json;
-            request.DateFormat = ApiContext.Configuration.DateFormat;
+            request.DateFormat = ApiContextConfiguration.DateFormat;
 
             IRestResponse response = Client.Execute(request);
             return DeserializedResult<T>(response);

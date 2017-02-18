@@ -20,8 +20,7 @@ namespace ConsoleSampleApplication
             // initialise context with configuration
             var apiContext = new ApiContext(clientCred)
             {
-                AppName = "Application name",
-                Configuration = {DateFormat = "yyyy-MM-dd HH:mm"}
+                AppName = "Application name"
             };
 
             // initialise api explorer

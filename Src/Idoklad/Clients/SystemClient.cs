@@ -20,7 +20,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public CodeBooksChanges CodeBookChanges(DateTime lastCheck)
         {
-            return Get<CodeBooksChanges>(ResourceUrl + "/GetCodeBooksChanges" + "?lastCheck="+ lastCheck.ToString(ApiContext.Configuration.DateFormat));
+            return Get<CodeBooksChanges>(ResourceUrl + "/GetCodeBooksChanges" + "?lastCheck="+ lastCheck.ToString(ApiContextConfiguration.DateFormat));
         }
     }
 }

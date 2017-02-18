@@ -32,7 +32,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public bool FullyPay(int invoiceId, DateTime paid)
         {
-            return Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(ApiContext.Configuration.DateFormat));
+            return Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(ApiContextConfiguration.DateFormat));
         }
 
         /// <summary>

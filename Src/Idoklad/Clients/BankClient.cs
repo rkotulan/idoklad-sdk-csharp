@@ -22,7 +22,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<Bank> Changes(DateTime lastCheck, ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<Bank>>(ResourceUrl + "/GetChanges" + "?lastCheck=" + lastCheck.ToString(ApiContext.Configuration.DateFormat), filter);
+            return Get<RowsResultWrapper<Bank>>(ResourceUrl + "/GetChanges" + "?lastCheck=" + lastCheck.ToString(ApiContextConfiguration.DateFormat), filter);
         }
 
         /// <summary>

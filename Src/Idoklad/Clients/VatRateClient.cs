@@ -31,7 +31,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public RowsResultWrapper<VatRate> VatRates(DateTime lastCheck, ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<VatRate>>(ResourceUrl + "?lastCheck=" + lastCheck.ToString(ApiContext.Configuration.DateFormat), filter);
+            return Get<RowsResultWrapper<VatRate>>(ResourceUrl + "?lastCheck=" + lastCheck.ToString(ApiContextConfiguration.DateFormat), filter);
         }
 
         /// <summary>
