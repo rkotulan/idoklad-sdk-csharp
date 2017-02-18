@@ -188,6 +188,15 @@
     <Compile Include="..\Idoklad\ApiModels\BaseModels\RowsResultWrapper.cs">
       <Link>ApiModels\BaseModels\RowsResultWrapper.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\ApiModels\Batch\BatchItemResult.cs">
+      <Link>ApiModels\Batch\BatchItemResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiModels\Batch\BatchResultWrapper.cs">
+      <Link>ApiModels\Batch\BatchResultWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\ApiModels\Batch\UpdateExported.cs">
+      <Link>ApiModels\Batch\UpdateExported.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\ApiModels\CashRegister\CashRegister.cs">
       <Link>ApiModels\CashRegister\CashRegister.cs</Link>
     </Compile>
@@ -455,6 +464,9 @@
     <Compile Include="..\Idoklad\Clients\BaseClient.cs">
       <Link>Clients\BaseClient.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\Clients\BatchClient.cs">
+      <Link>Clients\BatchClient.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\Clients\CashRegisterClient.cs">
       <Link>Clients\CashRegisterClient.cs</Link>
     </Compile>
@@ -530,6 +542,9 @@
     <Compile Include="..\Idoklad\Constants\SdkSettings.cs">
       <Link>Constants\SdkSettings.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\Enums\BatchResultTypeEnum.cs">
+      <Link>Enums\BatchResultTypeEnum.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\Enums\CreditCheckStatusDokladEnum.cs">
       <Link>Enums\CreditCheckStatusDokladEnum.cs</Link>
     </Compile>
@@ -547,6 +562,9 @@
     </Compile>
     <Compile Include="..\Idoklad\Enums\ElectronicRecordsOfSalesStatusEnum.cs">
       <Link>Enums\ElectronicRecordsOfSalesStatusEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Enums\ExportableEntityTypeEnum.cs">
+      <Link>Enums\ExportableEntityTypeEnum.cs</Link>
     </Compile>
     <Compile Include="..\Idoklad\Enums\ExportedStateEnum.cs">
       <Link>Enums\ExportedStateEnum.cs</Link>

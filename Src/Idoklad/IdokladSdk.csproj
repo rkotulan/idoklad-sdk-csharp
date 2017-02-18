@@ -97,8 +97,11 @@
     <Compile Include="ApiModels\BankAccount\BankAccount.cs" />
     <Compile Include="ApiModels\BankAccount\BankAccountCreate.cs" />
     <Compile Include="ApiModels\BankAccount\BankAccountUpdate.cs" />
+    <Compile Include="ApiModels\Batch\BatchItemResult.cs" />
+    <Compile Include="ApiModels\Batch\BatchResultWrapper.cs" />
     <Compile Include="ApiModels\BaseModels\IApiModel.cs" />
     <Compile Include="ApiModels\BaseModels\RowsResultWrapper.cs" />
+    <Compile Include="ApiModels\Batch\UpdateExported.cs" />
     <Compile Include="ApiModels\CashRegister\CashRegister.cs" />
     <Compile Include="ApiModels\CashRegister\CashRegisterExpand.cs" />
     <Compile Include="ApiModels\CashVoucher\CashVoucher.cs" />
@@ -186,6 +189,7 @@
     <Compile Include="Clients\Auth\AuthorizationCodeAuth.cs" />
     <Compile Include="Clients\Auth\AuthorizationCodeRefreshAuth.cs" />
     <Compile Include="Clients\BankClient.cs" />
+    <Compile Include="Clients\BatchClient.cs" />
     <Compile Include="Clients\CashRegisterClient.cs" />
     <Compile Include="Clients\CashVoucherClient.cs" />
     <Compile Include="Clients\ConstantSymbolClient.cs" />
@@ -215,11 +219,13 @@
     <Compile Include="Clients\VatRateClient.cs" />
     <Compile Include="Constants\SdkSettings.cs" />
     <Compile Include="Constants\ApiHeaders.cs" />
+    <Compile Include="Enums\BatchResultTypeEnum.cs" />
     <Compile Include="Enums\DocumentTypeEnum.cs" />
     <Compile Include="Enums\EetRegimeEnum.cs" />
     <Compile Include="Enums\EetResponsibilityEnum.cs" />
     <Compile Include="Enums\EetStatusEnum.cs" />
     <Compile Include="Enums\ElectronicRecordsOfSalesStatusEnum.cs" />
+    <Compile Include="Enums\ExportableEntityTypeEnum.cs" />
     <Compile Include="Enums\ImportedStateEnum.cs" />
     <Compile Include="Enums\InvoiceTypeEnum.cs" />
     <Compile Include="Enums\MovementTypeEnum.cs" />
