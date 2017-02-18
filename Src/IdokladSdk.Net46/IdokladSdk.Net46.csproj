@@ -431,6 +431,9 @@
     <Compile Include="..\Idoklad\Attributes\StringValueAttribute.cs">
       <Link>Attributes\StringValueAttribute.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\AuthConfiguration.cs">
+      <Link>AuthConfiguration.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\Clients\AgendaClient.cs">
       <Link>Clients\AgendaClient.cs</Link>
     </Compile>
@@ -617,6 +620,10 @@
     <ProjectReference Include="..\..\IdokladSdk.Resources\IdokladSdk.Resources.csproj">
       <Project>{e6be7914-a0c8-4130-be3d-7981d91be1e2}</Project>
       <Name>IdokladSdk.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Idoklad\IdokladSdk.csproj">
+      <Project>{EAFB58D7-3DBD-4374-9938-E15895F8AF62}</Project>
+      <Name>IdokladSdk</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

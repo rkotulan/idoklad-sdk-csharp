@@ -182,6 +182,7 @@
     <Compile Include="Attributes\StringValueAttribute.cs" />
     <Compile Include="ApiContext.cs" />
     <Compile Include="ApiExplorer.cs" />
+    <Compile Include="AuthConfiguration.cs" />
     <Compile Include="Clients\Auth\AuthorizationCodeAuth.cs" />
     <Compile Include="Clients\Auth\AuthorizationCodeRefreshAuth.cs" />
     <Compile Include="Clients\BankClient.cs" />

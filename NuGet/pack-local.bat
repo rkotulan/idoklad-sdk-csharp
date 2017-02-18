@@ -1,3 +1,6 @@
+REM rebuild solution
+msbuild.exe %~dp0\..\FioSdkCsharp.sln /p:Configuration=Release 
+
 REM delete old packages
 rd package
 rd build

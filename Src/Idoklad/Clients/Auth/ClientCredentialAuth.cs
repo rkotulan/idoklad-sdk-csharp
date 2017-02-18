@@ -11,7 +11,7 @@ namespace IdokladSdk.Clients.Auth
     /// </summary>
     public class ClientCredentialAuth : IAuth
     {
-        private const string ResourceUrl = "https://app.idoklad.cz/identity/server/connect/token";
+        public AuthConfiguration Configuration { get; set; } = new AuthConfiguration();
 
         private readonly string _clientId;
         private readonly string _clientSecret;
@@ -32,7 +32,7 @@ namespace IdokladSdk.Clients.Auth
         /// </summary>
         public Tokenizer GetSecureToken()
         {
-            var client = new RestClient(ResourceUrl);
+            var client = new RestClient(Configuration.IdokladTokenUrl);
             var authRequest = new RestRequest(Method.POST);
 
             authRequest.AddParameter("content-type", "application/x-www-form-urlencoded");
@@ -45,13 +45,14 @@ namespace IdokladSdk.Clients.Auth
 
             string responseJson = authReponse.Content;
 
-            if (responseJson.IsNullOrEmpty())
-            {
-                throw new AuthenticationException("Authentication failed. Access token has not been obtained.");
-            }
-
             Tokenizer tokenizer = JsonConvert.DeserializeObject<Tokenizer>(responseJson);
             tokenizer.GrantType = GrantType.client_credentials;
+
+            if (string.IsNullOrEmpty(tokenizer.AccessToken))
+            {
+                var errorMessage = (JsonConvert.DeserializeObject<dynamic>(responseJson)).error;
+                throw new AuthenticationException("Authentication failed: " + errorMessage);
+            }
 
             return tokenizer;
         }

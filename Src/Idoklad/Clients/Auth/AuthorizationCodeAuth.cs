@@ -8,17 +8,16 @@ namespace IdokladSdk.Clients.Auth
 {
     public class AuthorizationCodeAuth : IAuth
     {
-        private const string AuthorizeUrl = "https://app.idoklad.cz/identity/server/connect/authorize";
-        private const string TokenUrl = "https://app.idoklad.cz/identity/server/connect/token";
+        public AuthConfiguration Configuration { get; set; } = new AuthConfiguration();
 
         private readonly string _clientId;
         private readonly string _clientSecret;
         private readonly string _code;
         private readonly string _redirectUri;
 
-        public static string GetClientAuthenticationUrl(string clientId, string redirectUri)
+        public string GetClientAuthenticationUrl(string clientId, string redirectUri)
         {
-            return AuthorizeUrl + $"?scope=idoklad_api%20offline_access&client_id={clientId}&response_type=code&redirect_uri={redirectUri}";
+            return Configuration.IdokladAuthorizeUrl + $"?scope=idoklad_api%20offline_access&client_id={clientId}&response_type=code&redirect_uri={redirectUri}";
         }
 
         public AuthorizationCodeAuth(string clientId, string clientSecret, string code, string redirectUri)
@@ -36,7 +35,7 @@ namespace IdokladSdk.Clients.Auth
 
         public Tokenizer GetSecureToken()
         {
-            var client = new RestClient(TokenUrl);
+            var client = new RestClient(Configuration.IdokladTokenUrl);
             var authRequest = new RestRequest(Method.POST);
 
             authRequest.AddParameter("content-type", "application/x-www-form-urlencoded");
@@ -51,12 +50,13 @@ namespace IdokladSdk.Clients.Auth
 
             string responseJson = authReponse.Content;
 
-            if (responseJson.IsNullOrEmpty())
+            Tokenizer tokenizer = JsonConvert.DeserializeObject<Tokenizer>(responseJson);
+            if (string.IsNullOrEmpty(tokenizer.AccessToken))
             {
-                throw new AuthenticationException("Authentication failed. Access token has not been obtained.");
+                var errorMessage = (JsonConvert.DeserializeObject<dynamic>(responseJson)).error;
+                throw new AuthenticationException("Authentication failed: " + errorMessage);
             }
 
-            Tokenizer tokenizer = JsonConvert.DeserializeObject<Tokenizer>(responseJson);
             tokenizer.GrantType = GrantType.authorization_code;
             tokenizer.ClientId = _clientId;
             tokenizer.ClientSecret = _clientSecret;

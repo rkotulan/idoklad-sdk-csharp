@@ -433,6 +433,9 @@
     <Compile Include="..\Idoklad\Attributes\StringValueAttribute.cs">
       <Link>Attributes\StringValueAttribute.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\AuthConfiguration.cs">
+      <Link>AuthConfiguration.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\Clients\AgendaClient.cs">
       <Link>Clients\AgendaClient.cs</Link>
     </Compile>
