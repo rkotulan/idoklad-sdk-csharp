@@ -12,7 +12,7 @@ namespace ConsoleSampleApplication
         static void Main(string[] args)
         {
             //var authCredentials = new AuthorizationCodeAuth("client_id", "client_secret", "code", "http://localhost:3432");
-            //var url = authCredentials.GetClientAuthenticationUrl("client_id", "http://localhost:3432");
+            //var url = AuthorizationCodeAuth.GetClientAuthenticationUrl("client_id", "http://localhost:3432");
 
             // choose authorization flow
             var clientCred = new ClientCredentialAuth("client_id", "client_secret");

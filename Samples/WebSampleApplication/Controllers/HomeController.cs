@@ -36,8 +36,9 @@ namespace WebSampleApplication.Controllers
             }
 
             IssuedInvoiceClient invoiceClient = new IssuedInvoiceClient(api);
+            var filter = new IssuedInvoiceFilter();
 
-            return View(invoiceClient.IssuedInvoices().Data);
+            return View(invoiceClient.IssuedInvoices(new ApiFilter(filter).AddOrderDesc("DateOfIssue")).Data);
         }
     }
 }

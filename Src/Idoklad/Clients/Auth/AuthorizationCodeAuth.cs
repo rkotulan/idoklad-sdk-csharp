@@ -15,9 +15,10 @@ namespace IdokladSdk.Clients.Auth
         private readonly string _code;
         private readonly string _redirectUri;
 
-        public string GetClientAuthenticationUrl(string clientId, string redirectUri)
+        public static string GetClientAuthenticationUrl(string clientId, string redirectUri, string customAuthorizeUrl = null)
         {
-            return Configuration.IdokladAuthorizeUrl + $"?scope=idoklad_api%20offline_access&client_id={clientId}&response_type=code&redirect_uri={redirectUri}";
+            string IdokladAuthorizeUrl = "https://app.idoklad.cz/identity/server/connect/authorize";
+            return (customAuthorizeUrl ?? IdokladAuthorizeUrl) + $"?scope=idoklad_api%20offline_access&client_id={clientId}&response_type=code&redirect_uri={redirectUri}";
         }
 
         public AuthorizationCodeAuth(string clientId, string clientSecret, string code, string redirectUri)
