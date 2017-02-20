@@ -21,6 +21,7 @@ namespace IdokladSdk
         private SystemClient _systemClient;
         private VatRateClient _vatRateClient;
 
+        private BatchClient _batchClient;
         private CashRegisterClient _cashRegisterClient;
         private CashVoucherClient _cashVoucherClient;
         private IssuedDocumentPaymentClient _issuedDocumentPaymentClient;
@@ -38,6 +39,8 @@ namespace IdokladSdk
         }
 
         public AgendaClient Agendas => _agendaClient ?? (_agendaClient = new AgendaClient(_apiContext));
+
+        public BatchClient Batches => _batchClient ?? (_batchClient = new BatchClient(_apiContext));
 
         public ContactClient Contacts => _contactClient ?? (_contactClient = new ContactClient(_apiContext));
 

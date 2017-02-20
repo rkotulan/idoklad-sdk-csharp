@@ -17,7 +17,7 @@ namespace IdokladSdk.Clients
         /// </summary>
         public BatchResultWrapper<UpdateExported> UpdatePurchaserDocumentAddress(List<UpdateExported> items)
         {
-            return Put<BatchResultWrapper<UpdateExported>, List<UpdateExported>>(ResourceUrl + "/" + "Exported", items);
+            return Put<BatchResultWrapper<UpdateExported>, object>(ResourceUrl + "/" + "Exported", new { Items = items });
         }
     }
 }
