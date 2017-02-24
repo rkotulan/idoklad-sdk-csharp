@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.Constants;
 using IdokladSdk.Extensions;
@@ -38,6 +39,21 @@ namespace IdokladSdk.Clients
             return DeserializedResult<T>(response);
         }
 
+        protected async Task<T> GetAsync<T>(string resource, IFilter filter = null)
+        {
+            RestRequest request = CreateRequest(resource, Method.GET);
+            request.ApplyFiltersAsQueryString(filter);
+
+            IRestResponse response = await Client.ExecuteTaskAsync(request);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                throw new ApplicationException("Response from API is " + response.StatusCode);
+            }
+
+            return DeserializedResult<T>(response);
+        }
+
         protected bool Delete(string resource, object[] ids = null)
         {
             RestRequest request = CreateRequest(resource, Method.DELETE);
@@ -57,12 +73,31 @@ namespace IdokladSdk.Clients
             return false;
         }
 
+        protected async Task<bool> DeleteAsync(string resource, object[] ids = null)
+        {
+            RestRequest request = CreateRequest(resource, Method.DELETE);
+
+            if (ids != null)
+            {
+                request.AddBody(ids);
+            }
+
+            IRestResponse response = await Client.ExecuteTaskAsync(request);
+
+            if (response.StatusCode == HttpStatusCode.NoContent || response.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         protected T Post<T, TI>(string resource, TI model)
         {
             List<ValidationMessage> errors;
-            if(!IsValidObject(model, out errors))
+            if (!IsValidObject(model, out errors))
             {
-                throw new ApplicationException("Model is not valid. " + string.Join(". ", errors.Select(x=> x.Message)));
+                throw new ApplicationException("Model is not valid. " + string.Join(". ", errors.Select(x => x.Message)));
             }
 
             RestRequest request = CreateRequest(resource, Method.POST);
@@ -72,6 +107,24 @@ namespace IdokladSdk.Clients
             request.AddBody(model);
 
             IRestResponse response = Client.Execute(request);
+            return DeserializedResult<T>(response);
+        }
+
+        protected async Task<T> PostAsync<T, TI>(string resource, TI model)
+        {
+            List<ValidationMessage> errors;
+            if (!IsValidObject(model, out errors))
+            {
+                throw new ApplicationException("Model is not valid. " + string.Join(". ", errors.Select(x => x.Message)));
+            }
+
+            RestRequest request = CreateRequest(resource, Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.DateFormat = ApiContextConfiguration.DateFormat;
+
+            request.AddBody(model);
+
+            IRestResponse response = await Client.ExecuteTaskAsync(request);
             return DeserializedResult<T>(response);
         }
 
@@ -97,6 +150,28 @@ namespace IdokladSdk.Clients
             return DeserializedResult<T>(response);
         }
 
+        protected async Task<T> PutAsync<T, TI>(string resource, TI model)
+        {
+            if (model == null)
+            {
+                throw new ArgumentNullException("model", "Model is not presented");
+            }
+
+            List<ValidationMessage> errors;
+            if (!IsValidObject(model, out errors))
+            {
+                throw new ApplicationException("Model is not valid. " + string.Join(". ", errors));
+            }
+
+            RestRequest request = CreateRequest(resource, Method.PUT);
+            request.RequestFormat = DataFormat.Json;
+            request.DateFormat = ApiContextConfiguration.DateFormat;
+            request.AddBody(model);
+
+            IRestResponse response = await Client.ExecuteTaskAsync(request);
+            return DeserializedResult<T>(response);
+        }
+
         protected T Put<T>(string resource)
         {
             RestRequest request = CreateRequest(resource, Method.PUT);
@@ -104,6 +179,16 @@ namespace IdokladSdk.Clients
             request.DateFormat = ApiContextConfiguration.DateFormat;
 
             IRestResponse response = Client.Execute(request);
+            return DeserializedResult<T>(response);
+        }
+
+        protected async Task<T> PutAsync<T>(string resource)
+        {
+            RestRequest request = CreateRequest(resource, Method.PUT);
+            request.RequestFormat = DataFormat.Json;
+            request.DateFormat = ApiContextConfiguration.DateFormat;
+
+            IRestResponse response = await Client.ExecuteTaskAsync(request);
             return DeserializedResult<T>(response);
         }
 

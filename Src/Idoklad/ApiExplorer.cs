@@ -54,7 +54,7 @@ namespace IdokladSdk
 
         public ReceivedInvoiceClient ReceivedInvoices => _receivedInvoiceClient ?? (_receivedInvoiceClient = new ReceivedInvoiceClient(_apiContext));
 
-        public BankClient BankClients => _bankClient ?? (_bankClient = new BankClient(_apiContext));
+        public BankClient Banks => _bankClient ?? (_bankClient = new BankClient(_apiContext));
 
         public ConstantSymbolClient ConstantSymbols => _constantSymbolClient ?? (_constantSymbolClient = new ConstantSymbolClient(_apiContext));
 
