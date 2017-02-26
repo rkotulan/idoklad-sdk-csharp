@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.ApiModels.BaseModels;
@@ -10,73 +11,68 @@ namespace IdokladSdk.Clients
     /// </summary>
     public partial class AgendaClient : BaseClient
     {
-        public const string ResourceUrl = "/Agendas";
-
-        public AgendaClient(ApiContext apiContext) : base(apiContext)
-        {
-        }
 
         /// <summary>
         /// GET api/Agendas/GetAgendaSummary
         /// Summary of the user documents for agenda.
         /// </summary>
-        public AgendaSummary AgendaSummary()
+        public async Task<AgendaSummary> AgendaSummaryAsync()
         {
-            return Get<AgendaSummary>(ResourceUrl + "/GetAgendaSummary");
+            return await GetAsync<AgendaSummary>(ResourceUrl + "/GetAgendaSummary");
         }
 
         /// <summary>
         /// GET api/Agendas/GetAgendaContact
         /// Contact information for agenda.
         /// </summary>
-        public Contact AgendaContact()
+        public async Task<Contact> AgendaContactAsync()
         {
-            return Get<Contact>(ResourceUrl + "/GetAgendaContact");
+            return await GetAsync<Contact>(ResourceUrl + "/GetAgendaContact");
         }
 
         /// <summary>
         /// GET api/Agendas/GetAgendaContactExpand
         /// Contact information for agenda. Expanded edition.
         /// </summary>
-        public ContactExpand AgendaContactExpand()
+        public async Task<ContactExpand> AgendaContactExpandAsync()
         {
-            return Get<ContactExpand>(ResourceUrl + "/GetAgendaContactExpand");
+            return await GetAsync<ContactExpand>(ResourceUrl + "/GetAgendaContactExpand");
         }
 
         /// <summary>
         /// GET api/Agendas/GetAgendaBankAccounts
         /// List of bank accounts for agenda.
         /// </summary>
-        public List<BankAccount> AgendaContactBankAccounts()
+        public async Task<List<BankAccount>> AgendaContactBankAccountsAsync()
         {
-            return Get<List<BankAccount>>(ResourceUrl + "/GetAgendaBankAccounts");
+            return await GetAsync<List<BankAccount>>(ResourceUrl + "/GetAgendaBankAccounts");
         }
 
         /// <summary>
         /// GET api/Agendas/GetTopPartners
         /// Method calculates best partners by issued invoices sum.
         /// </summary>
-        public List<SummaryTopPartner> TopPartners()
+        public async Task<List<SummaryTopPartner>> TopPartnersAsync()
         {
-            return Get<List<SummaryTopPartner>>(ResourceUrl + "/GetTopPartners");
+            return await GetAsync<List<SummaryTopPartner>>(ResourceUrl + "/GetTopPartners");
         }
 
         /// <summary>
         /// GET api/Agendas
         /// List of agendas.
         /// </summary>
-        public RowsResultWrapper<Agenda> Agendas(PageFilter filter = null)
+        public async Task<RowsResultWrapper<Agenda>> AgendasAsync(PageFilter filter = null)
         {
-            return Get<RowsResultWrapper<Agenda>>(ResourceUrl, filter);
+            return await GetAsync<RowsResultWrapper<Agenda>>(ResourceUrl, filter);
         }
 
         /// <summary>
         /// GET api/Agendas/{id}
         /// Detail of the agenda by Id.
         /// </summary>
-        public Agenda Agenda(int agendaId)
+        public async Task<Agenda> AgendaAsync(int agendaId)
         {
-            return Get<Agenda>(ResourceUrl + "/" + agendaId);
+            return await GetAsync<Agenda>(ResourceUrl + "/" + agendaId);
         }
     }
 }

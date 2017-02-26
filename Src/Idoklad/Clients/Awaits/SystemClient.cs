@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using IdokladSdk.ApiModels;
 
 namespace IdokladSdk.Clients
@@ -8,19 +9,13 @@ namespace IdokladSdk.Clients
     /// </summary>
     public partial class SystemClient : BaseClient
     {
-        public const string ResourceUrl = "/System";
-
-        public SystemClient(ApiContext apiContext) : base(apiContext)
-        {
-        }
-
         /// <summary>
         /// GET api/System/GetCodeBooksChanges
         /// Provides information about system tables changes.
         /// </summary>
-        public CodeBooksChanges CodeBookChanges(DateTime lastCheck)
+        public async Task<CodeBooksChanges> CodeBookChangesAsync(DateTime lastCheck)
         {
-            return Get<CodeBooksChanges>(ResourceUrl + "/GetCodeBooksChanges" + "?lastCheck="+ lastCheck.ToString(ApiContextConfiguration.DateFormat));
+            return await GetAsync<CodeBooksChanges>(ResourceUrl + "/GetCodeBooksChanges" + "?lastCheck="+ lastCheck.ToString(ApiContextConfiguration.DateFormat));
         }
     }
 }

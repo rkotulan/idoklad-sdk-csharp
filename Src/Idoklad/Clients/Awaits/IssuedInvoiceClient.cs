@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.ApiModels.BaseModels;
@@ -11,218 +12,211 @@ namespace IdokladSdk.Clients
     /// </summary>
     public partial class IssuedInvoiceClient : BaseClient
     {
-        public const string ResourceUrl = "/IssuedInvoices";
-
-        public IssuedInvoiceClient(ApiContext apiContext)
-            : base(apiContext)
-        {
-        }
-
         /// <summary>
         /// GET api/IssuedInvoices/Default
         /// Method returns empty invoice with default values. Returned resource is suitable for new invoice creation.
         /// </summary>
-        public IssuedInvoiceCreate Default()
+        public async Task<IssuedInvoiceCreate> DefaultAsync()
         {
-            return Get<IssuedInvoiceCreate>(ResourceUrl + "/Default");
+            return await GetAsync<IssuedInvoiceCreate>(ResourceUrl + "/Default");
         }
 
         /// <summary>
         /// PUT api/IssuedInvoices/{id}/FullyPay?dateOfPayment={dateOfPayment}
         /// Method sets invoice as paid.
         /// </summary>
-        public bool FullyPay(int invoiceId, DateTime paid)
+        public async Task<bool> FullyPayAsync(int invoiceId, DateTime paid)
         {
-            return Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(ApiContextConfiguration.DateFormat));
+            return await PutAsync<bool>(ResourceUrl + "/" + invoiceId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(ApiContextConfiguration.DateFormat));
         }
 
         /// <summary>
         /// PUT api/IssuedInvoices/{id}/FullyUnpay
         /// Method sets invoice as unpaid.
         /// </summary>
-        public bool FullyUnpay(int invoiceId)
+        public async Task<bool> FullyUnpayAsync(int invoiceId)
         {
-            return Put<bool>(ResourceUrl + "/" + invoiceId + "/FullyUnpay");
+            return await PutAsync<bool>(ResourceUrl + "/" + invoiceId + "/FullyUnpay");
         }
 
         /// <summary>
         /// GET api/IssuedInvoices/{id}/GetCashVoucherPdf
         /// Returns Pdf file with Cash voucher report for the invoice. File is Base64 encoded and is returned as string.
         /// </summary>
-        public string CashVoucherPdf(int invoiceId)
+        public async Task<string> CashVoucherPdfAsync(int invoiceId)
         {
-            return Get<string>(ResourceUrl + "/" + invoiceId + "/GetCashVoucherPdf");
+            return await GetAsync<string>(ResourceUrl + "/" + invoiceId + "/GetCashVoucherPdf");
         }
 
         /// <summary>
         /// GET api/IssuedInvoices/{id}/GetCashVoucherPdfCompressed
         /// Returns zipped Pdf file with Cash voucher report for the invoice. File is Base64 encoded and is returned as string.
         /// </summary>
-        public string CashVoucherPdfCompressed(int invoiceId)
+        public async Task<string> CashVoucherPdfCompressedAsync(int invoiceId)
         {
-            return Get<string>(ResourceUrl + "/" + invoiceId + "/GetCashVoucherPdfCompressed");
+            return await GetAsync<string>(ResourceUrl + "/" + invoiceId + "/GetCashVoucherPdfCompressed");
         }
 
         /// <summary>
         /// GET api/IssuedInvoices/Expand
         /// Returns Issued invoice list with related entities such as contact information etc.
         /// </summary>
-        public RowsResultWrapper<IssuedInvoiceExpand> IssuedInvoicesExpand(ApiFilter filter = null)
+        public async Task<RowsResultWrapper<IssuedInvoiceExpand>> IssuedInvoicesExpandAsync(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<IssuedInvoiceExpand>>(ResourceUrl + "/Expand", filter);
+            return await GetAsync<RowsResultWrapper<IssuedInvoiceExpand>>(ResourceUrl + "/Expand", filter);
         }
 
         /// <summary>
         /// GET api/IssuedInvoices/{id}/Expand
         /// Returns Issued invoice with related entities by Id.
         /// </summary>
-        public IssuedInvoiceExpand IssuedInvoiceExpand(int invoiceId)
+        public async Task<IssuedInvoiceExpand> IssuedInvoiceExpandAsync(int invoiceId)
         {
-            return Get<IssuedInvoiceExpand>(ResourceUrl + "/" + invoiceId + "/Expand");
+            return await GetAsync<IssuedInvoiceExpand>(ResourceUrl + "/" + invoiceId + "/Expand");
         }
 
         /// <summary>
         /// GET api/IssuedInvoices/{id}/GetPdf
         /// Returns Pdf file with Issued Invoic. File is Base64 encoded and is returned as string.
         /// </summary>
-        public string IssuedInvoicePdf(int invoiceId)
+        public async Task<string> IssuedInvoicePdfAsync(int invoiceId)
         {
-            return Get<string>(ResourceUrl + "/" + invoiceId + "/GetPdf");
+            return await GetAsync<string>(ResourceUrl + "/" + invoiceId + "/GetPdf");
         }
 
         /// <summary>
         /// GET api/IssuedInvoices/{id}/GetPdfCompressed
         /// Returns zipped Pdf file with Issued Invoice report. File is Base64 encoded and is returned as string.
         /// </summary>
-        public string IssuedInvoicePdfCompressed(int invoiceId)
+        public async Task<string> IssuedInvoicePdfCompressedAsync(int invoiceId)
         {
-            return Get<string>(ResourceUrl + "/" + invoiceId + "/GetPdfCompressed");
+            return await GetAsync<string>(ResourceUrl + "/" + invoiceId + "/GetPdfCompressed");
         }
 
         /// <summary>
         /// GET api/IssuedInvoices/{contactId}/IssuedInvoices
         /// Returns invoice list for specific contact.
         /// </summary>
-        public RowsResultWrapper<IssuedInvoice> IssuedInvoicesByContact(int contactId, ApiFilter filter = null)
+        public async Task<RowsResultWrapper<IssuedInvoice>> IssuedInvoicesByContactAsync(int contactId, ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<IssuedInvoice>>(ResourceUrl + "/" + contactId + "/IssuedInvoices", filter);
+            return await GetAsync<RowsResultWrapper<IssuedInvoice>>(ResourceUrl + "/" + contactId + "/IssuedInvoices", filter);
         }
 
         /// <summary>
         /// GET api/IssuedInvoices/{id}/MyDocumentAddress
         /// Contact information of the supplier for invoice.
         /// </summary>
-        public DocumentAddress MyDocumentAddress(int invoiceId)
+        public async Task<DocumentAddress> MyDocumentAddressAsync(int invoiceId)
         {
-            return Get<DocumentAddress>(ResourceUrl + "/" + invoiceId + "/MyDocumentAddress");
+            return await GetAsync<DocumentAddress>(ResourceUrl + "/" + invoiceId + "/MyDocumentAddress");
         }
 
         /// <summary>
         /// GET api/IssuedInvoices/{id}/PurchaserDocumentAddress
         /// Contact information of the purchaser for invoice.
         /// </summary>
-        public DocumentAddress PurchaserDocumentAddress(int invoiceId)
+        public async Task<DocumentAddress> PurchaserDocumentAddressAsync(int invoiceId)
         {
-            return Get<DocumentAddress>(ResourceUrl + "/" + invoiceId + "/PurchaserDocumentAddress");
+            return await GetAsync<DocumentAddress>(ResourceUrl + "/" + invoiceId + "/PurchaserDocumentAddress");
         }
 
         /// <summary>
         /// POST api/IssuedInvoices/Recount
         /// Method recounts summaries of the invoice model for creation. Invoice should contains only items with ItemTypeNormal.
         /// </summary>
-        public IssuedInvoice Recount(IssuedInvoiceCreate invoice)
+        public async Task<IssuedInvoice> RecountAsync(IssuedInvoiceCreate invoice)
         {
-            return Post<IssuedInvoice, IssuedInvoiceCreate>(ResourceUrl + "/Recount", invoice);
+            return await PostAsync<IssuedInvoice, IssuedInvoiceCreate>(ResourceUrl + "/Recount", invoice);
         }
 
         /// <summary>
         /// POST api/IssuedInvoices/{id}/Recount
         /// Method recounts summaries of the invoice model for update. Invoice should contains only items with ItemTypeNormal.
         /// </summary>
-        public IssuedInvoice Recount(int invoiceId, IssuedInvoiceUpdate invoice)
+        public async Task<IssuedInvoice> RecountAsync(int invoiceId, IssuedInvoiceUpdate invoice)
         {
-            return Post<IssuedInvoice, IssuedInvoiceUpdate>(ResourceUrl + "/" + invoiceId + "/Recount", invoice);
+            return await PostAsync<IssuedInvoice, IssuedInvoiceUpdate>(ResourceUrl + "/" + invoiceId + "/Recount", invoice);
         }
 
         /// <summary>
         /// PUT api/IssuedInvoices/{id}/MyDocumentAddress
         /// Method Updates contact informations of the supplier.
         /// </summary>
-        public DocumentAddress UpdateMyDocumentAddress(int invoiceId, DocumentAddress address)
+        public async Task<DocumentAddress> UpdateMyDocumentAddressAsync(int invoiceId, DocumentAddress address)
         {
-            return Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + invoiceId + "/MyDocumentAddress", address);
+            return await PutAsync<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + invoiceId + "/MyDocumentAddress", address);
         }
 
         /// <summary>
         /// PUT api/IssuedInvoices/{id}/PurchaserDocumentAddress
         /// Method Updates contact informations of the purchaser.
         /// </summary>
-        public DocumentAddress UpdatePurchaserDocumentAddress(int invoiceId, DocumentAddress address)
+        public async Task<DocumentAddress> UpdatePurchaserDocumentAddressAsync(int invoiceId, DocumentAddress address)
         {
-            return Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + invoiceId + "/PurchaserDocumentAddress", address);
+            return await PutAsync<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + invoiceId + "/PurchaserDocumentAddress", address);
         }
 
         /// <summary>
         /// PUT api/IssuedInvoices/{id}/SendMailToPurchaser
         /// Method sends email with issued invoice to the purchaser.
         /// </summary>
-        public bool SendMailToPurchaser(int invoiceId)
+        public async Task<bool> SendMailToPurchaserAsync(int invoiceId)
         {
-            return Put<bool>(ResourceUrl + "/" + invoiceId + "/SendMailToPurchaser");
+            return await PutAsync<bool>(ResourceUrl + "/" + invoiceId + "/SendMailToPurchaser");
         }
 
         /// <summary>
         /// PUT api/IssuedInvoices/{id}/Exported/{value}
         /// Method updates Exported property of the invoice.
         /// </summary>
-        public bool SendMailToPurchaser(int invoiceId, ExportedStateEnum state)
+        public async Task<bool> SendMailToPurchaserAsync(int invoiceId, ExportedStateEnum state)
         {
-            return Put<bool>(ResourceUrl + "/" + invoiceId + "/Exported" + "/" + (int)state);
+            return await PutAsync<bool>(ResourceUrl + "/" + invoiceId + "/Exported" + "/" + (int)state);
         }
 
         /// <summary>
         /// DELETE api/IssuedInvoices/{id}
         /// Deletes issued invoice by Id.
         /// </summary>
-        public bool Delete(int invoiceId)
+        public async Task<bool> DeleteAsync(int invoiceId)
         {
-            return Delete(ResourceUrl + "/" + invoiceId);
+            return await DeleteAsync(ResourceUrl + "/" + invoiceId);
         }
 
         /// <summary>
         /// GET api/IssuedInvoices
         /// Returns list of issued invoices. Filters are optional.
         /// </summary>
-        public RowsResultWrapper<IssuedInvoice> IssuedInvoices(ApiFilter filter = null)
+        public async Task<RowsResultWrapper<IssuedInvoice>> IssuedInvoicesAsync(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<IssuedInvoice>>(ResourceUrl, filter);
+            return await GetAsync<RowsResultWrapper<IssuedInvoice>>(ResourceUrl, filter);
         }
 
         /// <summary>
         /// GET api/IssuedInvoices/{id}
         /// Returns information about issued invoice including summaries.
         /// </summary>
-        public IssuedInvoice IssuedInvoice(int invoiceId)
+        public async Task<IssuedInvoice> IssuedInvoiceAsync(int invoiceId)
         {
-            return Get<IssuedInvoice>(ResourceUrl + "/" + invoiceId);
+            return await GetAsync<IssuedInvoice>(ResourceUrl + "/" + invoiceId);
         }
 
         /// <summary>
         /// POST api/IssuedInvoices
         /// Create new issued invoice. Invoice should contains only items with ItemTypeNormal.
         /// </summary>
-        public IssuedInvoice Create(IssuedInvoiceCreate invoice)
+        public async Task<IssuedInvoice> CreateAsync(IssuedInvoiceCreate invoice)
         {
-            return Post<IssuedInvoice, IssuedInvoiceCreate>(ResourceUrl, invoice);
+            return await PostAsync<IssuedInvoice, IssuedInvoiceCreate>(ResourceUrl, invoice);
         }
 
         /// <summary>
         /// PUT api/IssuedInvoices/{id}
         /// Method updates issued invoice by Id. Also possible to update single preperties of invoice. Invoice should contains only items with ItemTypeNormal.
         /// </summary>
-        public IssuedInvoice Update(int invoiceId, IssuedInvoiceUpdate invoice)
+        public async Task<IssuedInvoice> UpdateAsync(int invoiceId, IssuedInvoiceUpdate invoice)
         {
-            return Put<IssuedInvoice, IssuedInvoiceUpdate>(ResourceUrl + "/" + invoiceId, invoice);
+            return await PutAsync<IssuedInvoice, IssuedInvoiceUpdate>(ResourceUrl + "/" + invoiceId, invoice);
         }
     }
 }

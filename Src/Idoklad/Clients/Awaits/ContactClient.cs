@@ -1,4 +1,5 @@
-﻿using IdokladSdk.ApiFilters;
+﻿using System.Threading.Tasks;
+using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.ApiModels.BaseModels;
 
@@ -9,82 +10,76 @@ namespace IdokladSdk.Clients
     /// </summary>
     public partial class ContactClient : BaseClient
     {
-        public const string ResourceUrl = "/Contacts";
-
-        public ContactClient(ApiContext apiContext) : base(apiContext)
-        {
-        }
-
         /// <summary>
         /// GET api/Contacts/Default
         /// Returns default contact. This resource is suitable for creation of new contact by the POST method.
         /// </summary>
-        public Contact Default()
+        public async Task<Contact> DefaulAsynct()
         {
-            return Get<Contact>(ResourceUrl + "/Default");
+            return await GetAsync<Contact>(ResourceUrl + "/Default");
         }
 
         /// <summary>
         /// GET api/Contacts/Expand
         /// List of contacts with related entities.
         /// </summary>
-        public RowsResultWrapper<ContactExpand> ContactsExpand(ApiFilter filter = null)
+        public async Task<RowsResultWrapper<ContactExpand>> ContactsExpandAsync(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<ContactExpand>>(ResourceUrl + "/Expand", filter);
+            return await GetAsync<RowsResultWrapper<ContactExpand>>(ResourceUrl + "/Expand", filter);
         }
 
         /// <summary>
         /// GET api/Contacts/{id}/Expand
         /// Returns contact with related entities by contact Id.
         /// </summary>
-        public ContactExpand ContactExpand(int contactId)
+        public async Task<ContactExpand> ContactExpandAsync(int contactId)
         {
-            return Get<ContactExpand>(ResourceUrl + "/" + contactId + "/Expand");
+            return await GetAsync<ContactExpand>(ResourceUrl + "/" + contactId + "/Expand");
         }
 
         /// <summary>
         /// DELETE api/Contacts/{id}
         /// Deletes contact.
         /// </summary>
-        public bool Delete(int contactId)
+        public async Task<bool> DeleteAsync(int contactId)
         {
-            return Delete(ResourceUrl + "/" + contactId);
+            return await DeleteAsync(ResourceUrl + "/" + contactId);
         }
 
         /// <summary>
         /// GET api/Contacts
         /// List of contacts.
         /// </summary>
-        public RowsResultWrapper<Contact> Contacts(PageFilter filter = null)
+        public async Task<RowsResultWrapper<Contact>> ContactsAsync(PageFilter filter = null)
         {
-            return Get<RowsResultWrapper<Contact>>(ResourceUrl, filter);
+            return await GetAsync<RowsResultWrapper<Contact>>(ResourceUrl, filter);
         }
 
         /// <summary>
         /// GET api/Contacts/{id}
         /// Returns contact by Id.
         /// </summary>
-        public Contact Contact(int contactId)
+        public async Task<Contact> ContactAsync(int contactId)
         {
-            return Get<Contact>(ResourceUrl + "/" + contactId);
+            return await GetAsync<Contact>(ResourceUrl + "/" + contactId);
         }
 
         /// <summary>
         /// POST api/Contacts
         /// Add new contact.
         /// </summary>
-        public Contact Create(ContactCreate model)
+        public async Task<Contact> CreateAsync(ContactCreate model)
         {
-            return Post<Contact, ContactCreate>(ResourceUrl, model);
+            return await PostAsync<Contact, ContactCreate>(ResourceUrl, model);
         }
 
         /// <summary>
         /// PUT api/Contacts/{id}
         /// Update contact. 
         /// </summary>
-        public Contact Update(int contactId, ContactUpdate model)
+        public async Task<Contact> UpdateAsync(int contactId, ContactUpdate model)
         {
-            return Put<Contact, ContactUpdate>(ResourceUrl + "/" + contactId, model);
+            return await PutAsync<Contact, ContactUpdate>(ResourceUrl + "/" + contactId, model);
         }
     }
 }

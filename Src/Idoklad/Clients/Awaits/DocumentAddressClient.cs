@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using IdokladSdk.ApiModels;
 
 namespace IdokladSdk.Clients
@@ -7,28 +8,22 @@ namespace IdokladSdk.Clients
     /// </summary>
     public partial class DocumentAddressClient : BaseClient
     {
-        public const string ResourceUrl = "/DocumentAddresses";
-
-        public DocumentAddressClient(ApiContext apiContext) : base(apiContext)
-        {
-        }
-
         /// <summary>
         /// GET api/DocumentAddresses/{id} 
         /// Returns document contact information. Every invoice has two of this entities - one for supplier and one purchaser. This contact informations are created from Contacts, but can also contain different informations.
         /// </summary>
-        public DocumentAddress DocumentAddress(int documentAddressId)
+        public async Task<DocumentAddress> DocumentAddressAsync(int documentAddressId)
         {
-            return Get<DocumentAddress>(ResourceUrl + "/" + documentAddressId);
+            return await GetAsync<DocumentAddress>(ResourceUrl + "/" + documentAddressId);
         }
 
         /// <summary>
         /// PUT api/DocumentAddresses/{id}
         /// Method updates contact information on the invoice by DocumentAddressId.
         /// </summary>
-        public DocumentAddress Update(int documentAddressId, DocumentAddress model)
+        public async Task<DocumentAddress> UpdateAsync(int documentAddressId, DocumentAddress model)
         {
-            return Put<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + documentAddressId, model);
+            return await PutAsync<DocumentAddress, DocumentAddress>(ResourceUrl + "/" + documentAddressId, model);
         }
     }
 }

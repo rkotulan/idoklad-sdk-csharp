@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.ApiModels.BaseModels;
@@ -11,19 +12,13 @@ namespace IdokladSdk.Clients
     /// </summary>
     public partial class CreditNoteClient : BaseClient
     {
-        public const string ResourceUrl = "/CreditNotes";
-
-        public CreditNoteClient(ApiContext apiContext) : base(apiContext)
-        {
-        }
-
         /// <summary>
         /// PUT api/CreditNotes/{id}/FullyPay?dateOfPayment={dateOfPayment}
         /// Method sets credit note as paid.
         /// </summary>
-        public bool FullyPay(int creditNoteId, DateTime paid)
+        public async Task<bool> FullyPayAsync(int creditNoteId, DateTime paid)
         {
-            return Put<bool>(ResourceUrl + "/" + creditNoteId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(ApiContextConfiguration.DateFormat));
+            return await PutAsync<bool>(ResourceUrl + "/" + creditNoteId + "/FullyPay" + "?dateOfPayment=" + paid.ToString(ApiContextConfiguration.DateFormat));
         }
 
         /// <summary>
@@ -31,54 +26,54 @@ namespace IdokladSdk.Clients
         /// Method sets credit note as unpaid.
         /// </summary>
         /// <returns></returns>
-        public bool FullyUnpay(int creditNoteId)
+        public async Task<bool> FullyUnpayAsync(int creditNoteId)
         {
-            return Put<bool>(ResourceUrl + "/" + creditNoteId + "/FullyUnpay");
+            return await PutAsync<bool>(ResourceUrl + "/" + creditNoteId + "/FullyUnpay");
         }
 
         /// <summary>
         /// GET api/CreditNotes/Expand
         /// Returns credit note list with related entities such as contact information etc.
         /// </summary>
-        public RowsResultWrapper<CreditNoteExpand> CreditNotesExpand(ApiFilter filter = null)
+        public async Task<RowsResultWrapper<CreditNoteExpand>> CreditNotesExpandAsync(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<CreditNoteExpand>>(ResourceUrl + "/Expand", filter);
+            return await GetAsync<RowsResultWrapper<CreditNoteExpand>>(ResourceUrl + "/Expand", filter);
         }
 
         /// <summary>
         /// GET api/CreditNotes/{id}/Expand
         /// Returns Credit note with related entities by Id.
         /// </summary>
-        public CreditNoteExpand CreditNoteExpand(int creditNoteId)
+        public async Task<CreditNoteExpand> CreditNoteExpandAsync(int creditNoteId)
         {
-            return Get<CreditNoteExpand>(ResourceUrl + "/" + creditNoteId +  "/Expand");
+            return await GetAsync<CreditNoteExpand>(ResourceUrl + "/" + creditNoteId +  "/Expand");
         }
 
         /// <summary>
         /// PUT api/CreditNotes/{id}/Exported/{value}
         /// Method updates Exported property of the invoice.
         /// </summary>
-        public bool UpdateExported(int creditNoteId, ExportedStateEnum state)
+        public async Task<bool> UpdateExportedAsync(int creditNoteId, ExportedStateEnum state)
         {
-            return Put<bool>(ResourceUrl + "/" + creditNoteId + "/Exported" + "/" + (int)state);
+            return await PutAsync<bool>(ResourceUrl + "/" + creditNoteId + "/Exported" + "/" + (int)state);
         }
 
         /// <summary>
         /// GET api/CreditNotes
         /// Returns list of credit notes. Filters are optional.
         /// </summary>
-        public RowsResultWrapper<CreditNote> CreditNotes(ApiFilter filter = null)
+        public async Task<RowsResultWrapper<CreditNote>> CreditNotesAsync(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<CreditNote>>(ResourceUrl, filter);
+            return await GetAsync<RowsResultWrapper<CreditNote>>(ResourceUrl, filter);
         }
 
         /// <summary>
         /// GET api/CreditNotes/{id}
         /// Returns information about credit note including summaries.
         /// </summary>
-        public CreditNote CreditNote(int creditNoteId)
+        public async Task<CreditNote> CreditNoteAsync(int creditNoteId)
         {
-            return Get<CreditNote>(ResourceUrl + "/" + creditNoteId);
+            return await GetAsync<CreditNote>(ResourceUrl + "/" + creditNoteId);
         }
     }
 }

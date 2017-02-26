@@ -3,7 +3,7 @@ using IdokladSdk.ApiModels;
 
 namespace IdokladSdk.Clients
 {
-    public class BatchClient : BaseClient
+    public partial class BatchClient : BaseClient
     {
         public const string ResourceUrl = "/Batch";
 

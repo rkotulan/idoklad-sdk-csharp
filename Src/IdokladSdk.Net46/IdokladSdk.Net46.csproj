@@ -458,6 +458,84 @@
     <Compile Include="..\Idoklad\Clients\Auth\IAuth.cs">
       <Link>Clients\Auth\IAuth.cs</Link>
     </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\AgendaClient.cs">
+      <Link>Clients\Awaits\AgendaClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\BankClient.cs">
+      <Link>Clients\Awaits\BankClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\BatchClient.cs">
+      <Link>Clients\Awaits\BatchClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\CashRegisterClient.cs">
+      <Link>Clients\Awaits\CashRegisterClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\CashVoucherClient.cs">
+      <Link>Clients\Awaits\CashVoucherClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\ConstantSymbolClient.cs">
+      <Link>Clients\Awaits\ConstantSymbolClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\ContactClient.cs">
+      <Link>Clients\Awaits\ContactClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\CountryClient.cs">
+      <Link>Clients\Awaits\CountryClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\CreditNoteClient.cs">
+      <Link>Clients\Awaits\CreditNoteClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\CurrencyClient.cs">
+      <Link>Clients\Awaits\CurrencyClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\DocumentAddressClient.cs">
+      <Link>Clients\Awaits\DocumentAddressClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\ExchangeRateClient.cs">
+      <Link>Clients\Awaits\ExchangeRateClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\IssuedDocumentPaymentClient.cs">
+      <Link>Clients\Awaits\IssuedDocumentPaymentClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\IssuedInvoiceClient.cs">
+      <Link>Clients\Awaits\IssuedInvoiceClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\NumericSequenceClient.cs">
+      <Link>Clients\Awaits\NumericSequenceClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\PaymentOptionClient.cs">
+      <Link>Clients\Awaits\PaymentOptionClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\PriceListClient.cs">
+      <Link>Clients\Awaits\PriceListClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\ProformaInvoiceClient.cs">
+      <Link>Clients\Awaits\ProformaInvoiceClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\ReceivedDocumentPaymentClient.cs">
+      <Link>Clients\Awaits\ReceivedDocumentPaymentClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\ReceivedInvoiceClient.cs">
+      <Link>Clients\Awaits\ReceivedInvoiceClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\RegisteredSaleClient.cs">
+      <Link>Clients\Awaits\RegisteredSaleClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\SalesOfficeClient.cs">
+      <Link>Clients\Awaits\SalesOfficeClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\SalesPosEquipmentClient.cs">
+      <Link>Clients\Awaits\SalesPosEquipmentClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\SalesReceiptClient.cs">
+      <Link>Clients\Awaits\SalesReceiptClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\SystemClient.cs">
+      <Link>Clients\Awaits\SystemClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Idoklad\Clients\Awaits\VatRateClient.cs">
+      <Link>Clients\Awaits\VatRateClient.cs</Link>
+    </Compile>
     <Compile Include="..\Idoklad\Clients\BankClient.cs">
       <Link>Clients\BankClient.cs</Link>
     </Compile>

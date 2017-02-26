@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.ApiModels.BaseModels;
@@ -7,82 +8,76 @@ namespace IdokladSdk.Clients
 {
     public partial class ReceivedDocumentPaymentClient : BaseClient
     {
-        public const string ResourceUrl = "/ReceivedDocumentPayments";
-
-        public ReceivedDocumentPaymentClient(ApiContext apiContext) : base(apiContext)
-        {
-        }
-
         /// <summary>
         /// GET api/ReceivedDocumentPayments
         /// Method returns list of received document payments.
         /// </summary>
-        public RowsResultWrapper<ReceivedDocumentPayment> ReceivedDocumentPayments(ApiFilter filter = null)
+        public async Task<RowsResultWrapper<ReceivedDocumentPayment>> ReceivedDocumentPaymentsAsync(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<ReceivedDocumentPayment>>(ResourceUrl, filter);
+            return await GetAsync<RowsResultWrapper<ReceivedDocumentPayment>>(ResourceUrl, filter);
         }
 
         /// <summary>
         /// GET api/ReceivedDocumentPayments/{id}
         /// Method returns received document payment by Id.
         /// </summary>
-        public ReceivedDocumentPayment ReceivedDocumentPayment(int receivedDocumentPaymentId)
+        public async Task<ReceivedDocumentPayment> ReceivedDocumentPaymentAsync(int receivedDocumentPaymentId)
         {
-            return Get<ReceivedDocumentPayment>(ResourceUrl + "/" + receivedDocumentPaymentId);
+            return await GetAsync<ReceivedDocumentPayment>(ResourceUrl + "/" + receivedDocumentPaymentId);
         }
 
         /// <summary>
         /// GET api/ReceivedDocumentPayments/Expand
         /// List of received document payment with related entities.
         /// </summary>
-        public RowsResultWrapper<ReceivedDocumentPaymentExpand> ReceivedDocumentPaymentsExpand(ApiFilter filter = null)
+        public async Task<RowsResultWrapper<ReceivedDocumentPaymentExpand>> ReceivedDocumentPaymentsExpandAsync(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<ReceivedDocumentPaymentExpand>>(ResourceUrl + "/Expand", filter);
+            return await GetAsync<RowsResultWrapper<ReceivedDocumentPaymentExpand>>(ResourceUrl + "/Expand", filter);
         }
 
         /// <summary>
         /// GET api/ReceivedDocumentPayments/{id}/Expand
         /// Returns received document payment with related entities by Id.
         /// </summary>
-        public ReceivedDocumentPaymentExpand ReceivedDocumentPaymentExpand(int receivedDocumentPaymentId)
+        public async Task<ReceivedDocumentPaymentExpand> ReceivedDocumentPaymentExpandAsync(int receivedDocumentPaymentId)
         {
-            return Get<ReceivedDocumentPaymentExpand>(ResourceUrl + "/" + receivedDocumentPaymentId + "/Expand");
+            return await GetAsync<ReceivedDocumentPaymentExpand>(ResourceUrl + "/" + receivedDocumentPaymentId + "/Expand");
         }
 
         /// <summary>
         /// GET api/ReceivedDocumentPayments/Default/{documentId}
         /// Method returns default payment for given document. Returned model is suitable for new payment creation.
         /// </summary>
-        public ReceivedDocumentPaymentCreate Default(int documentId)
+        public async Task<ReceivedDocumentPaymentCreate> DefaultAsync(int documentId)
         {
-            return Get<ReceivedDocumentPaymentCreate>(ResourceUrl + "/Default" + "/" + documentId);
+            return await GetAsync<ReceivedDocumentPaymentCreate>(ResourceUrl + "/Default" + "/" + documentId);
         }
 
         /// <summary>
         /// DELETE api/ReceivedDocumentPayments/{id}
         /// Deletes payment by Id. If payment has cash voucher, it is deleted as well.
         /// </summary>
-        public bool Delete(int paymentId)
+        public async Task<bool> DeleteAsync(int paymentId)
         {
-            return Delete(ResourceUrl + "/" + paymentId);
+            return await DeleteAsync(ResourceUrl + "/" + paymentId);
         }
 
         /// <summary>
         /// POST api/ReceivedDocumentPayments
         /// Create new payment. Payment should contains id of payed document.
         /// </summary>
-        public ReceivedDocumentPayment Create(ReceivedDocumentPaymentCreate receivedDocumentPayment)
+        public async Task<ReceivedDocumentPayment> CreateAsync(ReceivedDocumentPaymentCreate receivedDocumentPayment)
         {
-            return Post<ReceivedDocumentPayment, ReceivedDocumentPaymentCreate>(ResourceUrl, receivedDocumentPayment);
+            return await PostAsync<ReceivedDocumentPayment, ReceivedDocumentPaymentCreate>(ResourceUrl, receivedDocumentPayment);
         }
 
         /// <summary>
         /// PUT api/ReceivedDocumentPayments/{id}/Exported/{exported}
         /// Method updates Exported property of the payment.
         /// </summary>
-        public bool Update(int paymentId, ExportedStateEnum exportedState)
+        public async Task<bool> UpdateAsync(int paymentId, ExportedStateEnum exportedState)
         {
-            return Put<bool>(ResourceUrl + "/" + paymentId  + "/" + "Exported" + "/" + (int)exportedState);
+            return await PutAsync<bool>(ResourceUrl + "/" + paymentId  + "/" + "Exported" + "/" + (int)exportedState);
         }
     }
 }

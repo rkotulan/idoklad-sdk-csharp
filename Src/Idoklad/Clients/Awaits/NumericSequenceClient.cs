@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.ApiModels.BaseModels;
@@ -6,28 +7,22 @@ namespace IdokladSdk.Clients
 {
     public partial class NumericSequenceClient : BaseClient
     {
-        public const string ResourceUrl = "/NumericSequences";
-
-        public NumericSequenceClient(ApiContext apiContext) : base(apiContext)
-        {
-        }
-
         /// <summary>
         /// GET api/NumericSequences
         /// Method returns list of numeric sequences.
         /// </summary>
-        public RowsResultWrapper<NumericSequence> NumericSequences(PageFilter paging = null)
+        public async Task<RowsResultWrapper<NumericSequence>> NumericSequencesAsync(PageFilter paging = null)
         {
-            return Get<RowsResultWrapper<NumericSequence>>(ResourceUrl, paging);
+            return await GetAsync<RowsResultWrapper<NumericSequence>>(ResourceUrl, paging);
         }
 
         /// <summary>
         /// GET api/NumericSequences/{id}
         /// Method returns numeric sequence by Id.
         /// </summary>
-        public NumericSequence NumericSequence(int numericSequenceId)
+        public async Task<NumericSequence> NumericSequenceAsync(int numericSequenceId)
         {
-            return Get<NumericSequence>(ResourceUrl + "/" + numericSequenceId);
+            return await GetAsync<NumericSequence>(ResourceUrl + "/" + numericSequenceId);
         }
     }
 }

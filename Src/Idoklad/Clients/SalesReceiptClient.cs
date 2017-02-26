@@ -5,7 +5,7 @@ using IdokladSdk.Enums;
 
 namespace IdokladSdk.Clients
 {
-    public class SalesReceiptClient : BaseClient
+    public partial class SalesReceiptClient : BaseClient
     {
         public const string ResourceUrl = "/SalesReceipts";
 

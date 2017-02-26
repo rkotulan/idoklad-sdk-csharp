@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels.BaseModels;
 using IdokladSdk.ApiModels.ReadOnlyEntites;
@@ -10,37 +11,31 @@ namespace IdokladSdk.Clients
     /// </summary>
     public partial class ConstantSymbolClient : BaseClient
     {
-        public const string ResourceUrl = "/ConstantSymbols";
-
-        public ConstantSymbolClient(ApiContext apiContext) : base(apiContext)
-        {
-        }
-
         /// <summary>
         /// GET api/ConstantSymbols/GetChanges
         /// Method returns list of constant symbols, that were changed.
         /// </summary>
-        public RowsResultWrapper<ConstantSymbol> Changes(DateTime lastCheck, ApiFilter filter = null)
+        public async Task<RowsResultWrapper<ConstantSymbol>> ChangesAsync(DateTime lastCheck, ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl + "/GetChanges"  + "?lastCheck=" + lastCheck.ToString(ApiContextConfiguration.DateFormat), filter);
+            return await GetAsync<RowsResultWrapper<ConstantSymbol>>(ResourceUrl + "/GetChanges"  + "?lastCheck=" + lastCheck.ToString(ApiContextConfiguration.DateFormat), filter);
         }
 
         /// <summary>
         /// GET api/ConstantSymbols
         /// Method returns list of constant symbols.
         /// </summary>
-        public RowsResultWrapper<ConstantSymbol> ConstantSymbols(ApiFilter filter = null)
+        public async Task<RowsResultWrapper<ConstantSymbol>> ConstantSymbolsAsync(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<ConstantSymbol>>(ResourceUrl, filter);
+            return await GetAsync<RowsResultWrapper<ConstantSymbol>>(ResourceUrl, filter);
         }
 
         /// <summary>
         /// GET api/ConstantSymbols/{id}
         /// Method returns constant symbol by Id.
         /// </summary>
-        public ConstantSymbol ConstantSymbol(int constantSymbolId)
+        public async Task<ConstantSymbol> ConstantSymbolAsync(int constantSymbolId)
         {
-            return Get<ConstantSymbol>(ResourceUrl + "/" + constantSymbolId);
+            return await GetAsync<ConstantSymbol>(ResourceUrl + "/" + constantSymbolId);
         }
     }
 }

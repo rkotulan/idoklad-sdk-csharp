@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.ApiModels.BaseModels;
@@ -6,64 +7,58 @@ namespace IdokladSdk.Clients
 {
     public partial class ProformaInvoiceClient : BaseClient
     {
-        public const string ResourceUrl = "/ProformaInvoices";
-
-        public ProformaInvoiceClient(ApiContext apiContext) : base(apiContext)
-        {
-        }
-
         /// <summary>
         /// DELETE api/ProformaInvoices/{id}
         /// Deletes proforma invoice by Id.
         /// </summary>
-        public bool Delete(int proformaInvoiceId)
+        public async Task<bool> DeleteAsync(int proformaInvoiceId)
         {
-            return Delete(ResourceUrl + "/" + proformaInvoiceId);
+            return await DeleteAsync(ResourceUrl + "/" + proformaInvoiceId);
         }
 
         /// <summary>
         /// DELETE api/ProformaInvoices/DeleteAttachment/{invoiceId}
         /// Deletes a proforma invoice attachment.
         /// </summary>
-        public bool DeleteAttachment(int invoiceId)
+        public async Task<bool> DeleteAttachmentAsync(int invoiceId)
         {
-            return Delete(ResourceUrl + "/" + "DeleteAttachment" + "/" + invoiceId);
+            return await DeleteAsync(ResourceUrl + "/" + "DeleteAttachment" + "/" + invoiceId);
         }
 
         /// <summary>
         /// GET api/ProformaInvoices
         /// Method returns list of proforma invoices.
         /// </summary>
-        public RowsResultWrapper<ProformaInvoice> ProformaInvoices(ApiFilter filter = null)
+        public async Task<RowsResultWrapper<ProformaInvoice>> ProformaInvoicesAsync(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<ProformaInvoice>>(ResourceUrl, filter);
+            return await GetAsync<RowsResultWrapper<ProformaInvoice>>(ResourceUrl, filter);
         }
 
         /// <summary>
         /// GET api/ProformaInvoices/{id}
         /// Method returns proforma invoice by Id.
         /// </summary>
-        public ProformaInvoice ProformaInvoice(int proformaInvoiceId)
+        public async Task<ProformaInvoice> ProformaInvoiceAsync(int proformaInvoiceId)
         {
-            return Get<ProformaInvoice>(ResourceUrl + "/" + proformaInvoiceId);
+            return await GetAsync<ProformaInvoice>(ResourceUrl + "/" + proformaInvoiceId);
         }
 
         /// <summary>
         /// POST api/ProformaInvoices/Recount
         /// Method recounts summaries of the invoice model for creation.
         /// </summary>
-        public ProformaInvoice Recount(ProformaInvoiceCreate proformaInvoice)
+        public async Task<ProformaInvoice> RecountAsync(ProformaInvoiceCreate proformaInvoice)
         {
-            return Post<ProformaInvoice, ProformaInvoiceCreate>(ResourceUrl + "/Recount", proformaInvoice);
+            return await PostAsync<ProformaInvoice, ProformaInvoiceCreate>(ResourceUrl + "/Recount", proformaInvoice);
         }
 
         /// <summary>
         /// POST api/ProformaInvoices/{id}/Recount
         /// Method recounts summaries of the invoice model for update.
         /// </summary>
-        public ProformaInvoice Recount(int invoiceId, ProformaInvoiceUpdate proformaInvoice)
+        public async Task<ProformaInvoice> RecountAsync(int invoiceId, ProformaInvoiceUpdate proformaInvoice)
         {
-            return Post<ProformaInvoice, ProformaInvoiceUpdate>(ResourceUrl + "/" + invoiceId + "/Recount", proformaInvoice);
+            return await PostAsync<ProformaInvoice, ProformaInvoiceUpdate>(ResourceUrl + "/" + invoiceId + "/Recount", proformaInvoice);
         }
     }
 }

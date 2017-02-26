@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using IdokladSdk.ApiFilters;
 using IdokladSdk.ApiModels;
 using IdokladSdk.ApiModels.BaseModels;
@@ -6,37 +7,31 @@ namespace IdokladSdk.Clients
 {
     public partial class SalesPosEquipmentClient : BaseClient
     {
-        public const string ResourceUrl = "/SalesPosEquipment";
-
-        public SalesPosEquipmentClient(ApiContext apiContext) : base(apiContext)
-        {
-        }
-
         /// <summary>
         /// GET api/SalesPosEquipment
         /// Method returns list of sales pos equipments.
         /// </summary>
-        public RowsResultWrapper<SalesPosEquipment> SalesPosEquipment(ApiFilter filter = null)
+        public async Task<RowsResultWrapper<SalesPosEquipment>> SalesPosEquipmentAsync(ApiFilter filter = null)
         {
-            return Get<RowsResultWrapper<SalesPosEquipment>>(ResourceUrl, filter);
+            return await GetAsync<RowsResultWrapper<SalesPosEquipment>>(ResourceUrl, filter);
         }
 
         /// <summary>
         /// GET api/SalesPosEquipment/Info
         /// Returns information about the paired device, including numeric sequence info.
         /// </summary>
-        public SalesPosEquipmentInfo Info()
+        public async Task<SalesPosEquipmentInfo> InfoAsync()
         {
-            return Get<SalesPosEquipmentInfo>(ResourceUrl + "/Info");
+            return await GetAsync<SalesPosEquipmentInfo>(ResourceUrl + "/Info");
         }
 
         /// <summary>
         /// GET api/SalesPosEquipment/Expand
         /// Returns POS equipments list with related entities.
         /// </summary>
-        public RowsResultWrapper<SalesPosEquipmentExpand> Expand()
+        public async Task<RowsResultWrapper<SalesPosEquipmentExpand>> ExpandAsync()
         {
-            return Get<RowsResultWrapper<SalesPosEquipmentExpand>>(ResourceUrl + "/Expand");
+            return await GetAsync<RowsResultWrapper<SalesPosEquipmentExpand>>(ResourceUrl + "/Expand");
         }
     }
 }
