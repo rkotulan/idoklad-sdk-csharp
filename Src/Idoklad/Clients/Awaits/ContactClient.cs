@@ -14,7 +14,7 @@ namespace IdokladSdk.Clients
         /// GET api/Contacts/Default
         /// Returns default contact. This resource is suitable for creation of new contact by the POST method.
         /// </summary>
-        public async Task<Contact> DefaulAsynct()
+        public async Task<Contact> DefaulAsync()
         {
             return await GetAsync<Contact>(ResourceUrl + "/Default");
         }
