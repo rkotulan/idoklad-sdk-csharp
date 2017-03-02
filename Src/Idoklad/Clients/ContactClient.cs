@@ -55,7 +55,7 @@ namespace IdokladSdk.Clients
         /// GET api/Contacts
         /// List of contacts.
         /// </summary>
-        public RowsResultWrapper<Contact> Contacts(PageFilter filter = null)
+        public RowsResultWrapper<Contact> Contacts(ApiFilter filter = null)
         {
             return Get<RowsResultWrapper<Contact>>(ResourceUrl, filter);
         }

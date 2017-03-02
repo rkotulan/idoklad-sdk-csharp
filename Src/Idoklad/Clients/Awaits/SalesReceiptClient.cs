@@ -21,7 +21,7 @@ namespace IdokladSdk.Clients
         /// GET api/SalesReceipts
         /// Method returns list of sales recipes.
         /// </summary>
-        public async Task<RowsResultWrapper<SalesReceipt>> SalesReceiptsAsync(PageFilter paging = null)
+        public async Task<RowsResultWrapper<SalesReceipt>> SalesReceiptsAsync(ApiFilter paging = null)
         {
             return await GetAsync<RowsResultWrapper<SalesReceipt>>(ResourceUrl, paging);
         }

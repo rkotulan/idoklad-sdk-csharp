@@ -11,7 +11,7 @@ namespace IdokladSdk.Clients
         /// GET api/SalesOffices
         /// Method returns list of sales offices.
         /// </summary>
-        public async Task<RowsResultWrapper<SalesOffice>> SalesOfficesAsync(PageFilter paging = null)
+        public async Task<RowsResultWrapper<SalesOffice>> SalesOfficesAsync(ApiFilter paging = null)
         {
             return await GetAsync<RowsResultWrapper<SalesOffice>>(ResourceUrl, paging);
         }

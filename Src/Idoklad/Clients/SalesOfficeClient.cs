@@ -16,7 +16,7 @@ namespace IdokladSdk.Clients
         /// GET api/SalesOffices
         /// Method returns list of sales offices.
         /// </summary>
-        public RowsResultWrapper<SalesOffice> SalesOffices(PageFilter paging = null)
+        public RowsResultWrapper<SalesOffice> SalesOffices(ApiFilter paging = null)
         {
             return Get<RowsResultWrapper<SalesOffice>>(ResourceUrl, paging);
         }

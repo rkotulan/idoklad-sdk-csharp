@@ -24,7 +24,7 @@ namespace IdokladSdk.Clients
         /// GET api/PaymentOptions
         /// Method returns list of payment options.
         /// </summary>
-        public async Task<RowsResultWrapper<PaymentOption>> PaymentOptionsAsync(PageFilter paging = null)
+        public async Task<RowsResultWrapper<PaymentOption>> PaymentOptionsAsync(ApiFilter paging = null)
         {
             return await GetAsync<RowsResultWrapper<PaymentOption>>(ResourceUrl, paging);
         }

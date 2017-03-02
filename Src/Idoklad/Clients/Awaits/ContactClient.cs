@@ -50,7 +50,7 @@ namespace IdokladSdk.Clients
         /// GET api/Contacts
         /// List of contacts.
         /// </summary>
-        public async Task<RowsResultWrapper<Contact>> ContactsAsync(PageFilter filter = null)
+        public async Task<RowsResultWrapper<Contact>> ContactsAsync(ApiFilter filter = null)
         {
             return await GetAsync<RowsResultWrapper<Contact>>(ResourceUrl, filter);
         }

@@ -61,7 +61,7 @@ namespace IdokladSdk.Clients
         /// GET api/Agendas
         /// List of agendas.
         /// </summary>
-        public async Task<RowsResultWrapper<Agenda>> AgendasAsync(PageFilter filter = null)
+        public async Task<RowsResultWrapper<Agenda>> AgendasAsync(ApiFilter filter = null)
         {
             return await GetAsync<RowsResultWrapper<Agenda>>(ResourceUrl, filter);
         }

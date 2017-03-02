@@ -26,7 +26,7 @@ namespace IdokladSdk.Clients
         /// GET api/SalesReceipts
         /// Method returns list of sales recipes.
         /// </summary>
-        public RowsResultWrapper<SalesReceipt> SalesReceipts(PageFilter paging = null)
+        public RowsResultWrapper<SalesReceipt> SalesReceipts(ApiFilter paging = null)
         {
             return Get<RowsResultWrapper<SalesReceipt>>(ResourceUrl, paging);
         }

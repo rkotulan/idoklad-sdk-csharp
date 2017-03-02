@@ -11,7 +11,7 @@ namespace IdokladSdk.Clients
         /// GET api/NumericSequences
         /// Method returns list of numeric sequences.
         /// </summary>
-        public async Task<RowsResultWrapper<NumericSequence>> NumericSequencesAsync(PageFilter paging = null)
+        public async Task<RowsResultWrapper<NumericSequence>> NumericSequencesAsync(ApiFilter paging = null)
         {
             return await GetAsync<RowsResultWrapper<NumericSequence>>(ResourceUrl, paging);
         }
