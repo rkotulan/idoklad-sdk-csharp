@@ -224,5 +224,14 @@ namespace IdokladSdk.Clients
         {
             return Put<IssuedInvoice, IssuedInvoiceUpdate>(ResourceUrl + "/" + invoiceId, invoice);
         }
+
+        /// <summary>
+        /// PUT api/IssuedInvoices/SetAttachment/{invoicdId}
+        /// Sets an attachment to the given issued invoice. If an attachment already exists, it will be overwritten.
+        /// </summary>
+        public bool SetAttachment(int invoiceId)
+        {
+            return Put<bool>(ResourceUrl + "/" + "SetAttachment" + "/" + invoiceId);
+        }
     }
 }

@@ -60,5 +60,14 @@ namespace IdokladSdk.Clients
         {
             return await PostAsync<ProformaInvoice, ProformaInvoiceUpdate>(ResourceUrl + "/" + invoiceId + "/Recount", proformaInvoice);
         }
+
+        /// <summary>
+        /// PUT api/ProformaInvoices/SetAttachment/{invoicdId}
+        /// Sets an attachment to the given proforma invoice. If an attachment already exists, it will be overwritten.
+        /// </summary>
+        public async Task<bool> SetAttachmentAsync(int invoiceId)
+        {
+            return await PutAsync<bool>(ResourceUrl + "/" + "SetAttachment" + "/" + invoiceId);
+        }
     }
 }

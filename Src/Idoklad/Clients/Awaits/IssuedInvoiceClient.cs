@@ -218,5 +218,14 @@ namespace IdokladSdk.Clients
         {
             return await PutAsync<IssuedInvoice, IssuedInvoiceUpdate>(ResourceUrl + "/" + invoiceId, invoice);
         }
+
+        /// <summary>
+        /// PUT api/IssuedInvoices/SetAttachment/{invoicdId}
+        /// Sets an attachment to the given issued invoice. If an attachment already exists, it will be overwritten.
+        /// </summary>
+        public async Task<bool> SetAttachmentAsync(int invoiceId)
+        {
+            return await PutAsync<bool>(ResourceUrl + "/" + "SetAttachment" + "/" + invoiceId);
+        }
     }
 }
