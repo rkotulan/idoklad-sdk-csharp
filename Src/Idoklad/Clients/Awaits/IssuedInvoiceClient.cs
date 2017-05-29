@@ -169,7 +169,7 @@ namespace IdokladSdk.Clients
         /// PUT api/IssuedInvoices/{id}/Exported/{value}
         /// Method updates Exported property of the invoice.
         /// </summary>
-        public async Task<bool> SendMailToPurchaserAsync(int invoiceId, ExportedStateEnum state)
+        public async Task<bool> ExportedAsync(int invoiceId, ExportedStateEnum state)
         {
             return await PutAsync<bool>(ResourceUrl + "/" + invoiceId + "/Exported" + "/" + (int)state);
         }

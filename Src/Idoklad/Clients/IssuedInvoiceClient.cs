@@ -175,16 +175,16 @@ namespace IdokladSdk.Clients
         /// PUT api/IssuedInvoices/{id}/Exported/{value}
         /// Method updates Exported property of the invoice.
         /// </summary>
-        public bool SendMailToPurchaser(int invoiceId, ExportedStateEnum state)
+        public bool Exported(int invoiceId, ExportedStateEnum state)
         {
             return Put<bool>(ResourceUrl + "/" + invoiceId + "/Exported" + "/" + (int)state);
         }
 
-        /// <summary>
-        /// DELETE api/IssuedInvoices/{id}
-        /// Deletes issued invoice by Id.
-        /// </summary>
-        public bool Delete(int invoiceId)
+		/// <summary>
+		/// DELETE api/IssuedInvoices/{id}
+		/// Deletes issued invoice by Id.
+		/// </summary>
+		public bool Delete(int invoiceId)
         {
             return Delete(ResourceUrl + "/" + invoiceId);
         }

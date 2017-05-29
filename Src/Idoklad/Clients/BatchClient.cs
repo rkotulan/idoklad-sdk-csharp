@@ -15,7 +15,7 @@ namespace IdokladSdk.Clients
         /// PUT api/Batch/Exported
         /// Updates an entity's Exported property. Used in communication with external accounting software.
         /// </summary>
-        public BatchResultWrapper<UpdateExported> UpdatePurchaserDocumentAddress(List<UpdateExported> items)
+        public BatchResultWrapper<UpdateExported> UpdateExported(List<UpdateExported> items)
         {
             return Put<BatchResultWrapper<UpdateExported>, object>(ResourceUrl + "/" + "Exported", new { Items = items });
         }
